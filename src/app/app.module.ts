@@ -8,6 +8,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { PaymentComponent } from './payment/payment.component';
 import { SearchModuleComponent } from './search-module/search-module.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
+import { DatePipe}  from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,8 @@ import { AddFlightComponent } from './add-flight/add-flight.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
-  ],
-  providers: [],
+ ],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

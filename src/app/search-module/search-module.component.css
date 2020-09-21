@@ -1,0 +1,101 @@
+.main
+{
+width:500px;
+margin-left:auto;
+margin-right:auto;
+margin-bottom:20px;
+font-size:18x;
+line-height: 19px;
+font-family: Arial,sans-serif;
+background-color:rgb(36, 41, 46,0.3);
+padding:20px 30px;
+}
+
+.trip
+{
+    background-color: skyblue;
+    border-radius: 20px;
+    width:100px;
+    height:30px;
+    color: white;
+    border:none;
+    margin-right: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+input[type="button"],input[type="submit"]
+{
+    outline: none !important;
+}
+input[type="submit"]:hover
+{
+    color:black;
+    border:1px solid black ;
+    box-shadow: 0px 0px 5px black;
+}
+select
+{
+    width: 205px;
+    height:30px;
+    margin-bottom: 20px;
+
+}
+input[type="date"]
+{
+    margin-right: 50px;
+    width: 200px;
+    height:30px;
+    margin-bottom: 20px;
+}
+label
+{
+    margin-bottom: 8px;  
+}
+.passenger
+{
+    display:flex;
+}
+.passenger div{
+    margin-right: 50px;
+    font-size: 17px;
+}
+.activeclass
+{
+    color:black;
+    border:1px solid black ;
+    box-shadow: 0px 0px 5px black;
+}
+.One
+{
+    display: flex;
+}
+.One1,.One2
+{
+    display:flex;
+    flex-direction: column;   
+}
+.Two
+{
+    border: none;
+    border-bottom: 1px solid slategrey;
+    background-color:white;
+    width:350px;
+    height:30px;
+    margin-left: 20px;
+    font-size: 17px;
+}
+span
+{
+    cursor: pointer;
+    padding:10px 12px;
+}
+.search
+{
+    margin-top: 20px;
+    width:300px;
+    background-color: skyblue;
+    color:white;
+    border:none;
+    height:30px;
+    border-radius: 20px;
+}

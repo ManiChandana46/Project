@@ -1,1 +1,60 @@
-<p>search-module works!</p>
+<div class="main">
+    <form (ngSubmit)="submit()">
+        <h2>Book Flights Here</h2>
+        <div>
+            <input type="button" value="ONE WAY" (click)="oneway()" class="{{active}} trip">
+            <input type="button" value="ROUND TRIP" (click)="return()" class="{{returnactive}} trip">
+        </div>
+
+        <div class="One">
+            <div class="One1">
+                <label>From</label>
+                <select name="from_state" id="" required [(ngModel)]="sd.cityFrom" (change)="Fromcity($event)">
+                    <option *ngFor="let c of Fromcities" value="{{c}}">{{c}}</option>
+                </select>
+            </div>
+            <span (click)="swap()"><i class="fas fa-sync-alt" style="font-size:27px;"></i></span>
+            <div class="One2">
+                <label>To</label>
+                <select name="To_state" id="" required [(ngModel)]="sd.cityTo">
+                    <option *ngFor="let c of Tocities" value="{{c}}">{{c}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="One">
+            <div class="One1">
+                <label>Departure Date</label>
+                <input type="date" name="dept_date" min="{{todaydate}}" [(ngModel)]="sd.travelDate">
+            </div>
+            <div class="One2">
+                <label>Return Date</label>
+                <input type="date" name="arrival_date" min="{{todaydate}}" [disabled]="returnDisable"
+                    [(ngModel)]="sd.returnTravelDate">
+            </div>
+        </div>
+        <label>Travellers</label>
+        <input type="button" value="Add Travellers" *ngIf="!view" (click)="show()" class="Two">
+        <input type="button" value="{{ sd.noOfPassengers }} Travellers" *ngIf="view" (click)="show()" class="Two">
+        <div *ngIf="view" class="passenger">
+            <div>
+                <p>Adults</p>
+                <input type="button" value="-" class="minusplus" (click)="minus()" [disabled]="adultMinusDisable">
+                <span class="Numbers">{{ adultNumber }}</span>
+                <input type="button" value="+" class="minusplus" (click)="plus()">
+            </div>
+            <div>
+                <p>Children</p>
+                <input type="button" value="-" class="minusplus" (click)="minus1()" [disabled]="childMinusDisable">
+                <span class="Numbers">{{childNumber}}</span>
+                <input type="button" value="+" class="minusplus" (click)="plus1()">
+            </div>
+            <div>
+                <p>Infant</p>
+                <input type="button" value="-" class="minusplus" (click)="minus2()" [disabled]="infantMinusDisable">
+                <span class="Numbers">{{infantNumber}}</span>
+                <input type="button" value="+" class="minusplus" (click)="plus2()">
+            </div>
+        </div>
+        <input type="submit" value="SEARCH FLIGHTS" class="search">
+    </form>
+</div>
