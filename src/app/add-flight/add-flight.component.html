@@ -1,1 +1,61 @@
-<p>add-flight works!</p>
+<div>
+    <h3 class="heading"><b>Add Flight</b></h3>
+</div>
+<div class="maindiv">
+   <form [formGroup]="addFlightForm" method="post" action="">
+    <div class="form-group">
+        <label>Flight Number:</label>
+        <input type="text" class="form-control" placeholder="Enter the Flight Number" name="flightNumber" formControlName="flightNumber"/>
+    </div>
+    <div class="form-group">
+        <label>From:</label>
+        <select class="form-control" formControlName="from" name="from">
+            <option value="New Delhi">New Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Hyderabad">Hyderabad</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>To:</label>
+        <select formControlName="to" class="form-control" name="to">
+            <option value="New Delhi">New Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Hyderabad">Hyderabad</option>
+        </select>
+
+    </div>
+    <div class="form-group">
+       <label>Departure Time:</label>
+       <input type="time" class="form-control" formControlName="departureTime" name="departureTime"/>
+    </div>
+
+    <div class="form-group">
+        <label>Arrival Time:</label>
+        <input type="time" class="form-control" formControlName="arrivalTime" name="arrivalTime"/>
+     </div>
+
+     <div class="form-group">
+        <label>Week Day:</label>
+        <select formControlName="weekDay" class="form-control" name="weekDay">
+            <option value="1">Sunday</option>
+            <option value="2">Monday</option>
+            <option value="3">Tuesday</option>
+            <option value="4">Wednesday</option>
+            <option value="5">Thrusday</option>
+            <option value="6">Friday</option>
+            <option value="7">Saturday</option>
+        </select>
+     </div>
+     <div class="form-group">
+        <label>Cabin:</label>
+        <input class="form-control" type="text" formControlName="cabin" name="cabin" placeholder="Enter the number of seats available"/>
+     </div>
+     <div>
+        <button class="btn btn-primary" name="addFlight">Add Flight Details</button>
+    </div>
+   </form>
+</div>

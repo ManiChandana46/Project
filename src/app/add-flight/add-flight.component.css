@@ -1,0 +1,11 @@
+    .maindiv
+    {
+        position: absolute;
+        left:25%;
+        right:30%;
+        top:10%;
+    }
+    .heading
+    {
+        text-align:center;
+    }
