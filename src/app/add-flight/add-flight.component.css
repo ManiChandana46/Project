@@ -1,11 +1,12 @@
-    .maindiv
-    {
-        position: absolute;
-        left:25%;
-        right:30%;
-        top:10%;
-    }
-    .heading
-    {
-        text-align:center;
-    }
+.main
+{
+width:500px;
+margin-left:auto;
+margin-right:auto;
+margin-bottom:20px;
+font-size:18x;
+line-height: 19px;
+font-family: Arial,sans-serif;
+background-color:rgb(36, 41, 46,0.3);
+padding:20px 30px;
+}
