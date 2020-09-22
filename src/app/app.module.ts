@@ -9,6 +9,13 @@ import { PaymentComponent } from './payment/payment.component';
 import { SearchModuleComponent } from './search-module/search-module.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
 import { DatePipe}  from '@angular/common';
+import { SelectFlightComponent } from './select-flight/select-flight.component';
+import { ReviewBookingComponent } from './review-booking/review-booking.component';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
+import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
+import { SuccessPageComponent } from './success-page/success-page.component';
+import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +24,14 @@ import { DatePipe}  from '@angular/common';
     LoginPageComponent,
     PaymentComponent,
     SearchModuleComponent,
-    AddFlightComponent
+    AddFlightComponent,
+    SelectFlightComponent,
+    ReviewBookingComponent,
+    PersonalInfoComponent,
+    DeleteFlightComponent,
+    SuccessPageComponent,
+    BookingDetailsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
