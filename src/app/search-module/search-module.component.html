@@ -1,6 +1,6 @@
 <div class="main">
-    <form (ngSubmit)="submit()">
-        <h2>Book Flights Here</h2>
+    <form #myForm="ngForm" (ngSubmit)="myForm.valid && submit()">
+        <h4>Book Flights Here</h4>
         <div>
             <input type="button" value="ONE WAY" (click)="oneway()" class="{{active}} trip">
             <input type="button" value="ROUND TRIP" (click)="return()" class="{{returnactive}} trip">
@@ -9,27 +9,39 @@
         <div class="One">
             <div class="One1">
                 <label>From</label>
-                <select name="from_state" id="" required [(ngModel)]="sd.cityFrom" (change)="Fromcity($event)">
+                <select name="from_state" id="" [(ngModel)]="sd.cityFrom" (change)="Fromcity($event)" required #from_state="ngModel">
                     <option *ngFor="let c of Fromcities" value="{{c}}">{{c}}</option>
                 </select>
+                <div *ngIf="myForm.submitted && from_state.invalid">
+                    <div *ngIf="from_state.errors.required" class="text-danger">*required</div>
+                 </div> 
             </div>
             <span (click)="swap()"><i class="fas fa-sync-alt" style="font-size:27px;"></i></span>
             <div class="One2">
                 <label>To</label>
-                <select name="To_state" id="" required [(ngModel)]="sd.cityTo">
+                <select name="To_state" id="" required [(ngModel)]="sd.cityTo" #To_state="ngModel">
                     <option *ngFor="let c of Tocities" value="{{c}}">{{c}}</option>
                 </select>
+                <div *ngIf="myForm.submitted && To_state.invalid">
+                    <div *ngIf="To_state.errors.required" class="text-danger">*required</div>
+                 </div>
             </div>
         </div>
         <div class="One">
             <div class="One1">
                 <label>Departure Date</label>
-                <input type="date" name="dept_date" min="{{todaydate}}" [(ngModel)]="sd.travelDate">
+                <input type="date" name="dept_date" min="{{todaydate}}" [(ngModel)]="sd.travelDate" #dept_date="ngModel" required>
+                <div *ngIf="myForm.submitted && dept_date.invalid">
+                    <div *ngIf="dept_date.errors.required" class="text-danger">*required</div>
+                 </div>
             </div>
             <div class="One2">
                 <label>Return Date</label>
                 <input type="date" name="arrival_date" min="{{todaydate}}" [disabled]="returnDisable"
-                    [(ngModel)]="sd.returnTravelDate">
+                    [(ngModel)]="sd.returnTravelDate" #arrival_date="ngModel" required>
+                    <div *ngIf="myForm.submitted && arrival_date.invalid">
+                        <div *ngIf="arrival_date.errors.required" class="text-danger">*required</div>
+                    </div>
             </div>
         </div>
         <label>Travellers</label>

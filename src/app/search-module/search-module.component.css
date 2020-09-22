@@ -3,12 +3,14 @@
 width:500px;
 margin-left:auto;
 margin-right:auto;
-margin-bottom:20px;
-font-size:18x;
+margin-top:50px;
+font-size:16px;
 line-height: 19px;
 font-family: Arial,sans-serif;
-background-color:rgb(36, 41, 46,0.3);
+/* //rgb(36, 41, 46,0.5) */
+background-color: rgba(157, 184, 211, 0.3);
 padding:20px 30px;
+font-weight: 700;
 }
 
 .trip
@@ -22,6 +24,8 @@ padding:20px 30px;
     margin-right: 20px;
     cursor: pointer;
     margin-bottom: 20px;
+    font-size:14px;
+
 }
 input[type="button"],input[type="submit"]
 {
@@ -37,15 +41,12 @@ select
 {
     width: 205px;
     height:30px;
-    margin-bottom: 20px;
-
 }
 input[type="date"]
 {
-    margin-right: 50px;
+    margin-right: 57px;
     width: 200px;
     height:30px;
-    margin-bottom: 20px;
 }
 label
 {
@@ -54,10 +55,12 @@ label
 .passenger
 {
     display:flex;
+    margin-top:10px;
 }
 .passenger div{
     margin-right: 50px;
     font-size: 17px;
+    margin-bottom: 20px;
 }
 .activeclass
 {
@@ -73,13 +76,14 @@ label
 {
     display:flex;
     flex-direction: column;   
+    margin-bottom: 20px; 
 }
 .Two
 {
     border: none;
     border-bottom: 1px solid slategrey;
     background-color:white;
-    width:350px;
+    width:330px;
     height:30px;
     margin-left: 20px;
     font-size: 17px;
@@ -99,4 +103,15 @@ span
     height:30px;
     border-radius: 20px;
     cursor: pointer;
+}
+.Numbers
+{
+    background-color: white;
+    padding:5px 6px !important;
+    border-radius: 5px;
+}
+.minusplus
+{
+    background-color: skyblue;
+    border:none;
 }

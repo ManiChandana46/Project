@@ -1,45 +1,58 @@
 <div class="main">
-    <h2>Add Flight</h2>
+    <h4>Add Flight</h4>
     <form [formGroup]="addFlightForm" method="post" action="">
-    <div class="form-group">
-        <label>Flight Number:</label>
-        <input type="text" class="form-control" placeholder="Enter the Flight Number" name="flightNumber" formControlName="flightNumber" [(ngModel)]="af.flightNumber"/>
-    </div>
-    <div class="form-group">
-        <label>From:</label>
-        <select class="form-control" formControlName="from" name="from" [(ngModel)]="af.cityFrom" (change)="Fromcity($event)">
-            <option *ngFor="let c of Fromcities" value="{{c}}">{{c}}</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>To:</label>
-        <select formControlName="to" class="form-control" name="to" [(ngModel)]="af.cityTo">
-            <option *ngFor="let c of Tocities" value="{{c}}">{{c}}</option>
-        </select>
 
-    </div>
-    <div class="form-group">
-       <label>Departure Time:</label>
-       <input type="time" class="form-control" formControlName="departureTime" name="departureTime" [(ngModel)]="af.departureTime"/>
-    </div>
+        <div class="form-group">
+            <label>Flight Number:</label>
+            <input type="text" class="form-control" placeholder="Enter the Flight Number" name="flightNumber"
+                formControlName="flightNumber" [(ngModel)]="af.flightNumber" />
+        </div>
+        <div class="One">
+            <div class="form-group Two">
+                <label>From:</label>
+                <select class="form-control" formControlName="from" name="from" [(ngModel)]="af.cityFrom"
+                    (change)="Fromcity($event)">
+                    <option *ngFor="let c of Fromcities" value="{{c}}">{{c}}</option>
+                </select>
 
-    <div class="form-group">
-        <label>Arrival Time:</label>
-        <input type="time" class="form-control" formControlName="arrivalTime" name="arrivalTime" [(ngModel)]="af.arrivalTime"/>
-     </div>
+            </div>
+            <div class="form-group Two">
+                <label>To:</label>
+                <select formControlName="to" class="form-control" name="to" [(ngModel)]="af.cityTo">
+                    <option *ngFor="let c of Tocities" value="{{c}}">{{c}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="One">
+            <div class="form-group Two">
+                <label>Departure Time:</label>
+                <input type="time" class="form-control" formControlName="departureTime" name="departureTime"
+                    [(ngModel)]="af.departureTime" />
+            </div>
 
-     <div class="form-group">
-        <label>Week Day:</label>
-        <select formControlName="weekDay" class="form-control" name="weekDay" [(ngModel)]="af.weekDay">
-            <option *ngFor="let c of weekDay" value="{{c}}">{{c}}</option>
-        </select>
-     </div>
-     <div class="form-group">
-        <label>Cabin:</label>
-        <input class="form-control" type="text" formControlName="cabin" name="cabin" placeholder="Enter the number of seats available" [(ngModel)]="af.cabin"/>
-     </div>
-     <div>
-        <button class="btn btn-primary" name="addFlight" (click)="submit()">Add Flight Details</button>
-    </div>
-   </form>
+            <div class="form-group Two">
+                <label>Arrival Time:</label>
+                <input type="time" class="form-control" formControlName="arrivalTime" name="arrivalTime"
+                    [(ngModel)]="af.arrivalTime" />
+            </div>
+        </div>
+
+        <div class="One">
+
+            <div class="form-group Two">
+                <label>Week Day:</label>
+                <select formControlName="weekDay" class="form-control" name="weekDay" [(ngModel)]="af.weekDay">
+                    <option *ngFor="let c of weekDay" value="{{c}}">{{c}}</option>
+                </select>
+            </div>
+            <div class="form-group Two">
+                <label>Cabin:</label>
+                <input class="form-control cabin" type="text" formControlName="cabin" name="cabin"
+                    placeholder="Number Of Seats" [(ngModel)]="af.cabin" />
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary" name="addFlight" (click)="submit()">Add Flight Details</button>
+        </div>
+    </form>
 </div>

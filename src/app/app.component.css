@@ -1,0 +1,15 @@
+.navnav
+{
+    margin-bottom: 10px;
+}
+.nav-link
+{
+    color: black !important;
+    font-weight: 600;
+}
+a:hover
+{
+    background-color: skyblue;
+    border-radius: 20px;
+    color:white;
+}
