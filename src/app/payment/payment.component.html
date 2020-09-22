@@ -1,1 +1,68 @@
-<p>payment works!</p>
+<div class="row">
+    <div class="col-75">
+      <div class="container">
+        <form #paymentForm="ngForm">
+        
+          <div class="row form-group">
+  
+            <div class="col-50">
+              <h3 style="text-align: center;">Payment</h3>
+              <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy; padding-left: 60px ;"></i>
+                <i class="fa fa-cc-amex" style="color:blue; padding-left: 60px ;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red; padding-left: 60px ;"></i>
+                <i class="fa fa-cc-discover" style="color:orange; padding-left: 60px ;"></i>
+              </div>
+              
+              
+              <label for="cname">Name</label>
+              <input type="text" class="form-control" id="cname" ngModel name="cardname" placeholder="John More Doe" required #cardname="ngModel">
+  
+              
+              
+              <label for="ccnum">Credit card number</label>
+              <input type="text" id="ccnum" ngModel name="cardnumber" placeholder="1111-2222-3333-4444" class="form-control" minlength="16" maxlength="16" required #cardnumber="ngModel" >
+  
+              <div class="row">
+  
+                <div class="col-50">
+                  <label for="expmonth">Month</label>
+                  
+                  <select id="expmonth">
+                    <option value=''>--Select Month--</option>
+                    <option selected value='1'>Janaury</option>
+                    <option value='2'>February</option>
+                    <option value='3'>March</option>
+                    <option value='4'>April</option>
+                    <option value='5'>May</option>
+                    <option value='6'>June</option>
+                    <option value='7'>July</option>
+                    <option value='8'>August</option>
+                    <option value='9'>September</option>
+                    <option value='10'>October</option>
+                    <option value='11'>November</option>
+                    <option value='12'>December</option>
+                    </select> 
+  
+                </div>
+  
+  
+                <div class="col-50">
+                  <label for="expyear" id="year">Year</label>
+                  <input type="text" id="expyear" ngModel name="expyear" placeholder="2018"  minlength="4" maxlength="4"  class="form-control" required #expyear="ngModel"/>
+                </div>
+  
+                <div class="col-50">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" ngModel name="cvv" placeholder="352" minlength="3" maxlength="3" class="form-control" required #cvv="ngModel"/>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+           <input type="submit" [disabled]="!paymentForm.form.valid" value="Pay" class="btn">
+        </form>
+      </div>
+    </div>
+  </div>
+  

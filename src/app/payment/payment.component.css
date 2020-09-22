@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .row {
+    display: -ms-flexbox; 
+    display: flex;
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap;
+    margin: auto;
+    width: max-content;
+  }
+  
+  .col-25,
+  .col-50,
+  .col-75 {
+    padding: 0px ;
+  }
+  
+  .container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+  }
+  
+  .ng-valid[required], .ng-valid.required {
+      border-left: 5px solid #42A948
+  }
+
+  .ng-invalid:not(form) {
+      border-left: 5px solid #a94442;
+  }
+
+  input[type=text] {
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-left: 15%;
+  }
+
+  #expmonth {
+    width: 85%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-left: 15%;
+  }
+
+  #expyear {
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-left: 26%;
+  }
+
+  #year {
+    margin-left: 19%;
+  }
+
+  #cvv{
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-left: 20%;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    display: block;
+    margin-left: 14%;
+  }
+  
+  .icon-container {
+    display: block;
+    margin: 10px 15%;
+    padding: 10px 0;
+    font-size: 24px;
+  }
+  
+  .btn {
+    background-color: #0892d0;
+    color: white;
+    padding: 12px;
+    margin: 10px 35%;
+    border: none;
+    width: 30%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+  }
