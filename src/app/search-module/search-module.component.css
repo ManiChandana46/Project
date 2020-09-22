@@ -87,7 +87,7 @@ label
 span
 {
     cursor: pointer;
-    padding:10px 12px;
+    padding:12px 12px;
 }
 .search
 {
@@ -98,4 +98,5 @@ span
     border:none;
     height:30px;
     border-radius: 20px;
+    cursor: pointer;
 }
