@@ -11,12 +11,14 @@
                     <option value="Miss">Miss</option>
                     <option value="Ms">Ms</option>
                 </div>
+                <br>
+                <br>
 		
 			  <div>
 		
 				<!-- First Name -->
 				<label for="fName">First Name</label>
-				<input formControlName="fName" [(ngModel)]=search.firstName [class.is-invalid]="registerForm.controls.fName.invalid && FName.touched" class="form-control" placeholder="Enter First Name">
+				<input type="text" formControlName="fName" [(ngModel)]=search.firstName [class.is-invalid]="registerForm.controls.fName.invalid && FName.touched" class="form-control" placeholder="Enter First Name">
 		
 				<div *ngIf="FName.invalid && FName.touched">
 				  <small class="text-danger">First Name not valid.</small>
@@ -31,7 +33,18 @@
 				<div *ngIf="LName.invalid && LName.touched">
 				  <small class="text-danger">Last Name not valid.</small>
 				</div>
-					</div>
+                    </div>
+                    <br>
+                    <!-- Contact Number -->
+			  <div class="form-group">
+				<label>Contact Number</label>
+				<input type="number" formControlName="contactNumber" [(ngModel)]=search.phone class="form-control" [class.is-invalid]="ContactNumber.invalid && ContactNumber.touched" class="form-control" class="form-control" placeholder="Enter Contact Number">
+		
+				<div *ngIf="ContactNumber.invalid && ContactNumber.touched" >
+				  <small class="text-danger">Phone Number not valid.</small>
+				</div>  
+			  </div>
+		
 			  
 					<br>
 			  <!-- Email -->
@@ -60,20 +73,11 @@
 			  <div class="form-group">
 				<label>Confirm Password</label>
 				<input formControlName="confirmPassword"  type="password" [class.is-invalid]="registerForm.errors?.misMatch"  class="form-control" placeholder="Re-type Password">
-				<small class="text-danger" *ngIf="registerForm.errors?.misMatch">Password do not match</small>  
+				<small class="text-danger" *ngIf="registerForm.errors?.misMatch"><br>Password do not match</small>  
 			  </div>
 		
 			  		<br>
-			  <!-- Contact Number -->
-			  <div class="form-group">
-				<label>Contact Number</label>
-				<input type="tel" formControlName="contactNumber" [(ngModel)]=search.phone class="form-control" [class.is-invalid]="ContactNumber.invalid && ContactNumber.touched" class="form-control" class="form-control" placeholder="Enter Contact Number">
-		
-				<div *ngIf="ContactNumber.invalid && ContactNumber.touched" >
-				  <small class="text-danger">Phone Number not valid.</small>
-				</div>  
-			  </div>
-		
+			  
 			  		<br>	
 			  <!-- OnSubmit button -->
 			  <div class="form-group" style="text-align:center">
