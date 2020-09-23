@@ -17,6 +17,16 @@ import { SuccessPageComponent } from './success-page/success-page.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { MatCardModule } from '@angular/material/card'; 
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +47,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NoopAnimationsModule,
+    MatInputModule,
+    MatCardModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatIconModule
  ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
