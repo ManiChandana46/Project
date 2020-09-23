@@ -16,7 +16,7 @@ export class AddFlightComponent implements OnInit {
   af:addFlight=new addFlight();
   Fromcities=["Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
   Tocities=["Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
-  weekDay=["Sunday","Monday","Tueaday","Wednesday","Thrusday","Friday","Saturday"];
+  weekDay=["Sunday","Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"];
 
   ngOnInit(): void {
     this.buildAddFlightForm();
