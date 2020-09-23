@@ -67,7 +67,7 @@ input[type=text] {
   input[type=password]:hover {
     border-color: skyblue;
   }
- #ph:hover {
+ #title:hover {
     border-color: skyblue;
   }
   input[type=email]:hover {
@@ -82,13 +82,8 @@ input[type=text] {
   input[type=radio]:hover {
     border-color: skyblue;
   }
-  #ph{
-    width:70px;
-    padding:7px;
-    border-radius: 3px;
-    margin-left:8px;
-    margin:auto;
-}
+  
+
  .one{
     width:70px;
     padding:7px;
@@ -101,12 +96,7 @@ h2{
     padding:20px;
     font-size: 30px;;
 }
-select
-{
-    width: 100px;
-    height:30px;
-    font-size: 20px;
-}
+
 input[type="submit"]:hover
 {
     color:black;
@@ -116,6 +106,12 @@ input[type="submit"]:hover
 input[type="button"],input[type="submit"],button
 {
     outline: none !important;
+}
+select
+{
+    width: 100px;
+    height:45px;
+    font-size: 15px;
 }
 .register
 {
