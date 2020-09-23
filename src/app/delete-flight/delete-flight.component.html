@@ -1,1 +1,16 @@
-<p>delete-flight works!</p>
+<div class="main">
+    <div>
+        <h4>Delete Flight</h4>
+    </div>
+   <form [formGroup]="deleteFlightForm" method="post" action="">
+        <div class="form-group">
+            <label>Flight Number:</label>
+            <input type="text" class="form-control" placeholder="Enter the Flight Number" name="flightNumber"
+                formControlName="flightNumber" [(ngModel)]="df.flightNumber" required />
+        </div>
+        <div>
+            <button class="btn btn-danger" name="deleteFlight" (click)="submit()">Delete Flight Details</button>
+        </div>
+        
+    </form>
+</div>
