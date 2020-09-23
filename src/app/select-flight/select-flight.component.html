@@ -1,9 +1,60 @@
-<h2>Flight Details</h2>
-<div class={{}}>
-    <div>
-    
+<div class="main {{mainclass}}">
+    <div class={{returnclass}}>
+        <div>
+            <h1>Flight Details</h1>
+            <div *ngFor="let f of flights">
+                <div class="card">
+                    <br>
+                    <div class="container">
+                        <div class="One">
+                            <div class="Two">
+                                <input type="radio" name="selectone" id="f.scheduleid" (change)=function(f)>
+                                <p>{{f.cityFrom}}</p>
+                                <p class="duration">{{f.duration}} hrs</p>
+                                <p>{{f.cityTo}}</p>
+                                <select name="class" id="f.scheduleid" [(ngModel)]="f.classtype" (change)="classchange($event,f)">
+                                    <option value="Economy">Economy</option>
+                                    <option value="Business">Business</option>
+                                </select>
+                                <p class="pr">{{f.classprice}}</p>
+                            </div>
+                            <div class="Two">
+                                <p class="Twot">{{f.departureTime}}</p>
+                                <p class="Twot">{{f.arrivalTime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h1 *ngIf="returnflights.length>0">Return Flight Details</h1>
+            <div *ngFor="let rf of returnflights">
+                <div class="card">
+                    <br>
+                    <div class="container">
+                        <div class="One">
+                            <div class="Two">
+                                <input type="radio" name="selectreturnone" id="rf.scheduleid" (change)=function1(rf)>
+                                <p>{{rf.cityFrom}}</p>
+                                <p class="duration">{{rf.duration}} hrs</p>
+                                <p>{{rf.cityTo}}</p>
+                                <select name="class" id="rf.scheduleid" [(ngModel)]="rf.classtype" (change)="classchange($event,rf)">
+                                    <option value="Economy" selected>Economy</option>
+                                    <option value="Business">Business</option>
+                                </select>
+                                <p class="pr">{{rf.classprice}}</p>
+                            </div>
+                            <div class="Two">
+                                <p class="Twot">{{rf.departureTime}}</p>
+                                <p class="Twot">{{rf.arrivalTime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-    
-    </div>        
+    <input type="submit" (click)="submit()" value="Select Flight">
 </div>

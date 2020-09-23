@@ -25,6 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DeleteBookingComponent } from './delete-booking/delete-booking.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     DeleteFlightComponent,
     SuccessPageComponent,
     BookingDetailsComponent,
-    DashboardComponent
+    DashboardComponent,
+    DeleteBookingComponent
   ],
   imports: [
     BrowserModule,
