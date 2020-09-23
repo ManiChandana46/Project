@@ -2,14 +2,16 @@
 	<h2>Registration Form</h2>
 	<br><br>
 	<form [formGroup]="registerForm" (ngSubmit)="f.form.valid" #f="ngForm">
-		<div>
-			Title : <select formControlName="title" class="form-control"
-				[ngClass]="{ 'is-invalid': submitted && f.title.errors }">
-				<option value=""></option>
-				<option value="Mr">Mr</option>
-				<option value="Mrs">Mrs</option>
-				<option value="Miss">Miss</option>
-			</select>
+		<div class="first">
+			<label>Title</label>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<select id="title">
+                    <option value="Mr" selected>Mr.</option>
+                    <option>Ms.</option>
+                    <option>Mrs.</option>
+                    <option>Dr.</option>
+                   
+                </select> &nbsp;<br>
 		</div>
 
 		
