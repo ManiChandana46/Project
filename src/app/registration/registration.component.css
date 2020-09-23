@@ -1,23 +1,24 @@
 .warn{
 	color:red;
-	font-size:10px;
-	
+	font-size:10px;	
 }
-
 .main
 {
-width:500px;
+width:1000px;
 margin-left:auto;
 margin-right:auto;
-margin-bottom:20px;
-font-size:18x;
+margin-top:50px;
+font-size:16px;
 line-height: 19px;
 font-family: Arial,sans-serif;
-background-color:rgb(36, 41, 46,0.3);
+/* //rgb(36, 41, 46,0.5) */
+background-color: rgba(157, 184, 211, 0.3);
 padding:20px 30px;
+font-weight: 700;
 }
+
 input[type=text] {
-    width: 50%;
+    width:250px;
     padding: 12px 20px;
     margin: 8px 0;
     margin-left:8px;
@@ -27,7 +28,7 @@ input[type=text] {
     box-sizing: border-box;
 }
   input[type=number], select {
-    width: 50%;
+    width:250px;
     padding: 12px 20px;
     margin: 8px 0;
     margin-left:8px;
@@ -37,7 +38,7 @@ input[type=text] {
     box-sizing: border-box;
   }
   input[type=password], select {
-    width: 50%;
+    width:250px;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -47,7 +48,7 @@ input[type=text] {
     box-sizing: border-box;
   }
   input[type=email], select {
-    width: 50%;
+    width:250px;
     padding: 12px 20px;
     margin: 8px 0;
     margin-left:8px;
@@ -98,13 +99,13 @@ input[type=text] {
 h2{
     text-align:center;
     padding:20px;
+    font-size: 30px;;
 }
 select
 {
-    width: 205px;
+    width: 100px;
     height:30px;
-    margin-bottom: 20px;
-
+    font-size: 20px;
 }
 input[type="submit"]:hover
 {
@@ -112,7 +113,7 @@ input[type="submit"]:hover
     border:1px solid black ;
     box-shadow: 0px 0px 5px black;
 }
-input[type="button"],input[type="submit"]
+input[type="button"],input[type="submit"],button
 {
     outline: none !important;
 }
@@ -123,6 +124,25 @@ input[type="button"],input[type="submit"]
     background-color: skyblue;
     color:white;
     border:none;
-    height:30px;
+    height:40px;
     border-radius: 20px;
+    border:none;
+}
+.register:hover
+{
+  color:black;
+  border:1px solid black ;
+  box-shadow: 0px 0px 5px black;
+}
+.One
+{
+  display:flex;
+}
+.Two
+{
+  margin-right: 50px;
+}
+::placeholder
+{
+  font-size: 18px;
 }

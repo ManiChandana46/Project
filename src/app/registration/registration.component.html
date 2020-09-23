@@ -1,5 +1,6 @@
 <div class="main">
 	<h2>Registration Form</h2>
+<<<<<<< HEAD
 		<br><br>
 		<form [formGroup]="registerForm" (ngSubmit)="f.form.valid" #f="ngForm">
             <div>
@@ -14,88 +15,103 @@
             </div>
             <br>
             <br>
+=======
+	<br><br>
+	<form [formGroup]="registerForm" (ngSubmit)="f.form.valid" #f="ngForm">
+		<div>
+			Title : <select formControlName="title" class="form-control"
+				[ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+				<option value=""></option>
+				<option value="Mr">Mr</option>
+				<option value="Mrs">Mrs</option>
+				<option value="Miss">Miss</option>
+			</select>
+		</div>
+>>>>>>> d4f7d3539291c21d5f45ee289d6abcf76cc5e539
 		
-			<div>
-		
-				<!-- First Name -->
-				<label for="fName">First Name</label>
-				<input type="text" formControlName="fName" [(ngModel)]=search.firstName [class.is-invalid]="registerForm.controls.fName.invalid && FName.touched" class="form-control" placeholder="Enter First Name">
-		
-				<div *ngIf="FName.invalid && FName.touched">
-				  <small class="text-danger">First Name not valid.</small>
-				</div>
+		<div class="One">
+		<div class="Two">
+
+			<!-- First Name -->
+			<label for="fName" >First Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+			<input type="text" formControlName="fName" [(ngModel)]=user.firstName
+				[class.is-invalid]="registerForm.controls.fName.invalid && FName.touched" class="form-control"
+				placeholder="Enter First Name">
+
+			<div *ngIf="FName.invalid && FName.touched">
+				<small class="text-danger">First Name not valid.</small>
 			</div>
-			<br>
+		</div>
 		
-			  <!-- Last Name -->
-			<div class="form-group">
-				<label for="lName">Last Name</label>
-				<input formControlName="lName" type="text" [(ngModel)]=search.lastName [class.is-invalid]="LName.invalid && LName.touched" class="form-control" placeholder="Enter Last Name">
-			  
-				<div *ngIf="LName.invalid && LName.touched">
-				  <small class="text-danger">Last Name not valid.</small>
-				</div>
-            </div>
-            <br>
-                    <!-- Contact Number -->
-			<div class="form-group">
-				<label>Contact Number</label>
-				<input type="number" formControlName="contactNumber" [(ngModel)]=search.phone class="form-control" [class.is-invalid]="ContactNumber.invalid && ContactNumber.touched" class="form-control" class="form-control" placeholder="Enter Contact Number">
-		
-				<div *ngIf="ContactNumber.invalid && ContactNumber.touched" >
-				  <small class="text-danger">Phone Number not valid.</small>
-				</div>  
+
+		<!-- Last Name -->
+		<div class="form-group Two">
+			<label for="lName">Last Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;
+			</label>
+			<input formControlName="lName" type="text" [(ngModel)]=user.lastName
+				[class.is-invalid]="LName.invalid && LName.touched" class="form-control" placeholder="Enter Last Name">
+
+			<div *ngIf="LName.invalid && LName.touched">
+				<small class="text-danger">Last Name not valid.</small>
 			</div>
-		
-			  
-			<br>
-			  <!-- Email -->
-			<div class="form-group">
-				<label>Email Id</label>
-				<input type="email" formControlName="email" [(ngModel)]=search.email [class.is-invalid]="Email.invalid && Email.touched" class="form-control" class="form-control" placeholder="Enter Email Address">
-		
-				<div *ngIf="Email.invalid && Email.touched">
-				  <small class="text-danger">Email not valid.</small>
-				</div>  
+		</div>
+	</div>
+		<!-- Contact Number -->
+
+		<div class="One">
+		<div class="form-group Two">
+			<label>Contact Number</label>
+			<input type="number" formControlName="contactNumber" [(ngModel)]=user.phone class="form-control"
+				[class.is-invalid]="ContactNumber.invalid && ContactNumber.touched" class="form-control"
+				class="form-control" placeholder="Enter Contact Number">
+
+			<div *ngIf="ContactNumber.invalid && ContactNumber.touched">
+				<small class="text-danger">Phone Number not valid.</small>
 			</div>
-		
-			<br>
-			  <!-- Password -->
-			<div class="form-group">
-				<label>Password</label>
-				<input type="password" formControlName="password" [(ngModel)]=search.password class="form-control" placeholder="Enter 8 digit Password" [class.is-invalid]="registerForm.controls.password.invalid && registerForm.controls.password.touched">
-		
-				<div *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched">
-				  <small class="text-danger">Password not valid.</small>
-				</div>
+		</div>
+		<!-- Email -->
+		<div class="form-group Two">
+			<label>Email Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;
+			</label>
+			<input type="email" formControlName="email" [(ngModel)]=user.email
+				[class.is-invalid]="Email.invalid && Email.touched" class="form-control" class="form-control"
+				placeholder="Enter Email Address">
+
+			<div *ngIf="Email.invalid && Email.touched">
+				<small class="text-danger">Email not valid.</small>
 			</div>
-		
-			  		<br>
-			  <!-- Confirm Password -->
-			<div class="form-group">
-				<label>Confirm Password</label>
-				<input formControlName="confirmPassword"  type="password" [class.is-invalid]="registerForm.errors?.misMatch"  class="form-control" placeholder="Re-type Password">
-				<small class="text-danger" *ngIf="registerForm.errors?.misMatch"><br>Password do not match</small>  
+		</div>
+	</div>
+
+		<!-- Password -->
+		<div class="One">
+		<div class="form-group Two">
+			<label>Password &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+			<input type="password" formControlName="password" [(ngModel)]=user.password class="form-control"
+				placeholder="Enter 8 digit Password"
+				[class.is-invalid]="registerForm.controls.password.invalid && registerForm.controls.password.touched">
+
+			<div *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched">
+				<small class="text-danger">Password not valid.</small>
 			</div>
+		</div>
+
+		<!-- Confirm Password -->
+		<div class="form-group Two">
+			<label>Confirm Password</label>
+			<input formControlName="confirmPassword" type="password" [class.is-invalid]="registerForm.errors?.misMatch"
+				class="form-control" placeholder="Re-type Password">
+			<small class="text-danger" *ngIf="registerForm.errors?.misMatch"><br>Password do not match</small>
+		</div>
+	</div>
+
 		
-			<br>
-			  
-			<br>	
-			  <!-- OnSubmit button -->
-			<div class="form-group" style="text-align:center">
-				<button class="register" (click)="register()">Register</button>
-			</div>
-		
-		</form>
-</div>	
+		<!-- OnSubmit button -->
+		<div class="form-group" style="text-align:center">
+			<button class="register" (click)="register()">Register</button>
+		</div>
 
-
-
-
-
-
-
-
-
-
-
+	</form>
+</div>
