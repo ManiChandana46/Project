@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ForbiddenNameValidator } from '../../assets/shared/user-name.validator';
 import { PasswordValidator } from '../../assets/shared/password.validator';
 import { ContactNumberValidator } from '../../assets/shared/contact-number.validator';
-import { User } from "../user";
+import{ User} from '../user';
 
 
 @Component({
@@ -12,8 +12,10 @@ import { User } from "../user";
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  title='Regsister Page';
+  title='Register Page';
   //getter method for first name.
+  user:User=new User();
+
   get FName(){
     return this.registerForm.get('fName');
   }
@@ -75,7 +77,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   //submit on click.
-  onSubmit(){
+  register(){
     this.submitted = true;
     if (this.registerForm.invalid) {
       this.registerForm.markAsTouched(); //fields will remain marked once filled. Even after submit.
