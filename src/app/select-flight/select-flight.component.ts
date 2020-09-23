@@ -12,6 +12,8 @@ export class SelectFlightComponent implements OnInit {
   flight:Select;
   flights:Select[]=[];
   returnflights:Select[]=[];
+  returnStatus:false;//no return
+  returnclass="";
 
 
 
@@ -28,7 +30,15 @@ export class SelectFlightComponent implements OnInit {
       new Select("Hyderabad","Mumbai","11:00","13:00",2,4000),
       new Select("Hyderabad","Mumbai","19:00","21:00",2,4000)
     ]
+
+    if(this.returnflights!=null)
+    {
+      this.returnclass="return";
+    }
   }
+
+
+  
 
 
 }

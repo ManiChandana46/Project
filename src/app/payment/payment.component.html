@@ -16,12 +16,12 @@
               
               
               <label for="cname">Name</label>
-              <input type="text" class="form-control" id="cname" ngModel name="cardname" placeholder="John More Doe" required #cardname="ngModel">
+              <input type="text" class="form-control" id="cname" ngModel name="cardname" placeholder="Enter Card Holder Name" required #cardname="ngModel">
   
               
               
               <label for="ccnum">Credit card number</label>
-              <input type="text" id="ccnum" ngModel name="cardnumber" placeholder="1111-2222-3333-4444" class="form-control" minlength="16" maxlength="16" required #cardnumber="ngModel" >
+              <input type="text" id="ccnum" ngModel name="cardnumber" placeholder="Enter your 16 digits card number" class="form-control" minlength="16" maxlength="16" required #cardnumber="ngModel" >
   
               <div class="row">
   
@@ -49,12 +49,12 @@
   
                 <div class="col-50">
                   <label for="expyear" id="year">Year</label>
-                  <input type="text" id="expyear" ngModel name="expyear" placeholder="2018"  minlength="4" maxlength="4"  class="form-control" required #expyear="ngModel"/>
+                  <input type="text" id="expyear" ngModel name="expyear" placeholder="Year of Expiry"  minlength="4" maxlength="4"  class="form-control" required #expyear="ngModel"/>
                 </div>
   
                 <div class="col-50">
                   <label for="cvv">CVV</label>
-                  <input type="text" id="cvv" ngModel name="cvv" placeholder="352" minlength="3" maxlength="3" class="form-control" required #cvv="ngModel"/>
+                  <input type="text" id="cvv" ngModel name="cvv" placeholder="CVV" minlength="3" maxlength="3" class="form-control" required #cvv="ngModel"/>
                 </div>
               </div>
             </div>
