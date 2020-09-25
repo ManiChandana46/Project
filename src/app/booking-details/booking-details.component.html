@@ -1,49 +1,119 @@
 <div class="main">
-    <div *ngFor="let book of bookings">
+  <div *ngFor="let book of bookings; let index = index">
+    <div id="print-details">
+      <table>
         <h2>Booking Details</h2>
-        <div id="print-details">
-		<table>
-		<tr>
-			<td><h3>Booking-Id</h3></td><td><h3>&nbsp;&nbsp;{{book.bookingId}}</h3></td></tr>
-            
-			<tr>
-			<td><h3>Date of booking</h3></td><td><h3>&nbsp;&nbsp; {{book.dateOfBooking}}</h3></td></tr>
-			
-			<tr>
-			<td><h3>Date of Journey</h3></td><td><h3> &nbsp;&nbsp;{{book.dateOfJourney}}</h3></td></tr>
-			<tr>
-			<td><h3>Number of Seats</h3></td><td><h3>&nbsp;&nbsp; {{book.numberOfSeats}}</h3></td></tr>
-			<tr>
-			<td><h3>Flight Number</h3></td><td><h3>&nbsp;&nbsp; {{book.flightNumber}}</h3></td></tr>
-			<tr>
-			<td><h3>From</h3></td><td><h3>&nbsp;&nbsp; {{book.from}}</h3></td></tr>
-			<tr>
-			<td><h3>To</h3></td><td><h3>&nbsp;&nbsp; {{book.to}}</h3></td></tr>
-			<tr>
-			<td><h3>Start Time</h3></td><td><h3>&nbsp;&nbsp; {{book.startTime}}</h3></td></tr>
-			<tr>
-			<td><h3>End Time</h3></td><td><h3>&nbsp;&nbsp;{{book.endTime}}</h3></td></tr>
-			
-			<tr>
-			<td><h3>Ticket Fare</h3></td><td><h3>&nbsp;&nbsp; {{book.price}}</h3></td></tr>
-			<tr>
-			<td><h3>Class</h3></td><td><h3>&nbsp;&nbsp; {{book.class}}</h3></td></tr>
-            </table>
+        <tr>
+          <td><h3>Booking-Id</h3></td>
+          <td>
+            <h3>&nbsp;&nbsp;{{ book.bookingId }}</h3>
+          </td>
+        </tr>
+
+        <tr>
+          <td><h3>Date of booking</h3></td>
+          <td>
+            <h3>&nbsp;&nbsp; {{ book.dateOfBooking }}</h3>
+          </td>
+        </tr>
+
+        <tr>
+          <td><h3>Date of Journey</h3></td>
+          <td>
+            <h3>&nbsp;&nbsp;{{ book.dateOfJourney }}</h3>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Number of Seats</h3></td>
+          <td>
+            <h3>&nbsp;&nbsp; {{ book.numberOfSeats }}</h3>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Flight Number</h3></td>
+          <td>
+            <h3>&nbsp;&nbsp; {{ book.flightNumber }}</h3>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>From</h3></td>
+          <td>
+            <h3>&nbsp;&nbsp; {{ book.from }}</h3>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>To</h3></td>
+          <td>
+            <h3>&nbsp;&nbsp; {{ book.to }}</h3>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Start Time</h3></td>
+          <td>
+            <h3>&nbsp;&nbsp; {{ book.startTime }}</h3>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>End Time</h3></td>
+          <td>
+            <h3>&nbsp;&nbsp;{{ book.endTime }}</h3>
+          </td>
+        </tr>
+
+        <tr>
+          <td><h3>Ticket Fare</h3></td>
+          <td>
+            <h3>&nbsp;&nbsp; {{ book.price }}</h3>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Class</h3></td>
+          <td>
+            <h3>&nbsp;&nbsp; {{ book.class }}</h3>
+          </td>
+        </tr>
+        <div class="form-group" style="text-align: center">
+          <button class="register" (click)="open(content, index)">Cancel</button>
         </div>
-		<div class="form-group" style="text-align:center">
-			<button class="register" (click)="cancel()">Cancel</button>
-		</div>	
+      </table>
     </div>
+    
+  </div>
 </div>
 
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-basic-title">
+      Are you sure you want to Cancel?
+    </h3>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true"> × </span>
+    </button>
+  </div>
 
+  <div class="modal-footer">
+    <button
+      type="button"
+      id="yes"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Yes
+    </button>
 
-
-
-
-
-
-
-
-
-
+    <button
+      type="button"
+      id="no"
+      ngbAutofocus
+      class="btn btn-outline-dark"
+      (click)="modal.close('Cancel click')"
+    >
+      No
+    </button>
+  </div>
+</ng-template>

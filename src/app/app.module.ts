@@ -26,6 +26,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DeleteBookingComponent } from './delete-booking/delete-booking.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { DeleteBookingComponent } from './delete-booking/delete-booking.componen
     MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule
  ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

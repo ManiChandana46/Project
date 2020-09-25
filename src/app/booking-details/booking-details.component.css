@@ -1,133 +1,48 @@
-.warn{
-	color:red;
-	font-size:10px;
-	
+.main {
+  height: max-content;
 }
 
-.main
-{
-width:500px;
-margin-left:auto;
-margin-right:auto;
-margin-bottom:20px;
-font-size:18x;
-line-height: 19px;
-font-family: Arial,sans-serif;
-background-color:rgb(245, 245, 245,0.8);
-padding:20px 30px;
-}
-input[type=text] {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    margin-left:8px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-  input[type=number], select {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    margin-left:8px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  input[type=password], select {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    margin-left:8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  input[type=email], select {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    margin-left:8px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  input[type=radio], select {
-    border: 1px solid #ccc;
-    margin-left:8px;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  input[type=password]:hover {
-    border-color: skyblue;
-  }
- #ph:hover {
-    border-color: skyblue;
-  }
-  input[type=email]:hover {
-    border-color: skyblue;
-  }
-  input[type=number]:hover {
-    border-color: skyblue;
-  }
-  input[type=text]:hover {
-    border-color: skyblue;
-  }
-  input[type=radio]:hover {
-    border-color: skyblue;
-  }
-  #ph{
-    width:70px;
-    padding:7px;
-    border-radius: 3px;
-    margin-left:8px;
-    margin:auto;
-}
- .one{
-    width:70px;
-    padding:7px;
-    border-radius: 3px;
-    margin-left:8px;
-    margin:auto;
-}
-h2{
-    text-align:center;
-    padding:20px;
-}
-select
-{
-    width: 205px;
-    height:30px;
-    margin-bottom: 20px;
-
+h2 {
+  margin-left: 150px;
+  padding: 20px;
 }
 
-table{
-	margin-left:120px;
-	column-gap:40px;
+table {
+  width: 500px;
+  height: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  font-size: 18x;
+  font-family: Arial, sans-serif;
+  background-color: rgb(245, 245, 245, 0.8);
 }
-input[type="submit"]:hover
-{
-    color:black;
-    border:1px solid black ;
-    box-shadow: 0px 0px 5px black;
+
+input[type="button"],
+input[type="submit"] {
+  outline: none !important;
 }
-input[type="button"],input[type="submit"]
-{
-    outline: none !important;
+.register {
+  margin-top: 20px;
+  width: 300px;
+  background-color: red;
+  color: white;
+  border: none;
+  height: 30px;
+  border-radius: 20px;
+  margin-left: 100px;
 }
-.register
-{
-    margin-top: 20px;
-    width:300px;
-    background-color: red;
-    color:white;
-    border:none;
-    height:30px;
-    border-radius: 20px;
+
+.register:hover {
+  color: black;
+  border: 1px solid black;
+  box-shadow: 0px 0px 5px black;
+}
+
+.modal-header {
+  background-color: rgb(245, 245, 245, 0.8);
+}
+
+.modal-footer {
+  background-color: rgb(245, 245, 245, 0.8);
 }
