@@ -85,11 +85,11 @@ export class SelectFlightComponent implements OnInit {
     {
     console.log(this.returnfly);
     sessionStorage.setItem("returnDetails",JSON.stringify(this.returnfly));
-    this.router.navigate(['/reviewBooking']);
+    this.router.navigate(['/login']);
     }
     else if(this.returnflights.length == 0)
     {
-      this.router.navigate(['/reviewBooking']);
+      this.router.navigate(['/login']);
     }
     else
     {

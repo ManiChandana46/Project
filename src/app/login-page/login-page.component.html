@@ -44,17 +44,19 @@
                     <mat-icon matSuffix>lock</mat-icon>
                 </mat-form-field>
                 
-                <button
+                <button 
                   mat-raised-button
                   color="primary"
-                  class="login-button">
+                  class="login-button"
+                  (click)="userSignIn()" routerLink="/reviewBooking"
+                  >
                   Sign In
                 </button>
   
                 <button
                 mat-raised-button
                 color="primary"
-                class="signup-button">
+                class="signup-button" (click)="userSignUp()" routerLink="/registration">
                 Sign Up
               </button>
               
@@ -104,7 +106,7 @@
               <button
                 mat-raised-button
                 color="primary"
-                class="admin-button">
+                class="admin-button" (click)="adminSignIn()" routerLink="/dashboard">
                 Sign In
               </button>
             
