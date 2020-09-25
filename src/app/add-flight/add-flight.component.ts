@@ -38,7 +38,7 @@ export class AddFlightComponent implements OnInit {
 
   Fromcity(e)
   {
-    this.Tocities=["Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
+    this.Tocities=["SelectCity","Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
     const index:number = this.Tocities.indexOf(e.target.value);
     this.Tocities.splice(index,1);
   }
