@@ -4,6 +4,7 @@ import { ForbiddenNameValidator } from '../../assets/shared/user-name.validator'
 import { PasswordValidator } from '../../assets/shared/password.validator';
 import { ContactNumberValidator } from '../../assets/shared/contact-number.validator';
 import{ User} from '../user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -38,7 +39,7 @@ export class RegistrationComponent implements OnInit {
 
 
   //constructor
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder,private router:Router){}
 
 
 
@@ -88,7 +89,8 @@ export class RegistrationComponent implements OnInit {
     else{
       //this.registerForm.markAsTouched();
       alert(JSON.stringify(this.user));
-    sessionStorage.setItem("registerDetails",JSON.stringify(this.user));
+      sessionStorage.setItem("registerDetails",JSON.stringify(this.user));
+      this.router.navigate(['/login']);
       //alert('Details Has Been Registered.');
      /* let resp=this.service.doRegistration(this.user);
       resp.subscribe((data)=>this.message=data)

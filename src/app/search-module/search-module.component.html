@@ -37,7 +37,7 @@
             </div>
             <div class="One2">
                 <label>Return Date</label>
-                <input type="date" name="arrival_date" min="{{todaydate}}" [disabled]="returnDisable"
+                <input type="date" name="arrival_date" min="{{sd.travelDate}}" [disabled]="returnDisable"
                     [(ngModel)]="sd.returnTravelDate" #arrival_date="ngModel" required>
                     <div *ngIf="myForm.submitted && arrival_date.invalid">
                         <div *ngIf="arrival_date.errors.required" class="text-danger">*required</div>
