@@ -1,80 +1,73 @@
 <div class="container">
-    <span class="heading"><h2>Passengers Details</h2></span>
-    <br />
-  
-    <div class="passengerEntry">
-      <div class="head">Add Passengers here</div>
-      <form class="form-group" #passengerForm="ngForm">
-        <input
-          type="text"
-          id="name"
-          class="input-text form-control"
-          name="f_name"
-          placeholder="Name"
-          [(ngModel)]="name"
-          required
-          #f_name="ngModel"
-        />
-        <input
-          type="text"
-          id="age"
-          class="input-text form-control"
-          ngModel
-          name="f_age"
-          placeholder="Age"
-          [(ngModel)]="age"
-          required
-          #f_age="ngModel"
-        />
-  
-        <select
-          name="gender"
-          id="gender"
-          class="input-text1 form-control"
-          [(ngModel)]="gender"
-          required
-        >
-          <option value="Male" selected>Male</option>
-          <option value="Female">Female</option>
-        </select>
-  
-        <button
-          class="add-btn"
-          type="submit"
-          [disabled]="!passengerForm.form.valid"
-          (click)="addPassenger()"
-        >
-          Add Passenger
-        </button>
+  <span class="heading"><h2>Passengers Details</h2></span>
+  <br />
 
-      </form>
-    </div>
-  
-    <div class="list">
-      <ul>
-        <li *ngFor="let item of list; let index = index">
-          <div class="passengerNumber">
-            Passenger {{ index + 1 }}
-            <button class="btn" (click)="deleteName(index)">Delete</button>
-          </div>
-  
-          <div id="inner">
-            <div class="child">
-              <span class="datachild">Name :</span> {{ item.name }}
-            </div>
-  
-            <div class="child">
-              <span class="datachild">Age :</span> {{ item.age }}
-            </div>
-  
-            <div class="child">
-              <span class="datachild">Gender :</span> {{ item.gender }}
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+  <div class="passengerEntry">
+    <div class="head">Add Passengers here</div>
+    <form class="form-group" #passengerForm="ngForm">
+      <input
+        type="text"
+        id="name"
+        class="input-text form-control"
+        name="f_name"
+        placeholder="Name"
+        [(ngModel)]="name"
+        required
+        #f_name="ngModel"
+      />
+      <input
+        type="text"
+        id="age"
+        class="input-text form-control"
+        ngModel
+        name="f_age"
+        placeholder="Age"
+        [(ngModel)]="age"
+        required
+        #f_age="ngModel"
+      />
 
-    <input class="add-btn" type="submit" value="Continue" routerLink="/payment">
+      <select
+        name="gender"
+        id="gender"
+        class="input-text1 form-control"
+        [(ngModel)]="gender"
+        required
+      >
+        <option value="Male" selected>Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+      <button class="add-btn" id="addPass" (click)="addPassenger()">
+        Add Passenger
+      </button>
+    </form>
   </div>
-  
+
+  <div class="list">
+    <ul>
+      <li *ngFor="let item of list; let index = index">
+        <div class="passengerNumber">
+          Passenger {{ index + 1 }}
+          <button class="btn" (click)="deleteName(index)">Delete</button>
+        </div>
+
+        <div id="inner">
+          <div class="child">
+            <span class="datachild">Name :</span> {{ item.name }}
+          </div>
+
+          <div class="child">
+            <span class="datachild">Age :</span> {{ item.age }}
+          </div>
+
+          <div class="child">
+            <span class="datachild">Gender :</span> {{ item.gender }}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <button class="add-btn" id="continue" routerLink="/payment">Continue</button>
+</div>

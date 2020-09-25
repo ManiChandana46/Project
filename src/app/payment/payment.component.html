@@ -49,12 +49,12 @@
   
                 <div class="col-50">
                   <label for="expyear" id="year">Year</label>
-                  <input type="text" id="expyear" ngModel name="expyear" placeholder="Year of Expiry"  minlength="4" maxlength="4"  class="form-control" required #expyear="ngModel"/>
+                  <input type="text" id="yyear" ngModel name="expyear" placeholder="Year of Expiry"  class="form-control" minlength="4" maxlength="4" required #expyear="ngModel"/>
                 </div>
   
                 <div class="col-50">
                   <label for="cvv">CVV</label>
-                  <input type="text" id="cvv" ngModel name="cvv" placeholder="CVV" minlength="3" maxlength="3" class="form-control" required #cvv="ngModel"/>
+                  <input type="text" ngModel name="cvv" placeholder="CVV" class="form-control" minlength="3" maxlength="3" required #cvv="ngModel"/>
                 </div>
               </div>
             </div>
