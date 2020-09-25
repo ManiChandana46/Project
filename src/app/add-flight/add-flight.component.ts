@@ -47,7 +47,7 @@ export class AddFlightComponent implements OnInit {
   {
     if(this.addFlightForm.valid)
     {
-      alert(JSON.stringify(this.af));
+      alert('The new flight has been added successfully!!');
     }
     else{
       alert('Please enter all the fields.')

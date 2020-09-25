@@ -29,7 +29,7 @@ export class DeleteFlightComponent implements OnInit {
   {
     if(this.deleteFlightForm.valid)
     {
-      alert(JSON.stringify(this.df));
+      alert('The flight details has been deleted successfully!!');
     }
     else{
       alert('Please enter all the fields.')
