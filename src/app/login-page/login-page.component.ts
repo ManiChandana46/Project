@@ -16,7 +16,19 @@ export class LoginPageComponent implements OnInit {
   }
 
   userSignIn(){
-    
+    sessionStorage.setItem("login",JSON.stringify(true));
+    if(sessionStorage.getItem("searchDetails")==null)
+    {
+      this.router.navigate(['/search']);
+    }
+    else if(sessionStorage.getItem("oneWayDetails")==null)
+    {
+      this.router.navigate(['/selectflight'])
+    }
+    else
+    {
+      this.router.navigate(['/reviewBooking'])
+    }
 
   }
   userSignUp(){

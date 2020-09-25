@@ -22,7 +22,7 @@ export class SelectFlightComponent implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder,private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   // setForm() {
   //   this.flightForm = this.fb.group({
@@ -35,14 +35,14 @@ export class SelectFlightComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
+
     this.flights = [
       new Select("Mumbai", "Hyderabad", "09:00", "11:00", 2, 4000, 101, "Economy", 4000),
       new Select("Mumbai", "Hyderabad", "14:00", "16:00", 2, 4400, 102, "Economy", 4400)
     ];
-    this.returnflights=[
-      new Select("Hyderabad","Mumbai","11:00","13:00",2,4500,103,"Economy",4500),
-      new Select("Hyderabad","Mumbai","19:00","21:00",2,4900,104,"Economy",4900)
+    this.returnflights = [
+      new Select("Hyderabad", "Mumbai", "11:00", "13:00", 2, 4500, 103, "Economy", 4500),
+      new Select("Hyderabad", "Mumbai", "19:00", "21:00", 2, 4900, 104, "Economy", 4900)
     ]
 
     // this.setForm();
@@ -72,32 +72,33 @@ export class SelectFlightComponent implements OnInit {
     this.fly = f;
   }
   function1(rf) {
-    this.returnstatus=1;
+    this.returnstatus = 1;
     this.returnfly = rf;
   }
 
   submit() {
-    if(this.fly!=null)
-    {
-    console.log(this.fly);
-    sessionStorage.setItem("oneWayDetails",JSON.stringify(this.fly));
-    if(this.returnflights.length != 0 && this.returnstatus==1)
-    {
-    console.log(this.returnfly);
-    sessionStorage.setItem("returnDetails",JSON.stringify(this.returnfly));
-    this.router.navigate(['/login']);
+    if (this.fly != null) {
+      console.log(this.fly);
+      sessionStorage.setItem("oneWayDetails", JSON.stringify(this.fly));
+      if (this.returnflights.length != 0 && this.returnstatus == 1) {
+        console.log(this.returnfly);
+        sessionStorage.setItem("returnDetails", JSON.stringify(this.returnfly));
+        if (sessionStorage.getItem("login") == null)
+          this.router.navigate(['/login']);
+        else
+          this.router.navigate(['/reviewBooking']);
+      }
+      else if (this.returnflights.length == 0) {
+        if (sessionStorage.getItem("login") == null)
+          this.router.navigate(['/login']);
+        else
+          this.router.navigate(['/reviewBooking']);
+      }
+      else {
+        alert("Select return flight");
+      }
     }
-    else if(this.returnflights.length == 0)
-    {
-      this.router.navigate(['/login']);
-    }
-    else
-    {
-      alert("Select return flight");
-    }
-    }
-    else
-    {
+    else {
       alert("You have to select flight for proceding further");
     }
   }
