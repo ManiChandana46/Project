@@ -5,12 +5,13 @@
         <mat-tab label="User Login">
             
           <mat-card-content>
-              <form action="">
+              <form #userLoginForm="ngForm" class="form-group">
                 
                 <mat-form-field>
                   <input
                     matInput
                     placeholder="Email"
+                    class="form-control"
                     required
                     name="email"
                     ngModel
@@ -24,6 +25,7 @@
                   <input
                     matInput
                     placeholder="Password"
+                    class="form-control"
                     type="password"
                     required
                     minlength="6"
@@ -46,6 +48,7 @@
                 
                 <button 
                   mat-raised-button
+                  [disabled]="!userLoginForm.form.valid"
                   color="primary"
                   class="login-button"
                   (click)="userSignIn()" routerLink="/reviewBooking"
@@ -67,12 +70,13 @@
         
         <mat-tab label="Admin Login">
           <mat-card-content>
-            <form action="">
+            <form #adminLoginForm="ngForm" class="form-group">
   
               <mat-form-field>
                 <input
                   matInput
                   placeholder="Email"
+                  class="form-control"
                   required
                   name="email"
                   ngModel
@@ -85,6 +89,7 @@
                 <input
                   matInput
                   placeholder="Password"
+                  class="form-control"
                   type="password"
                   required
                   minlength="6"
@@ -106,6 +111,7 @@
               <button
                 mat-raised-button
                 color="primary"
+                [disabled]="!adminLoginForm.form.valid"
                 class="admin-button" (click)="adminSignIn()" routerLink="/dashboard">
                 Sign In
               </button>
