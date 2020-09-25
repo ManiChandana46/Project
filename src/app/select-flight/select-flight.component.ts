@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Select } from '../select-flight/select';
-import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms'
+import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-flight',
@@ -16,13 +17,12 @@ export class SelectFlightComponent implements OnInit {
   fly: Select;
   returnfly: Select;
   mainclass = "";
-  type = "Economy";
-  // flightForm: FormGroup;
+  returnstatus;
 
 
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private router: Router) { }
 
   // setForm() {
   //   this.flightForm = this.fb.group({
@@ -72,14 +72,34 @@ export class SelectFlightComponent implements OnInit {
     this.fly = f;
   }
   function1(rf) {
+    this.returnstatus=1;
     this.returnfly = rf;
   }
 
   submit() {
+    if(this.fly!=null)
+    {
     console.log(this.fly);
-    console.log(this.returnfly);
     sessionStorage.setItem("oneWayDetails",JSON.stringify(this.fly));
+    if(this.returnflights.length != 0 && this.returnstatus==1)
+    {
+    console.log(this.returnfly);
     sessionStorage.setItem("returnDetails",JSON.stringify(this.returnfly));
+    this.router.navigate(['/reviewBooking']);
+    }
+    else if(this.returnflights.length == 0)
+    {
+      this.router.navigate(['/reviewBooking']);
+    }
+    else
+    {
+      alert("Select return flight");
+    }
+    }
+    else
+    {
+      alert("You have to select flight for proceding further");
+    }
   }
 
 

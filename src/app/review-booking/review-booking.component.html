@@ -1,1 +1,53 @@
-<p>review-booking works!</p>
+<div class="main Two">
+    <div>
+        <p class="heading">Review Booking</p>
+        <p class="classheading">Depart Details</p>
+        <div class="card">
+            <br>
+            <div class="container">
+                <div class="One">
+                    <div class="Two">
+                        <p class="time"><b>{{oneWay.departureTime}}</b></p>
+                        <p class="duration">{{oneWay.duration}} hrs</p>
+                        <p class="time"><b>{{oneWay.arrivalTime}}</b></p>
+                        <p>{{oneWay.classtype}}</p>
+                        <p class="price"><i class="fa fa-inr" aria-hidden="true"></i>{{oneWay.classprice}}</p>
+                    </div>
+                    <div class="Two">
+                        <p class="TwoOne">{{oneWay.cityFrom}}</p>
+                        <p class="TwoOne">{{oneWay.cityTo}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <p class="classheading" *ngIf="return!=null">Return Details</p>
+        <div *ngIf="return!=null" class="card">
+            <br>
+            <div class="container">
+                <div class="One">
+                    <div class="Two">
+                        <p class="time"><b>{{return.departureTime}}</b></p>
+                        <p class="duration">{{return.duration}} hrs</p>
+                        <p class="time"><b>{{return.arrivalTime}}</b></p>
+                        <p>{{return.classtype}}</p>
+                        <p class="price"><i class="fa fa-inr" aria-hidden="true"></i>{{return.classprice}}</p>
+                    </div>
+                    <div class="Two">
+                        <p class="TwoOne">{{return.cityFrom}}</p>
+                        <p class="TwoOne">{{return.cityTo}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="Continue Booking" >
+    </div>
+    <div class="cardOne">
+        
+        <p><b>Fare Summary</b></p>
+        <p class="fare">Base Fare &nbsp;&nbsp;:&nbsp;&nbsp; <i class="fa fa-inr" aria-hidden="true"></i>{{baseFare}}</p>
+        <p class="fare">Charges  &nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;<i class="fa fa-inr" aria-hidden="true"></i>{{charges}}</p>
+        <p class="fare">TotalFare &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; <i class="fa fa-inr" aria-hidden="true"></i>{{totalFare}}</p>
+    </div>
+</div>

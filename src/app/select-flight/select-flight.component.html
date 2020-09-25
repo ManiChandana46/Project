@@ -13,14 +13,14 @@
                                 <p class="duration">{{f.duration}} hrs</p>
                                 <p>{{f.cityTo}}</p>
                                 <select name="class" id="f.scheduleid" [(ngModel)]="f.classtype" (change)="classchange($event,f)">
-                                    <option value="Economy">Economy</option>
+                                    <option value="Economy" selected>Economy</option>
                                     <option value="Business">Business</option>
                                 </select>
-                                <p class="pr">{{f.classprice}}</p>
+                                <p class="price"><i class="fa fa-inr" aria-hidden="true"></i>{{f.classprice}}</p>
                             </div>
                             <div class="Two">
-                                <p class="Twot">{{f.departureTime}}</p>
-                                <p class="Twot">{{f.arrivalTime}}</p>
+                                <p class="TwoOne">{{f.departureTime}}</p>
+                                <p class="TwoOne">{{f.arrivalTime}}</p>
                             </div>
                         </div>
                     </div>
@@ -44,11 +44,11 @@
                                     <option value="Economy" selected>Economy</option>
                                     <option value="Business">Business</option>
                                 </select>
-                                <p class="pr">{{rf.classprice}}</p>
+                                <p class="price"><i class="fa fa-inr" aria-hidden="true"></i>{{rf.classprice}}</p>
                             </div>
                             <div class="Two">
-                                <p class="Twot">{{rf.departureTime}}</p>
-                                <p class="Twot">{{rf.arrivalTime}}</p>
+                                <p class="TwoOne">{{rf.departureTime}}</p>
+                                <p class="TwoOne">{{rf.arrivalTime}}</p>
                             </div>
                         </div>
                     </div>

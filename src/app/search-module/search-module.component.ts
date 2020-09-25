@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { SearchDetails } from '../search-module/search-details';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-module',
@@ -10,7 +11,7 @@ import { SearchDetails } from '../search-module/search-details';
 export class SearchModuleComponent implements OnInit {
 
   
-  constructor(private datepipe:DatePipe) { }
+  constructor(private datepipe:DatePipe,private router: Router) { }
 
   sd:SearchDetails=new SearchDetails();
   infantNumber=0;
@@ -131,6 +132,8 @@ export class SearchModuleComponent implements OnInit {
   submit()
   {
     alert(JSON.stringify(this.sd));
+    sessionStorage.setItem("searchDetails",JSON.stringify(this.sd));
+    this.router.navigate(['/selectflight']);
   }
 
 }

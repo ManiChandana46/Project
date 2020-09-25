@@ -1,0 +1,105 @@
+.main
+{
+width: 1200px;
+margin-left: auto;
+margin-right: auto;
+margin-top:50px;
+font-size:16px;
+line-height: 19px;
+font-family: Arial,sans-serif;
+/* //rgb(36, 41, 46,0.5) */
+background-color: rgba(157, 184, 211, 0.3);
+padding:20px 30px;
+font-weight: 500;
+}
+.card
+{
+    width: 800px;
+    height: 130px;
+    margin-bottom: 10px;
+    border-color: skyblue;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(6, 146, 134, 0.473);
+}
+.One
+{
+    display: grid;
+}
+.Two
+{
+    display: flex;
+    margin-bottom: 10px;
+}
+p
+{
+   font-size: 25px;
+}
+p:not(.price)
+{
+    margin-right: 70px;
+}
+.TwoOne{
+    font-size:20px;
+    margin-right: 250px !important;
+    margin-left: 10px;
+}
+.time
+{
+    font-size: 35px;
+}
+.duration
+{
+    border-bottom: 2px solid black;
+    padding-right:30px;
+    padding-left:30px;
+    font-size: 22px;
+}
+.heading
+{
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.classheading
+{
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.cardOne
+{
+    margin-top:40px;
+    background-color: white;
+    padding:15px 10px;
+    height: 200px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    border-color: skyblue;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(6, 146, 134, 0.473);
+}
+.fare
+{
+    margin-top: 20px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    border-bottom: 1px solid slategrey;
+}
+input[type="submit"]
+{
+    outline: none !important;
+    background-color: skyblue;
+    border-radius: 20px;
+    width:200px;
+    height:40px;
+    color: white;
+    border:none;
+    font-size:20px;
+    margin-top: 10px;
+}
+input[type="submit"]:hover
+{
+    color:black;
+    border:1px solid black ;
+    box-shadow: 0px 0px 5px black;
+}
