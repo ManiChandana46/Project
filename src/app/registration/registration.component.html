@@ -1,7 +1,7 @@
 <div class="main">
 	<h2>Registration Form</h2>
 	<br><br>
-	<form [formGroup]="registerForm" (ngSubmit)="f.form.valid" #f="ngForm">
+	<form [formGroup]="registerForm" (ngSubmit)="f.valid" #f="ngForm">
 		<div class="first">
 			<label>Title</label>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -96,7 +96,7 @@
 		
 		<!-- OnSubmit button -->
 		<div class="form-group" style="text-align:center">
-			<button class="register" (click)="register()">Register</button>
+			<button type="submit" class="register" (click)="register()">Register</button>
 		</div>
 
 	</form>
