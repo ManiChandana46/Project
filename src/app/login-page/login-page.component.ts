@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 
 })
 export class LoginPageComponent implements OnInit {
+  email;
 
   constructor(private router:Router) { }
 
@@ -16,6 +17,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   userSignIn(){
+    console.log(this.email);
     sessionStorage.setItem("login",JSON.stringify(true));
     if(sessionStorage.getItem("searchDetails")==null)
     {

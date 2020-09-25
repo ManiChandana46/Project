@@ -1,6 +1,6 @@
 <div class="main">
     <form #myForm="ngForm" (ngSubmit)="myForm.valid && submit()">
-        <h4>Book Flights Here</h4>
+        <h2>Book Flights Here</h2>
         <div>
             <input type="button" value="ONE WAY" (click)="oneway()" class="{{active}} trip">
             <input type="button" value="ROUND TRIP" (click)="return()" class="{{returnactive}} trip">

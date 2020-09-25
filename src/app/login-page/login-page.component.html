@@ -15,7 +15,7 @@
                     required
                     name="email"
                     ngModel
-                    #email="ngModel">
+                    #email="ngModel" [value]="email">
                     <mat-error *ngIf="email.invalid">Email is required</mat-error>
                   <mat-icon matSuffix>email</mat-icon>
                 </mat-form-field>

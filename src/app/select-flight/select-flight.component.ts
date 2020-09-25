@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Select } from '../select-flight/select';
 import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SearchDetails } from '../search-module/search-details';
 
 @Component({
   selector: 'app-select-flight',
@@ -18,6 +19,7 @@ export class SelectFlightComponent implements OnInit {
   returnfly: Select;
   mainclass = "";
   returnstatus;
+  sd: SearchDetails;
 
 
 
@@ -33,17 +35,19 @@ export class SelectFlightComponent implements OnInit {
 
 
 
+
   ngOnInit(): void {
-
-
+    this.sd = JSON.parse(sessionStorage.getItem("searchDetails"));
     this.flights = [
       new Select("Mumbai", "Hyderabad", "09:00", "11:00", 2, 4000, 101, "Economy", 4000),
       new Select("Mumbai", "Hyderabad", "14:00", "16:00", 2, 4400, 102, "Economy", 4400)
     ];
-    this.returnflights = [
-      new Select("Hyderabad", "Mumbai", "11:00", "13:00", 2, 4500, 103, "Economy", 4500),
-      new Select("Hyderabad", "Mumbai", "19:00", "21:00", 2, 4900, 104, "Economy", 4900)
-    ]
+    if (this.sd.journeyType == "twoWay") {
+      this.returnflights = [
+        new Select("Hyderabad", "Mumbai", "11:00", "13:00", 2, 4500, 103, "Economy", 4500),
+        new Select("Hyderabad", "Mumbai", "19:00", "21:00", 2, 4900, 104, "Economy", 4900)
+      ]
+    }
 
     // this.setForm();
 

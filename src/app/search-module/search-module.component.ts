@@ -117,6 +117,7 @@ export class SearchModuleComponent implements OnInit {
 
   oneway()
   {
+    this.sd.journeyType="oneWay";
     this.returnDisable=true;
     this.active="activeclass";
     this.returnactive="";
@@ -124,6 +125,7 @@ export class SearchModuleComponent implements OnInit {
 
   return()
   {
+    this.sd.journeyType="twoWay";
     this.returnDisable=false;
     this.active="";
     this.returnactive="activeclass";
