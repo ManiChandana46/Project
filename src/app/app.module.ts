@@ -27,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DeleteBookingComponent } from './delete-booking/delete-booking.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SuccessPageComponent,
     BookingDetailsComponent,
     DashboardComponent,
-    DeleteBookingComponent
+    DeleteBookingComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
