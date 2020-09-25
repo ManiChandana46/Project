@@ -11,8 +11,9 @@ background-color: rgba(157, 184, 211, 0.3);
 padding:20px 30px;
 font-weight: 700;
 }
-h4{
+h2{
     margin-bottom: 10px;
+    text-align: center;
 }
 ::placeholder
 {
