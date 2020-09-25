@@ -75,7 +75,7 @@ export class RegistrationComponent implements OnInit {
 
     },{validator: PasswordValidator});
   }
-
+  
   //submit on click.
   register(){
     this.submitted = true;
@@ -86,7 +86,9 @@ export class RegistrationComponent implements OnInit {
 
     }
     else{
-      this.registerForm.markAsTouched();
+      //this.registerForm.markAsTouched();
+      alert(JSON.stringify(this.user));
+    sessionStorage.setItem("registerDetails",JSON.stringify(this.user));
       //alert('Details Has Been Registered.');
      /* let resp=this.service.doRegistration(this.user);
       resp.subscribe((data)=>this.message=data)
