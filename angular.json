@@ -131,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "Airlines"
+  "defaultProject": "Airlines",
+  "cli": {
+    "analytics": false
+  }
 }

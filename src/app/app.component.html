@@ -3,12 +3,27 @@
     <div class="ml-auto">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Booking Details</a>
+            <a class="nav-link" routerLink="/bookingDetails" >Booking Details</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/login">Login/SignUp</a>
+            <a class="nav-link" routerLink="/login" >Login/SignUp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">About Us</a>
           </li>   
         </ul>
     </div>
   </nav>
+
   <router-outlet></router-outlet>
+  
+  <footer id="myLink">
+    <a class="navbar-brand h1" href="#"><i class="fa fa-plane" style="font-size:36px;"></i> Air Aviation</a>
+    <span><br>Copyright &copy; 2020-2030 </span>
+  
+    <div id="details">   
+            <p> Air Aviation.</p>
+            <p> Customer Care: +91-7372923930 </p>
+            <p> 102, Ground Floor, S.G. Palya, Bengaluru, Karnataka 560029</p>
+    </div>
+  </footer>
