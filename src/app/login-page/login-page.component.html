@@ -1,128 +1,134 @@
 <div class="login-page">
-    <mat-card class="mat-elevation-z12">
-      <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
-        
-        <mat-tab label="User Login">
-            
-          <mat-card-content>
-              <form #userLoginForm="ngForm" class="form-group">
-                
-                <mat-form-field>
-                  <input
-                    matInput
-                    placeholder="Email"
-                    class="form-control"
-                    required
-                    name="email"
-                    ngModel
-                    #email="ngModel" [value]="email">
-                    <mat-error *ngIf="email.invalid">Email is required</mat-error>
-                  <mat-icon matSuffix>email</mat-icon>
-                </mat-form-field>
-                
-                <mat-form-field>
-                  
-                  <input
-                    matInput
-                    placeholder="Password"
-                    class="form-control"
-                    type="password"
-                    required
-                    minlength="6"
-                    name="password"
-                    ngModel
-                    #password="ngModel">
-                    
-                    <mat-error
-                      *ngIf="password.errors && password.errors.required">
-                      Password is required
-                    </mat-error>
-                    
-                    <mat-error
-                      *ngIf="password.errors && password.errors.minlength">
-                      Password must be of length 6
-                    </mat-error>
-                  
-                    <mat-icon matSuffix>lock</mat-icon>
-                </mat-form-field>
-                
-                <button 
-                  mat-raised-button
-                  [disabled]="!userLoginForm.form.valid"
-                  color="primary"
-                  class="login-button"
-                  (click)="userSignIn()"
-                  >
-                  Sign In
-                </button>
-  
-                <button
-                mat-raised-button
-                color="primary"
-                class="signup-button" (click)="userSignUp()" routerLink="/registration">
-                Sign Up
-              </button>
-              
-              </form>
-            
-            </mat-card-content>
-        </mat-tab>
-        
-        <mat-tab label="Admin Login">
-          <mat-card-content>
-            <form #adminLoginForm="ngForm" class="form-group">
-  
-              <mat-form-field>
-                <input
-                  matInput
-                  placeholder="Email"
-                  class="form-control"
-                  required
-                  name="email"
-                  ngModel
-                  #email="ngModel">
-                  <mat-error *ngIf="email.invalid">Email is required</mat-error>
-                <mat-icon matSuffix>email</mat-icon>
-              </mat-form-field>
-              
-              <mat-form-field>
-                <input
-                  matInput
-                  placeholder="Password"
-                  class="form-control"
-                  type="password"
-                  required
-                  minlength="6"
-                  name="password"
-                  ngModel
-                  #password="ngModel">
-                  <mat-error
-                    *ngIf="password.errors && password.errors.required">
-                    Password is required
-                  </mat-error>
-                  <mat-error
-                    *ngIf="password.errors && password.errors.minlength">
-                    Password must be of length 6
-                  </mat-error>
-                <mat-icon matSuffix>lock</mat-icon>
-  
-              </mat-form-field>
-              
-              <button
-                mat-raised-button
-                color="primary"
-                [disabled]="!adminLoginForm.form.valid"
-                class="admin-button" (click)="adminSignIn()" routerLink="/dashboard">
-                Sign In
-              </button>
-            
-            </form>
-          </mat-card-content>
-        
-        </mat-tab>
-      </mat-tab-group>
-    
-    </mat-card>
-  
-  </div>
-  
+  <mat-card class="mat-elevation-z12">
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+      <mat-tab label="User Login">
+        <mat-card-content>
+          <form #userLoginForm="ngForm" class="form-group">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Email"
+                class="form-control"
+                required
+                [(ngModel)]="userEmail"
+                name="email"
+                ngModel
+                #useremail="ngModel"
+              />
+              <mat-error *ngIf="useremail.invalid">Email is required</mat-error>
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Password"
+                class="form-control"
+                type="password"
+                required
+                [(ngModel)]="userPassword"
+                minlength="6"
+                name="password"
+                ngModel
+                #userpassword="ngModel"
+              />
+
+              <mat-error
+                *ngIf="userpassword.errors && userpassword.errors.required"
+              >
+                Password is required
+              </mat-error>
+
+              <mat-error
+                *ngIf="userpassword.errors && userpassword.errors.minlength"
+              >
+                Password must be of length 6
+              </mat-error>
+
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+
+            <button
+              mat-raised-button
+              [disabled]="!userLoginForm.form.valid"
+              color="primary"
+              class="login-button"
+              (click)="userSignIn()"
+            >
+              Sign In
+            </button>
+
+            <button
+              mat-raised-button
+              color="primary"
+              class="signup-button"
+              (click)="userSignUp()"
+              routerLink="/registration"
+            >
+              Sign Up
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-tab>
+
+      <mat-tab label="Admin Login">
+        <mat-card-content>
+          <form #adminLoginForm="ngForm" class="form-group">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Email"
+                class="form-control"
+                required
+                name="email"
+                [(ngModel)]="adminEmail"
+                ngModel
+                #adminemail="ngModel"
+              />
+              <mat-error *ngIf="adminemail.invalid"
+                >Email is required</mat-error
+              >
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Password"
+                class="form-control"
+                type="password"
+                required
+                minlength="6"
+                name="password"
+                [(ngModel)]="adminPassword"
+                ngModel
+                #adminpassword="ngModel"
+              />
+              <mat-error
+                *ngIf="adminpassword.errors && adminpassword.errors.required"
+              >
+                Password is required
+              </mat-error>
+              <mat-error
+                *ngIf="adminpassword.errors && adminpassword.errors.minlength"
+              >
+                Password must be of length 6
+              </mat-error>
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+
+            <button
+              mat-raised-button
+              color="primary"
+              [disabled]="!adminLoginForm.form.valid"
+              class="admin-button"
+              (click)="adminSignIn()"
+            >
+              Sign In
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>
