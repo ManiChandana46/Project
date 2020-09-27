@@ -1,86 +1,200 @@
-<div class="main">
-  <div *ngFor="let book of bookings; let index = index">
-    <div id="print-details">
-      <table>
-        <h2>Booking Details</h2>
-        <tr>
-          <td><h3>Booking-Id</h3></td>
-          <td style="display: inline-block;padding-left: 20%;">
-            <h3>&nbsp;&nbsp;{{ book.bookingId }}</h3>
-          </td>
-        </tr>
+<div class="container-sm">
+	<h2>Enter Details to search your booked ticket</h2><br>
 
-        <tr>
-          <td><h3>Date of booking</h3></td>
-          <td style="display: inline-block;padding-left: 14%;">
-            <h3> {{ book.dateOfBooking }}</h3>
-          </td>
-        </tr>
+		<form [formGroup]="SearchTicketForm" (ngSubmit)="f.form.valid" #f="ngForm">
+      <div class="form-group">
 
-        <tr>
-          <td><h3>Date of Journey</h3></td>
-          <td style="display: inline-block;padding-left: 12%;">
-            <h3>&nbsp;&nbsp;{{ book.dateOfJourney }}</h3>
-          </td>
-        </tr>
-        <tr>
-          <td><h3>Number of Seats</h3></td>
-          <td style="display: inline-block;padding-left: 12%;">
-            <h3>&nbsp;&nbsp; {{ book.numberOfSeats }}</h3>
-          </td>
-        </tr>
-        <tr>
-          <td><h3>Flight Number</h3></td>
-          <td style="display: inline-block;padding-left: 15%;">
-            <h3>&nbsp;&nbsp; {{ book.flightNumber }}</h3>
-          </td>
-        </tr>
-        <tr>
-          <td><h3>From</h3></td>
-          <td style="display: inline-block;padding-left: 25%;">
-            <h3>&nbsp;&nbsp; {{ book.from }}</h3>
-          </td>
-        </tr>
-        <tr>
-          <td><h3>To</h3></td>
-          <td style="display: inline-block;padding-left: 30%;">
-            <h3>&nbsp;&nbsp; {{ book.to }}</h3>
-          </td>
-        </tr>
-        <tr>
-          <td><h3>Start Time</h3></td>
-          <td style="display: inline-block;padding-left: 20%;">
-            <h3>&nbsp;&nbsp; {{ book.startTime }}</h3>
-          </td>
-        </tr>
-        <tr>
-          <td><h3>End Time</h3></td>
-          <td style="display: inline-block;padding-left: 20%;">
-            <h3>&nbsp;&nbsp;{{ book.endTime }}</h3>
-          </td>
-        </tr>
+      <!-- Ticket Id-->
+      <div>
+        <label>Booking Id </label> 
+        <input type="text" name="" [(ngModel)]=search.ticketNo formControlName="ticketId"  class="form-control" placeholder="Enter Ticket Id" [class.is-invalid]="TicketId.invalid && TicketId.touched">
 
-        <tr>
-          <td><h3>Ticket Fare</h3></td>
-          <td style="display: inline-block;padding-left: 20%;">
-            <h3>&nbsp;&nbsp; {{ book.price }}</h3>
-          </td>
-        </tr>
-        <tr>
-          <td><h3>Class</h3></td>
-          <td style="display: inline-block;padding-left: 25%;">
-            <h3>&nbsp;&nbsp; {{ book.class }}</h3>
-          </td>
-        </tr>
-        <div class="form-group" style="text-align: center">
-          <button class="register" (click)="open(content, index)">Cancel</button>
-        </div>
-      </table>
-    </div>
-    
-  </div>
+        <div *ngIf="TicketId.invalid && TicketId.touched">
+          <small class="text-danger">TicketId not valid.</small>
+        </div> 
+			</div>
+      
+          <br>
+      <!-- OnSubmit button -->
+      <div class="form-group" style="text-align:center">
+        <button class="btn btn-primary" (click)="searchTicket()">Search Details</button>
+      </div>
+
+      </div>
+    </form>
 </div>
 
+
+
+
+
+<div class="full">
+  <div *ngIf="show" class="main" >
+    <div *ngFor="let book of bookings; let index = index">
+      <div id="print-details">
+        <table>
+          <h2>Booking Details</h2>
+          <tr>
+            <td><h3>Booking-Id</h3></td>
+            <td style="display: inline-block;padding-left: 20%;">
+              <h3>&nbsp;&nbsp;{{ book.bookingId }}</h3>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h3>Date of booking</h3></td>
+            <td style="display: inline-block;padding-left: 14%;">
+              <h3> {{ book.dateOfBooking }}</h3>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h3>Date of Journey</h3></td>
+            <td style="display: inline-block;padding-left: 12%;">
+              <h3>&nbsp;&nbsp;{{ book.dateOfJourney }}</h3>
+            </td>
+          </tr>
+          <tr>
+            <td><h3>Number of Seats</h3></td>
+            <td style="display: inline-block;padding-left: 12%;">
+              <h3>&nbsp;&nbsp; {{ book.numberOfSeats }}</h3>
+            </td>
+          </tr>
+          <tr>
+            <td><h3>Flight Number</h3></td>
+            <td style="display: inline-block;padding-left: 15%;">
+              <h3>&nbsp;&nbsp; {{ book.flightNumber }}</h3>
+            </td>
+          </tr>
+          <tr>
+            <td><h3>From</h3></td>
+            <td style="display: inline-block;padding-left: 25%;">
+              <h3>&nbsp;&nbsp; {{ book.from }}</h3>
+            </td>
+          </tr>
+          <tr>
+            <td><h3>To</h3></td>
+            <td style="display: inline-block;padding-left: 30%;">
+              <h3>&nbsp;&nbsp; {{ book.to }}</h3>
+            </td>
+          </tr>
+          <tr>
+            <td><h3>Start Time</h3></td>
+            <td style="display: inline-block;padding-left: 20%;">
+              <h3>&nbsp;&nbsp; {{ book.startTime }}</h3>
+            </td>
+          </tr>
+          <tr>
+            <td><h3>End Time</h3></td>
+            <td style="display: inline-block;padding-left: 20%;">
+              <h3>&nbsp;&nbsp;{{ book.endTime }}</h3>
+            </td>
+          </tr>
+
+          <tr>
+            <td><h3>Ticket Fare</h3></td>
+            <td style="display: inline-block;padding-left: 20%;">
+              <h3>&nbsp;&nbsp; {{ book.price }}</h3>
+            </td>
+          </tr>
+          <tr>
+            <td><h3>Class</h3></td>
+            <td style="display: inline-block;padding-left: 25%;">
+              <h3>&nbsp;&nbsp; {{ book.class }}</h3>
+            </td>
+          </tr>
+          <div class="form-group" style="text-align: center">
+            <button class="register" (click)="open(content, index)">Cancel</button>
+          </div>
+        </table>
+      </div>
+      
+    </div>
+  
+    <div *ngIf="return"class="main1" >
+      <div *ngFor="let book of bookings; let index = index">
+        <div id="print-details">
+          <table>
+            <h2>Return Booking Details</h2>
+            <tr>
+              <td><h3>Return-Id</h3></td>
+              <td style="display: inline-block;padding-left: 20%;">
+                <h3>&nbsp;&nbsp;{{ book.returnId }}</h3>
+              </td>
+            </tr>
+
+            <tr>
+              <td><h3>Date of booking</h3></td>
+              <td style="display: inline-block;padding-left: 14%;">
+                <h3> {{ book.dateOfBooking }}</h3>
+              </td>
+            </tr>
+
+            <tr>
+              <td><h3>Date of Journey</h3></td>
+              <td style="display: inline-block;padding-left: 12%;">
+                <h3>&nbsp;&nbsp;{{ book.dateOfJourney }}</h3>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Number of Seats</h3></td>
+              <td style="display: inline-block;padding-left: 12%;">
+                <h3>&nbsp;&nbsp; {{ book.numberOfSeats }}</h3>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Flight Number</h3></td>
+              <td style="display: inline-block;padding-left: 15%;">
+                <h3>&nbsp;&nbsp; {{ book.flightNumber }}</h3>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>From</h3></td>
+              <td style="display: inline-block;padding-left: 25%;">
+                <h3>&nbsp;&nbsp; {{ book.from }}</h3>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>To</h3></td>
+              <td style="display: inline-block;padding-left: 30%;">
+                <h3>&nbsp;&nbsp; {{ book.to }}</h3>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Start Time</h3></td>
+              <td style="display: inline-block;padding-left: 20%;">
+                <h3>&nbsp;&nbsp; {{ book.startTime }}</h3>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>End Time</h3></td>
+              <td style="display: inline-block;padding-left: 20%;">
+                <h3>&nbsp;&nbsp;{{ book.endTime }}</h3>
+              </td>
+            </tr>
+
+            <tr>
+              <td><h3>Ticket Fare</h3></td>
+              <td style="display: inline-block;padding-left: 20%;">
+                <h3>&nbsp;&nbsp; {{ book.price }}</h3>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Class</h3></td>
+              <td style="display: inline-block;padding-left: 25%;">
+                <h3>&nbsp;&nbsp; {{ book.class }}</h3>
+              </td>
+            </tr>
+            <div class="form-group" style="text-align: center">
+              <button class="register" (click)="open(content, index)">Cancel</button>
+            </div>
+          </table>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 <ng-template #content let-modal>
   <div class="modal-header">
     <h3 class="modal-title" id="modal-basic-title">

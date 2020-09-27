@@ -10,6 +10,7 @@ export class Booking {
   public endTime: string;
   public class: string;
   public price: string;
+  public returnId: number;
 
   constructor(
     bookingId: string,
@@ -22,7 +23,8 @@ export class Booking {
     startTime: string,
     endTime: string,
     classType: string,
-    price: string
+    price: string,
+    returnId: number
   ) {
     this.bookingId = bookingId;
     this.dateOfBooking = dateOfBooking;
@@ -35,5 +37,6 @@ export class Booking {
     this.to = to;
     this.startTime = startTime;
     this.endTime = endTime;
+    this.returnId= returnId;
   }
 }

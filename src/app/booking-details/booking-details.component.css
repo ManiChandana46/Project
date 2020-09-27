@@ -1,5 +1,7 @@
 .main {
   height: max-content;
+  display:flex;
+  margin-left:20%;
 }
 
 h2 {
