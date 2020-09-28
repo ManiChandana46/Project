@@ -14,18 +14,30 @@ export class BookingDetailsComponent implements OnInit {
   bookings: Booking[] = [];
   book: Booking;
   SearchTicketForm: FormGroup;
-  submitted= false;
-  show=false;
-  return=false;
-  re: number=1;
+  submitted = false;
+  show = false;
+  return = false;
+  re: number = 1;
+  message="";
+  disabled=false;
 
-  get TicketId(){
+  get TicketId() {
     return this.SearchTicketForm.get('ticketId');
   }
 
-  constructor(private modalService: NgbModal,private fb: FormBuilder) {}
+  constructor(private modalService: NgbModal, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem("login") == null)
+    {
+      this.message="*You have to login first";
+      this.disabled=true;
+    }
+    else{
+      this.message="";
+      this.disabled=false;
+    }
+
     this.bookings = [
       new Booking(
         'T303',
@@ -42,25 +54,26 @@ export class BookingDetailsComponent implements OnInit {
         101
       ),
     ];
-    this.SearchTicketForm= this.fb.group({
+    this.SearchTicketForm = this.fb.group({
 
       //TicketId Validator
-      ticketId: ['',[Validators.required, Validators.minLength(1)]]
+      ticketId: ['', [Validators.required, Validators.minLength(1)]]
 
     });
   }
-  search:BookedTiketSearch=new BookedTiketSearch();
-  searchTicket(){
-    this.show=true;
-    alert(JSON.stringify(this.search))
-    if(this.re==1){
-      this.return=true;
+  search: BookedTiketSearch = new BookedTiketSearch();
+  searchTicket() {
+    if (this.SearchTicketForm.valid) {
+      this.show = true;
+      alert(JSON.stringify(this.search))
+      if (this.re == 1) {
+        this.return = true;
 
+      }
     }
-    
-
-      
-    
+    else {
+      alert("Enter TicketId")
+    }
   }
 
   open(content: any, id: number) {
@@ -70,7 +83,7 @@ export class BookingDetailsComponent implements OnInit {
         if (`${result}` === 'Save click') this.bookings.splice(id, 1);
       });
   }
-  
+
 
   // cancel() {
 

@@ -1,7 +1,8 @@
-<div class="container-sm">
-	<h2>Enter Details to search your booked ticket</h2><br>
 
-		<form [formGroup]="SearchTicketForm" (ngSubmit)="f.form.valid" #f="ngForm">
+<div class="container">
+  <p>Search your Booking Details</p>
+  <div style="color: red;font-size: 20px;margin-bottom: 10px;">{{ message }}</div>
+		<form [formGroup]="SearchTicketForm" (ngSubmit)="f.valid" #f="ngForm">
       <div class="form-group">
 
       <!-- Ticket Id-->
@@ -17,16 +18,13 @@
           <br>
       <!-- OnSubmit button -->
       <div class="form-group" style="text-align:center">
-        <button class="btn btn-primary" (click)="searchTicket()">Search Details</button>
+        <input type="submit" value="Search Details" class="btn btn-primary" (click)="searchTicket()" [disabled]="disabled">
       </div>
 
       </div>
     </form>
+   
 </div>
-
-
-
-
 
 <div class="full">
   <div *ngIf="show" class="main" >
