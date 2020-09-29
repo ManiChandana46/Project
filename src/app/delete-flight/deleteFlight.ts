@@ -1,4 +1,4 @@
 export class deleteFlight
 {
-    public flightNumber:number;
+    public flightNumber: number;
 }
