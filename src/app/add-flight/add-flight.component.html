@@ -6,40 +6,55 @@
         <h2>Add Flight</h2>
     </div>
     
-    <form [formGroup]="addFlightForm" method="post" action="">
+    <form #myForm="ngForm" (ngSubmit)="myForm.valid && submit()">
 
         <div class="form-group">
             <label>Flight Number:</label>
             <input type="text" class="form-control" placeholder="Enter the Flight Number" name="flightNumber"
-                formControlName="flightNumber" [(ngModel)]="af.flightNumber" />
+                 [(ngModel)]="af.flightNumber" required #flightNumber="ngModel" />
+                 <div *ngIf="(flightNumber.touched && !flightNumber.valid) || (!flightNumber.valid && myForm.submitted)">
+                    <small class="text-danger">Flight number required</small>
+                    </div>
         </div>
         <div class="One">
             <div class="form-group Two">
                 <label>From:</label>
-                <select class="form-control" formControlName="from" name="from" [(ngModel)]="af.cityFrom"
-                    (change)="Fromcity($event)">
+                <select class="form-control" name="from" [(ngModel)]="af.cityFrom"
+                    (change)="Fromcity($event)" required #fromCity="ngModel" >
                     <option *ngFor="let c of Fromcities" value="{{c}}">{{c}}</option>
                 </select>
+                <div *ngIf="(fromCity.touched && !fromCity.valid) || (!fromCity.valid && myForm.submitted)">
+                    <small class="text-danger">Source city required</small>
+                    </div>
 
             </div>
             <div class="form-group Two">
                 <label>To:</label>
-                <select formControlName="to" class="form-control" name="to" [(ngModel)]="af.cityTo">
+                <select  class="form-control" name="to" [(ngModel)]="af.cityTo" required #toCity="ngModel">
                     <option *ngFor="let c of Tocities" value="{{c}}">{{c}}</option>
                 </select>
+                <div *ngIf="(toCity.touched && !toCity.valid) || (!toCity.valid && myForm.submitted)">
+                    <small class="text-danger">Destination city required</small>
+                    </div>
             </div>
         </div>
         <div class="One">
             <div class="form-group Two">
                 <label>Departure Time:</label>
-                <input type="time" class="form-control" formControlName="departureTime" name="departureTime"
-                    [(ngModel)]="af.departureTime" />
+                <input type="time" class="form-control"  name="departureTime"
+                    [(ngModel)]="af.departureTime" required #departureTime="ngModel" />
+                    <div *ngIf="(departureTime.touched && !departureTime.valid) || (!departureTime.valid && myForm.submitted)">
+                        <small class="text-danger">Departure time required</small>
+                        </div>
             </div>
 
             <div class="form-group Two">
                 <label>Arrival Time:</label>
-                <input type="time" class="form-control" formControlName="arrivalTime" name="arrivalTime"
-                    [(ngModel)]="af.arrivalTime" />
+                <input type="time" class="form-control" name="arrivalTime"
+                    [(ngModel)]="af.arrivalTime" required #arrivalTime="ngModel" />
+                    <div *ngIf="(arrivalTime.touched && !arrivalTime.valid) || (!arrivalTime.valid && myForm.submitted)">
+                        <small class="text-danger">Arrival time required</small>
+                        </div>
             </div>
         </div>
 
@@ -47,18 +62,24 @@
 
             <div class="form-group Two">
                 <label>Week Day:</label>
-                <select formControlName="weekDay" class="form-control" name="weekDay" [(ngModel)]="af.weekDay">
+                <select class="form-control" name="weekDay" [(ngModel)]="af.weekDay" required #weekday="ngModel">
                     <option *ngFor="let c of weekDay" value="{{c}}">{{c}}</option>
                 </select>
+                <div *ngIf="(weekday.touched && !weekday.valid) || (!weekday.valid && myForm.submitted)">
+                    <small class="text-danger">Week day required</small>
+                    </div> 
             </div>
             <div class="form-group Two">
                 <label>Cabin:</label>
-                <input class="form-control cabin" type="text" formControlName="cabin" name="cabin"
-                    placeholder="Number Of Seats" [(ngModel)]="af.cabin" />
+                <input class="form-control cabin" type="text" name="cabin"
+                    placeholder="Number Of Seats" [(ngModel)]="af.cabin" required #cabin="ngModel"/>
+                    <div *ngIf="(cabin.touched && !cabin.valid) || (!cabin.valid && myForm.submitted)">
+                        <small class="text-danger">Cabin required</small>
+                        </div>
             </div>
         </div>
         <div>
-            <button class="btn btn-primary" name="addFlight" (click)="submit()" >Add Flight Details</button>
+            <button class="btn btn-primary" type="submit">Add Flight Details</button>
         </div>
     </form>
 </div>

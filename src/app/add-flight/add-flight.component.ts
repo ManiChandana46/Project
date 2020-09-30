@@ -1,40 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {addFlight} from '../add-flight/addFlight';
 @Component({
   selector: 'app-add-flight',
   templateUrl: './add-flight.component.html',
   styleUrls: ['./add-flight.component.css']
 })
-export class AddFlightComponent implements OnInit {
+export class AddFlightComponent  {
 
-  addFlightForm:FormGroup;
-  constructor(
-    private fb:FormBuilder
-  ) { }
+  
+  constructor() { }
   
   af:addFlight=new addFlight();
   Fromcities=["Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
   Tocities=["Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
   weekDay=["Sunday","Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"];
-
-  ngOnInit(): void {
-    this.buildAddFlightForm();
-  }
-
-  buildAddFlightForm() : void
-  {
-    this.addFlightForm=this.fb.group({
-      flightNumber:['',Validators.required],
-      from:['',Validators.required],
-      to:['',Validators.required],
-      departureTime:['',Validators.required],
-      arrivalTime:['',Validators.required],
-      weekDay:['',Validators.required],
-      cabin:['',Validators.required]
-
-    })
-  }
 
   Fromcity(e)
   {
@@ -45,14 +24,7 @@ export class AddFlightComponent implements OnInit {
 
   submit()
   {
-    if(this.addFlightForm.valid)
-    {
       alert('The new flight has been added successfully!!');
-    }
-    else{
-      alert('Please enter all the fields.')
-    }
-    
   }
 
 }
