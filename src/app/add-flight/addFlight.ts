@@ -5,8 +5,8 @@ export class addFlight {
     public cityFrom:string;
     public cityTo:string;
     public flightNumber:number;
-    public departureTime:Time;
-    public arrivalTime:Time;
+    public departureTime:string;
+    public arrivalTime:string;
     public weekDay:string;
     public cabin:number;
 

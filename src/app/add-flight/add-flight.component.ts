@@ -24,7 +24,8 @@ export class AddFlightComponent  {
 
   submit()
   {
-      alert('The new flight has been added successfully!!');
+    //alert(JSON.stringify(this.af));  
+    alert('The new flight has been added successfully!!');
   }
 
 }
