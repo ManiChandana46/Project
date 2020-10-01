@@ -61,9 +61,13 @@
             <span class="datachild">Age :</span> {{ item.age }}
           </div>
 
-          <div class="child">
-            <span class="datachild">Gender :</span> {{ item.gender }}
+          <div class="child" *ngIf="item.gender === 1">
+            <span class="datachild">Gender :</span> Female
           </div>
+          <div class="child" *ngIf="item.gender === 0">
+            <span class="datachild">Gender :</span> Male
+          </div>
+
         </div>
       </li>
     </ul>
