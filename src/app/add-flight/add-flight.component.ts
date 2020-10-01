@@ -13,7 +13,6 @@ export class AddFlightComponent  {
   af:addFlight=new addFlight();
   Fromcities=["Hyderabad","Chennai","Mumbai","New Delhi","Bangalore"];
   Tocities=["Hyderabad","Chennai","Mumbai","New Delhi","Bangalore"];
-  weekDay=["Sunday","Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"];
 
   Fromcity(e)
   {
@@ -24,7 +23,8 @@ export class AddFlightComponent  {
 
   submit()
   {
-      alert('The new flight has been added successfully!!');
+    //alert(JSON.stringify(this.af));  
+    alert('The new flight has been added successfully!!');
   }
 
 }

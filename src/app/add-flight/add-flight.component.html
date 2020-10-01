@@ -59,19 +59,39 @@
         </div>
 
         <div class="One">
+            <div class="form-group Two">
+                <label>Initial Date of Operation</label>
+                <input type="date" class="form-control" name="initialDate" [(ngModel)]="af.initialDate"
+                required #initialdate="ngModel" />
+                <div *ngIf="(initialdate.touched && !initialdate.valid) || (!initialdate.valid && myForm.submitted)">
+                    <small class="text-danger">Initial Date is required</small>
+                    </div>
+            </div>
+            
+            <div class="form-group Two">
+                <label>Final Date of Operation</label>
+                <input type="date" class="form-control" name="finalDate" [(ngModel)]="af.finalDate"
+                required #finaldate="ngModel" />
+                <div *ngIf="(finaldate.touched && !finaldate.valid) || (!finaldate.valid && myForm.submitted)">
+                    <small class="text-danger">Final Date is required</small>
+                    </div>
+            </div>
+            
+        </div>
+        
+        <div class="One">
 
             <div class="form-group Two">
-                <label>Week Day:</label>
-                <select class="form-control" name="weekDay" [(ngModel)]="af.weekDay" required #weekday="ngModel">
-                    <option *ngFor="let c of weekDay" value="{{c}}">{{c}}</option>
-                </select>
-                <div *ngIf="(weekday.touched && !weekday.valid) || (!weekday.valid && myForm.submitted)">
-                    <small class="text-danger">Week day required</small>
+                <label>Base Price:</label>
+                <input type="text" class="form-control" name="price" [(ngModel)]="af.price"
+                required #baseprice="ngModel" placeholder="Enter the base price" />
+                <div *ngIf="(baseprice.touched && !baseprice.valid) || (!baseprice.valid && myForm.submitted)">
+                    <small class="text-danger">Price is required</small>
                     </div> 
             </div>
             <div class="form-group Two">
                 <label>Cabin:</label>
-                <input class="form-control cabin" type="text" name="cabin"
+                <input class="form-control" type="text" name="cabin"
                     placeholder="Number Of Seats" [(ngModel)]="af.cabin" required #cabin="ngModel"/>
                     <div *ngIf="(cabin.touched && !cabin.valid) || (!cabin.valid && myForm.submitted)">
                         <small class="text-danger">Cabin required</small>
