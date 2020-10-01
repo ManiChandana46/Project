@@ -1,50 +1,53 @@
-.main
-{
-width:550px;
-margin-left:auto;
-margin-right:auto;
-margin-top:50px;
-font-size:16px;
-line-height: 19px;
-font-family: Arial,sans-serif;
-background-color: rgba(157, 184, 211, 0.3);
-padding:20px 30px;
-font-weight: 700;
+.main {
+  width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  font-size: 16px;
+  line-height: 19px;
+  font-family: Arial, sans-serif;
+  background-color: rgba(157, 184, 211, 0.3);
+  padding: 20px 30px;
+  font-weight: 700;
 }
-h2{
-    margin-bottom: 10px;
-    text-align: center;
+h2 {
+  margin-bottom: 10px;
+  text-align: center;
 }
-::placeholder
-{
-    font-size:16px;
+::placeholder {
+  font-size: 16px;
 }
-.One
-{
-    display:flex;
+.One {
+  display: flex;
 }
-.Two
-{
-    margin-right: 60px;
-    
+.Two {
+  margin-right: 60px;
 }
-input[type="time"]
-{
-    width: 170px !important;
-} 
-select{
-    width:170px !important;
+input[type="time"] {
+  width: 170px !important;
 }
-.cabin
-{
-    width:170px !important;
+select {
+  width: 170px !important;
+}
+.cabin {
+  width: 170px !important;
 }
 
-.back
-{
-    position: absolute;
-    left: 80%;
+.back {
+  position: absolute;
+  left: 80%;
 }
-.ForDate{
-    width: 180px;
+.ForDate {
+  width: 180px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+
+.container {
+  position: relative;
 }

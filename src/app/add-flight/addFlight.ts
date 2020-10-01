@@ -1,15 +1,11 @@
-import { Time } from '@angular/common';
-
 export class addFlight {
-
-    public cityFrom:string;
-    public cityTo:string;
-    public flightNumber:number;
-    public departureTime:string;
-    public arrivalTime:string;
-    public initialDate:Date;
-    public finalDate:Date;
-    public price:number;
-    public cabin:number;
-
+  public cityFrom: string;
+  public cityTo: string;
+  public flightNumber: number;
+  public departureTime: string;
+  public arrivalTime: string;
+  public initialDate: Date;
+  public finalDate: Date;
+  public price: number;
+  public cabin: number;
 }

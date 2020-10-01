@@ -1,106 +1,244 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="square-jelly-box"
+>
+  <p style="font-size: 20px; color: white">Adding...</p>
+</ngx-spinner>
+
 <div class="back">
-    <button class="btn btn-primary" routerLink="/dashboard">Back</button>
+  <button class="btn btn-primary" routerLink="/dashboard">Back</button>
 </div>
 <div class="main">
-    <div>
-        <h2>Add Flight</h2>
+  <div>
+    <h2>Add Flight</h2>
+  </div>
+
+  <form #myForm="ngForm" (ngSubmit)="myForm.valid && submit(content)">
+    <div class="form-group">
+      <label>Flight Number:</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter the Flight Number"
+        name="flightNumber"
+        [(ngModel)]="af.flightNumber"
+        required
+        #flightNumber="ngModel"
+      />
+      <div
+        *ngIf="
+          (flightNumber.touched && !flightNumber.valid) ||
+          (!flightNumber.valid && myForm.submitted)
+        "
+      >
+        <small class="text-danger">Flight number required</small>
+      </div>
     </div>
-    
-    <form #myForm="ngForm" (ngSubmit)="myForm.valid && submit()">
+    <div class="One">
+      <div class="form-group Two">
+        <label>From:</label>
+        <select
+          class="form-control"
+          name="from"
+          [(ngModel)]="af.cityFrom"
+          (change)="Fromcity($event)"
+          required
+          #fromCity="ngModel"
+        >
+          <option *ngFor="let c of Fromcities" value="{{ c }}">{{ c }}</option>
+        </select>
+        <div
+          *ngIf="
+            (fromCity.touched && !fromCity.valid) ||
+            (!fromCity.valid && myForm.submitted)
+          "
+        >
+          <small class="text-danger">Source city required</small>
+        </div>
+      </div>
+      <div class="form-group Two">
+        <label>To:</label>
+        <select
+          class="form-control"
+          name="to"
+          [(ngModel)]="af.cityTo"
+          required
+          #toCity="ngModel"
+        >
+          <option *ngFor="let c of Tocities" value="{{ c }}">{{ c }}</option>
+        </select>
+        <div
+          *ngIf="
+            (toCity.touched && !toCity.valid) ||
+            (!toCity.valid && myForm.submitted)
+          "
+        >
+          <small class="text-danger">Destination city required</small>
+        </div>
+      </div>
+    </div>
+    <div class="One">
+      <div class="form-group Two">
+        <label>Departure Time:</label>
+        <input
+          type="time"
+          class="form-control"
+          name="departureTime"
+          [(ngModel)]="af.departureTime"
+          required
+          #departureTime="ngModel"
+        />
+        <div
+          *ngIf="
+            (departureTime.touched && !departureTime.valid) ||
+            (!departureTime.valid && myForm.submitted)
+          "
+        >
+          <small class="text-danger">Departure time required</small>
+        </div>
+      </div>
 
-        <div class="form-group">
-            <label>Flight Number:</label>
-            <input type="text" class="form-control" placeholder="Enter the Flight Number" name="flightNumber"
-                 [(ngModel)]="af.flightNumber" required #flightNumber="ngModel" />
-                 <div *ngIf="(flightNumber.touched && !flightNumber.valid) || (!flightNumber.valid && myForm.submitted)">
-                    <small class="text-danger">Flight number required</small>
-                    </div>
+      <div class="form-group Two">
+        <label>Arrival Time:</label>
+        <input
+          type="time"
+          class="form-control"
+          name="arrivalTime"
+          [(ngModel)]="af.arrivalTime"
+          required
+          #arrivalTime="ngModel"
+        />
+        <div
+          *ngIf="
+            (arrivalTime.touched && !arrivalTime.valid) ||
+            (!arrivalTime.valid && myForm.submitted)
+          "
+        >
+          <small class="text-danger">Arrival time required</small>
         </div>
-        <div class="One">
-            <div class="form-group Two">
-                <label>From:</label>
-                <select class="form-control" name="from" [(ngModel)]="af.cityFrom"
-                    (change)="Fromcity($event)" required #fromCity="ngModel" >
-                    <option *ngFor="let c of Fromcities" value="{{c}}">{{c}}</option>
-                </select>
-                <div *ngIf="(fromCity.touched && !fromCity.valid) || (!fromCity.valid && myForm.submitted)">
-                    <small class="text-danger">Source city required</small>
-                    </div>
+      </div>
+    </div>
 
-            </div>
-            <div class="form-group Two">
-                <label>To:</label>
-                <select  class="form-control" name="to" [(ngModel)]="af.cityTo" required #toCity="ngModel">
-                    <option *ngFor="let c of Tocities" value="{{c}}">{{c}}</option>
-                </select>
-                <div *ngIf="(toCity.touched && !toCity.valid) || (!toCity.valid && myForm.submitted)">
-                    <small class="text-danger">Destination city required</small>
-                    </div>
-            </div>
+    <div class="One">
+      <div class="form-group Two">
+        <label>Initial Date of Operation</label>
+        <input
+          type="date"
+          class="form-control ForDate"
+          name="initialDate"
+          [(ngModel)]="af.initialDate"
+          required
+          #initialdate="ngModel"
+        />
+        <div
+          *ngIf="
+            (initialdate.touched && !initialdate.valid) ||
+            (!initialdate.valid && myForm.submitted)
+          "
+        >
+          <small class="text-danger">Initial Date is required</small>
         </div>
-        <div class="One">
-            <div class="form-group Two">
-                <label>Departure Time:</label>
-                <input type="time" class="form-control"  name="departureTime"
-                    [(ngModel)]="af.departureTime" required #departureTime="ngModel" />
-                    <div *ngIf="(departureTime.touched && !departureTime.valid) || (!departureTime.valid && myForm.submitted)">
-                        <small class="text-danger">Departure time required</small>
-                        </div>
-            </div>
+      </div>
 
-            <div class="form-group Two">
-                <label>Arrival Time:</label>
-                <input type="time" class="form-control" name="arrivalTime"
-                    [(ngModel)]="af.arrivalTime" required #arrivalTime="ngModel" />
-                    <div *ngIf="(arrivalTime.touched && !arrivalTime.valid) || (!arrivalTime.valid && myForm.submitted)">
-                        <small class="text-danger">Arrival time required</small>
-                        </div>
-            </div>
+      <div class="form-group Two">
+        <label>Final Date of Operation</label>
+        <input
+          type="date"
+          class="form-control ForDate"
+          name="finalDate"
+          [(ngModel)]="af.finalDate"
+          required
+          #finaldate="ngModel"
+        />
+        <div
+          *ngIf="
+            (finaldate.touched && !finaldate.valid) ||
+            (!finaldate.valid && myForm.submitted)
+          "
+        >
+          <small class="text-danger">Final Date is required</small>
         </div>
+      </div>
+    </div>
 
-        <div class="One">
-            <div class="form-group Two">
-                <label>Initial Date of Operation</label>
-                <input type="date" class="form-control ForDate" name="initialDate" [(ngModel)]="af.initialDate"
-                required #initialdate="ngModel" />
-                <div *ngIf="(initialdate.touched && !initialdate.valid) || (!initialdate.valid && myForm.submitted)">
-                    <small class="text-danger">Initial Date is required</small>
-                    </div>
-            </div>
-            
-            <div class="form-group Two">
-                <label>Final Date of Operation</label>
-                <input type="date" class="form-control ForDate" name="finalDate" [(ngModel)]="af.finalDate"
-                required #finaldate="ngModel" />
-                <div *ngIf="(finaldate.touched && !finaldate.valid) || (!finaldate.valid && myForm.submitted)">
-                    <small class="text-danger">Final Date is required</small>
-                    </div>
-            </div>
-            
+    <div class="One">
+      <div class="form-group Two">
+        <label>Base Price:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="price"
+          [(ngModel)]="af.price"
+          required
+          #baseprice="ngModel"
+          placeholder="Enter the base price"
+        />
+        <div
+          *ngIf="
+            (baseprice.touched && !baseprice.valid) ||
+            (!baseprice.valid && myForm.submitted)
+          "
+        >
+          <small class="text-danger">Price is required</small>
         </div>
-        
-        <div class="One">
-
-            <div class="form-group Two">
-                <label>Base Price:</label>
-                <input type="text" class="form-control" name="price" [(ngModel)]="af.price"
-                required #baseprice="ngModel" placeholder="Enter the base price" />
-                <div *ngIf="(baseprice.touched && !baseprice.valid) || (!baseprice.valid && myForm.submitted)">
-                    <small class="text-danger">Price is required</small>
-                    </div> 
-            </div>
-            <div class="form-group Two">
-                <label>Cabin:</label>
-                <input class="form-control" type="text" name="cabin"
-                    placeholder="Number Of Seats" [(ngModel)]="af.cabin" required #cabin="ngModel"/>
-                    <div *ngIf="(cabin.touched && !cabin.valid) || (!cabin.valid && myForm.submitted)">
-                        <small class="text-danger">Cabin required</small>
-                        </div>
-            </div>
+      </div>
+      <div class="form-group Two">
+        <label>Cabin:</label>
+        <input
+          class="form-control"
+          type="text"
+          name="cabin"
+          placeholder="Number Of Seats"
+          [(ngModel)]="af.cabin"
+          required
+          #cabin="ngModel"
+        />
+        <div
+          *ngIf="
+            (cabin.touched && !cabin.valid) ||
+            (!cabin.valid && myForm.submitted)
+          "
+        >
+          <small class="text-danger">Cabin required</small>
         </div>
-        <div>
-            <button class="btn btn-primary" type="submit">Add Flight Details</button>
-        </div>
-    </form>
+      </div>
+    </div>
+    <div class="container">
+      <div class="center">
+        <button class="btn btn-primary" type="submit">
+          Add Flight Details
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
 
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div>Flight Added</div>
+  </div>
+
+  <div class="modal-footer">
+    <button
+      type="button"
+      id="yes"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
