@@ -5,6 +5,11 @@ import { PasswordValidator } from '../../assets/shared/password.validator';
 import { ContactNumberValidator } from '../../assets/shared/contact-number.validator';
 import{ User} from '../user';
 import { Router } from '@angular/router';
+import { DataService } from "../data.service";
+import { HttpClient } from '@angular/common/http';
+import { RegisterStatus } from '../registerStatus';
+
+import { AirlinesServiceService } from "../airlines-service.service";
 
 
 @Component({
@@ -39,7 +44,7 @@ export class RegistrationComponent implements OnInit {
 
 
   //constructor
-  constructor(private fb: FormBuilder,private router:Router){}
+  constructor(private fb: FormBuilder,private router:Router,private service: AirlinesServiceService , private http: HttpClient){}
 
 
 
@@ -78,7 +83,7 @@ export class RegistrationComponent implements OnInit {
   }
   
   //submit on click.
-  register(){
+  /*register(){
     this.submitted = true;
     if (this.registerForm.invalid) {
       this.registerForm.markAsTouched(); //fields will remain marked once filled. Even after submit.
@@ -92,9 +97,26 @@ export class RegistrationComponent implements OnInit {
       sessionStorage.setItem("registerDetails",JSON.stringify(this.user));
       this.router.navigate(['/login']);
       //alert('Details Has Been Registered.');
-     /* let resp=this.service.doRegistration(this.user);
+     let resp=this.service.doRegistration(this.user);
       resp.subscribe((data)=>this.message=data)
-      this.router.navigate(['/dashboardLink']);*/
+      this.router.navigate(['/dashboardLink']);
     }
-  }
+  }*/
+  search:User=new User();
+  searchb:RegisterStatus;
+  info:String;
+  register(){
+    //alert(JSON.stringify(this.search));
+    this.service.register(this.search).subscribe(data=>{
+      if(data.status=="SUCCESS"){
+        console.log(data.message);
+        this.info=data.message;
+      }
+      else{
+        this.info=data.message;
+        console.log(data.message);
+      }
+    })
+    
+    }
 }
