@@ -1,5 +1,5 @@
-export interface Passenger {
+export class Passenger {
   name: string;
-  age: string;
-  gender: string;
+  age: number;
+  gender: number;
 }
