@@ -1,4 +1,4 @@
-import { Time } from '@angular/common';
+
 export class Select {
     public cityFrom: string;
     public cityTo: string;

@@ -24,8 +24,8 @@ export class SearchModuleComponent implements OnInit {
   returnDisable=true;
   active="activeclass";
   returnactive="";
-  Fromcities=["Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
-  Tocities=["Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
+  Fromcities=["Hyderabad","Chennai","Mumbai","New Delhi","Bangalore"];
+  Tocities=["Hyderabad","Chennai","Mumbai","New Delhi","Bangalore"];
   todayString:string=new Date().toDateString();
   todaydate;
 
@@ -33,13 +33,12 @@ export class SearchModuleComponent implements OnInit {
 
   ngOnInit(): void {
     this.todaydate=this.datepipe.transform(this.todayString,'yyyy-MM-dd');
-     console.log(this.todaydate);
   }
 
 
   Fromcity(e)
   {
-    this.Tocities=["SelectCity","Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
+    this.Tocities=["SelectCity","Hyderabad","Chennai","Mumbai","New Delhi","Bangalore"];
     const index:number = this.Tocities.indexOf(e.target.value);
     this.Tocities.splice(index,1);
   }
@@ -49,7 +48,7 @@ export class SearchModuleComponent implements OnInit {
     let temp=this.sd.cityFrom
     this.sd.cityFrom=this.sd.cityTo;
     this.sd.cityTo=temp;
-    this.Tocities=["Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
+    this.Tocities=["Hyderabad","Chennai","Mumbai","New Delhi","Bangalore"];
     const index:number = this.Tocities.indexOf(this.sd.cityFrom);
     this.Tocities.splice(index,1);
   }
@@ -133,6 +132,9 @@ export class SearchModuleComponent implements OnInit {
 
   submit()
   {
+    const d=new Date(this.sd.travelDate);
+    console.log(d);
+    console.log(d.getDay());
     alert(JSON.stringify(this.sd));
     sessionStorage.setItem("searchDetails",JSON.stringify(this.sd));
     this.router.navigate(['/selectflight']);
