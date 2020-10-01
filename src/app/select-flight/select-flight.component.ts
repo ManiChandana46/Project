@@ -12,6 +12,7 @@ import { SearchDetails } from '../search-module/search-details';
 export class SelectFlightComponent implements OnInit {
 
   flight: Select;
+  returnFlight:Select;
   flights: Select[] = [];
   returnflights: Select[] = [];
   returnclass = "";
@@ -20,6 +21,9 @@ export class SelectFlightComponent implements OnInit {
   mainclass = "";
   returnstatus;
   sd: SearchDetails;
+  oneWaySearch;
+  ReturnSearch;
+  statusMessage;
 
 
 
@@ -38,15 +42,21 @@ export class SelectFlightComponent implements OnInit {
 
   ngOnInit(): void {
     this.sd = JSON.parse(sessionStorage.getItem("searchDetails"));
-    this.flights = [
-      new Select("Mumbai", "Hyderabad", "09:00", "11:00", 2, 4000, 101, "Economy", 4000),
-      new Select("Mumbai", "Hyderabad", "14:00", "16:00", 2, 4400, 102, "Economy", 4400)
-    ];
-    if (this.sd.journeyType == "twoWay") {
-      this.returnflights = [
-        new Select("Hyderabad", "Mumbai", "11:00", "13:00", 2, 4500, 103, "Economy", 4500),
-        new Select("Hyderabad", "Mumbai", "19:00", "21:00", 2, 4900, 104, "Economy", 4900)
-      ]
+    this.oneWaySearch=JSON.parse(sessionStorage.getItem("OneWaySearch"));
+    this.ReturnSearch=JSON.parse(sessionStorage.getItem("ReturnSearch"));
+    for(let i=0;i<this.oneWaySearch.length;i++)
+      {
+      this.flight=new Select(this.oneWaySearch[i][5],this.oneWaySearch[i][6],this.oneWaySearch[i][1],this.oneWaySearch[i][0],this.oneWaySearch[i][7],this.oneWaySearch[i][3],this.oneWaySearch[i][4],"Economy",this.oneWaySearch[i][3]);
+      this.flights.push(this.flight);
+      }
+    if(this.ReturnSearch!=null)
+    {
+      for(let j=0;j<this.ReturnSearch.length;j++)
+      {
+      this.returnFlight=new Select(this.ReturnSearch[j][5],this.ReturnSearch[j][6],this.ReturnSearch[j][1],this.ReturnSearch[j][0],this.ReturnSearch[j][7],this.ReturnSearch[j][3],this.ReturnSearch[j][4],"Economy",this.ReturnSearch[j][3]);
+      this.returnflights.push(this.returnFlight);
+      }
+      
     }
 
     // this.setForm();

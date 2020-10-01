@@ -5,6 +5,6 @@ export class SearchDetails {
     public travelDate:Date;
     public returnTravelDate:Date;
     public noOfPassengers:number=1;
-    public journeyType:string;
+    //public journeyType:string;
 
 }

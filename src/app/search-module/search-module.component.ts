@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { SearchDetails } from '../search-module/search-details';
 import { Router } from '@angular/router';
+import {SearchService} from '../search.service';
 
 @Component({
   selector: 'app-search-module',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class SearchModuleComponent implements OnInit {
 
   
-  constructor(private datepipe:DatePipe,private router: Router) { }
+  constructor(private datepipe:DatePipe,private router: Router,private searchService:SearchService) { }
 
   sd:SearchDetails=new SearchDetails();
   infantNumber=0;
@@ -28,11 +29,14 @@ export class SearchModuleComponent implements OnInit {
   Tocities=["Hyderabad","Chennai","Mumbai","New Delhi","Bangalore"];
   todayString:string=new Date().toDateString();
   todaydate;
+  Errormessage;
+  styleForErrorMessage;
 
 
 
   ngOnInit(): void {
     this.todaydate=this.datepipe.transform(this.todayString,'yyyy-MM-dd');
+    this.styleForErrorMessage="";
   }
 
 
@@ -116,7 +120,7 @@ export class SearchModuleComponent implements OnInit {
 
   oneway()
   {
-    this.sd.journeyType="oneWay";
+    //this.sd.journeyType="oneWay";
     this.returnDisable=true;
     this.active="activeclass";
     this.returnactive="";
@@ -124,7 +128,7 @@ export class SearchModuleComponent implements OnInit {
 
   return()
   {
-    this.sd.journeyType="twoWay";
+    //this.sd.journeyType="twoWay";
     this.returnDisable=false;
     this.active="";
     this.returnactive="activeclass";
@@ -132,12 +136,20 @@ export class SearchModuleComponent implements OnInit {
 
   submit()
   {
-    const d=new Date(this.sd.travelDate);
-    console.log(d);
-    console.log(d.getDay());
-    alert(JSON.stringify(this.sd));
-    sessionStorage.setItem("searchDetails",JSON.stringify(this.sd));
-    this.router.navigate(['/selectflight']);
+    this.searchService.searchFlights(this.sd).subscribe((data) =>{
+      if(data.statusMessage=="Successful") {
+        sessionStorage.setItem("searchDetails",JSON.stringify(this.sd));
+        sessionStorage.setItem("OneWaySearch",JSON.stringify(data.searchResults));
+        sessionStorage.setItem("ReturnSearch",JSON.stringify(data.returnResults));
+        sessionStorage.setItem("statusMessage",data.statusMessage);
+        this.router.navigate(['/selectflight']);
+      }
+      else{
+        this.Errormessage=data.statusMessage;
+        this.styleForErrorMessage="styleforH2";
+
+      }
+    })
   }
 
 }
