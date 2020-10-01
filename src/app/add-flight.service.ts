@@ -9,7 +9,7 @@ export class AddFlightService {
   constructor(private http : HttpClient) { }
 
   addFlight(Object) : Observable<any> {
-    let url= "http://localhost:9191/addFlight";
+    let url= "http://localhost:8181/addFlight";
     return this.http.post(url,Object);
   }
 

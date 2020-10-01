@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Passenger } from './Passenger';
 
 @Component({
@@ -15,6 +16,8 @@ export class PersonalInfoComponent implements OnInit {
   noOfPassenger: number;
   limit: number;
   myItem: any;
+  constructor(private router:Router)
+  {}
 
   ngOnInit() {
     this.list = [];
@@ -62,5 +65,11 @@ export class PersonalInfoComponent implements OnInit {
     this.noOfPassenger--;
     (<HTMLInputElement>document.getElementById('addPass')).disabled = false;
     (<HTMLInputElement>document.getElementById('continue')).disabled = true;
+  }
+
+  continue()
+  {
+    console.log(this.list);
+    this.router.navigate(['/payment']);
   }
 }
