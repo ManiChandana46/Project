@@ -1,4 +1,4 @@
-export interface loginDetails {
+export class loginDetails {
   email: string;
   password: string;
 }

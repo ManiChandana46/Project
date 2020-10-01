@@ -28,6 +28,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DeleteBookingComponent } from './delete-booking/delete-booking.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { AboutPageComponent } from './about-page/about-page.component';
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
  ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

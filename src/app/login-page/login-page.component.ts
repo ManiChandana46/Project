@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { loginDetails } from './login-details';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login-page',
@@ -14,7 +15,10 @@ export class LoginPageComponent implements OnInit {
   adminEmail: string;
   adminPassword: string;
 
-  constructor(private router: Router) {}
+  login: loginDetails = new loginDetails();
+  message: string;
+
+  constructor(private router: Router, private loginService: LoginService) {}
 
   ngOnInit(): void {
     this.userEmail = '';
@@ -24,19 +28,34 @@ export class LoginPageComponent implements OnInit {
   }
 
   userSignIn() {
-    const newItem: loginDetails = {
-      email: this.userEmail,
-      password: this.userPassword,
-    };
+    this.login.email = this.userEmail;
+    this.login.password = this.userPassword;
 
-    sessionStorage.setItem('login', JSON.stringify(true));
-    if (sessionStorage.getItem('searchDetails') == null) {
-      this.router.navigate(['/search']);
-    } else if (sessionStorage.getItem('oneWayDetails') == null) {
-      this.router.navigate(['/selectflight']);
-    } else {
-      this.router.navigate(['/reviewBooking']);
-    }
+    console.log(this.login);
+    this.loginService.login(this.login).subscribe((response) => {
+      console.log(response);
+      if (response.status == true) {
+        console.log('Welcome back ' + response.firstName);
+        sessionStorage.setItem('customerId', response.customerId);
+        sessionStorage.setItem('firstName', response.firstName);
+        sessionStorage.setItem('login', JSON.stringify(true));
+        if (sessionStorage.getItem('searchDetails') == null) {
+          this.router.navigate(['/search']);
+        } else if (sessionStorage.getItem('oneWayDetails') == null) {
+          this.router.navigate(['/selectflight']);
+        } else {
+          this.router.navigate(['/reviewBooking']);
+        }
+      } else {
+        this.message = response.statusMessage;
+        console.log(this.message);
+      }
+    });
+
+    // const newItem: loginDetails = {
+    //   email: this.userEmail,
+    //   password: this.userPassword,
+    // };
   }
   userSignUp() {
     this.router.navigate(['/registration']);
