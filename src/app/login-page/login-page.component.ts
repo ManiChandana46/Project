@@ -35,7 +35,7 @@ export class LoginPageComponent implements OnInit {
     this.loginService.login(this.login).subscribe((response) => {
       console.log(response);
       if (response.status == true) {
-        console.log('Welcome back ' + response.firstName);
+        //console.log('Welcome back ' + response.firstName);
         sessionStorage.setItem('customerId', response.customerId);
         sessionStorage.setItem('firstName', response.firstName);
         sessionStorage.setItem('login', JSON.stringify(true));
@@ -48,7 +48,8 @@ export class LoginPageComponent implements OnInit {
         }
       } else {
         this.message = response.statusMessage;
-        console.log(this.message);
+        alert(this.message);
+        //console.log(this.message);
       }
     });
 

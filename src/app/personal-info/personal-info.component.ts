@@ -4,10 +4,9 @@ import { Passenger } from './Passenger';
 @Component({
   selector: 'app-personal-info',
   templateUrl: './personal-info.component.html',
-  styleUrls: ['./personal-info.component.css']
+  styleUrls: ['./personal-info.component.css'],
 })
 export class PersonalInfoComponent implements OnInit {
-
   name: string;
   age: string;
   gender: string;
@@ -23,21 +22,20 @@ export class PersonalInfoComponent implements OnInit {
     this.age = '';
     this.gender = 'Male';
     this.noOfPassenger = 0;
-    this.myItem=JSON.parse(sessionStorage.getItem("searchDetails"));
+    this.myItem = JSON.parse(sessionStorage.getItem('searchDetails'));
     this.limit = this.myItem.noOfPassengers;
     (<HTMLInputElement>document.getElementById('continue')).disabled = true;
   }
 
-
   addPassenger() {
-
-    let addedPassenger = this.list.find(o => o.name.toLowerCase() === this.name.toLowerCase());
+    let addedPassenger = this.list.find((o) => o.name.toLowerCase() === this.name.toLowerCase());
 
     if (this.name !== '' && this.age !== '' && this.gender !== '' && addedPassenger === undefined) {
+
       const newItem: Passenger = {
         name: this.name,
-        age: this.age,
-        gender: this.gender,
+        age: Number(this.age),
+        gender: this.gender === 'Male' ? 0 : 1,
       };
       this.list.push(newItem);
       this.noOfPassenger++;
@@ -47,16 +45,16 @@ export class PersonalInfoComponent implements OnInit {
     }
 
     else if (this.name === '' || this.age === '')
-      alert("Please fill all the required feilds");
-
+      alert('Please fill all the required feilds');
     else {
-      alert(this.name + " already added");
+      alert(this.name + ' already added');
     }
 
     if (this.noOfPassenger === this.limit) {
       (<HTMLInputElement>document.getElementById('addPass')).disabled = true;
       (<HTMLInputElement>document.getElementById('continue')).disabled = false;
     }
+
   }
 
   deleteName(index: number) {
@@ -65,5 +63,4 @@ export class PersonalInfoComponent implements OnInit {
     (<HTMLInputElement>document.getElementById('addPass')).disabled = false;
     (<HTMLInputElement>document.getElementById('continue')).disabled = true;
   }
-
 }

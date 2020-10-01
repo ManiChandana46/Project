@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {addFlight} from '../add-flight/addFlight';
+import { AddFlightService } from '../add-flight.service';
 @Component({
   selector: 'app-add-flight',
   templateUrl: './add-flight.component.html',
@@ -8,7 +9,7 @@ import {addFlight} from '../add-flight/addFlight';
 export class AddFlightComponent  {
 
   
-  constructor() { }
+  constructor(private addFlightService : AddFlightService) { }
   
   af:addFlight=new addFlight();
   Fromcities=["Hyderabad","Chennai","Mumbai","New Delhi","Bangalore"];
@@ -24,7 +25,15 @@ export class AddFlightComponent  {
   submit()
   {
     //alert(JSON.stringify(this.af));  
-    alert('The new flight has been added successfully!!');
+    //alert('The new flight has been added successfully!!');
+    this.addFlightService.addFlight(this.af).subscribe(response =>{
+      if(response.status == true) {
+        alert('The new flight has been added successfully!!');
+      }
+      else {
+        alert('Could not add flight');
+      }
+    })
   }
 
 }
