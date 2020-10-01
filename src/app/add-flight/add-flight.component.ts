@@ -13,7 +13,6 @@ export class AddFlightComponent  {
   af:addFlight=new addFlight();
   Fromcities=["Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
   Tocities=["Hyderabad","Chennai","Mumbai","New Delhi","Banglore"];
-  weekDay=["Sunday","Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"];
 
   Fromcity(e)
   {

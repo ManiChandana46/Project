@@ -7,7 +7,9 @@ export class addFlight {
     public flightNumber:number;
     public departureTime:string;
     public arrivalTime:string;
-    public weekDay:string;
+    public initialDate:Date;
+    public finalDate:Date;
+    public price:number;
     public cabin:number;
 
 }
