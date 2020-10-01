@@ -38,6 +38,7 @@ export class AddFlightComponent {
     //alert('The new flight has been added successfully!!');
     this.spinner.show();
     this.addFlightService.addFlight(this.af).subscribe((response) => {
+      
       if (response.status == true) {
         this.spinner.hide();
         this.modalService.open(content).result.then();

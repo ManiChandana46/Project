@@ -65,6 +65,8 @@ export class LoginPageComponent implements OnInit {
     //admin user name and password
     if (this.adminEmail == 'aviation' && this.adminPassword == 'aviation') {
       alert('login..');
+      sessionStorage.setItem('AdminUsername','aviation');
+      sessionStorage.setItem('Password','aviation');
       this.router.navigate(['/dashboard']);
     } else {
       alert('Enter Correct username or password');
