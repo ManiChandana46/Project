@@ -8,10 +8,17 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit{
   title = 'Airlines';
-  loginMessage="Login/SignUp";
+  loginMessage=" Login/SignUp";
+  disableContext=false;
+
     constructor(private router:Router)
     {}
   ngOnInit(){
+    if(!sessionStorage.getItem("login"))
+    {
+    sessionStorage.setItem('login', 'false');
+    sessionStorage.setItem('adminLogin','false');
+    }
     // if(sessionStorage.getItem("login"))
     // {
     //   this.loginMessage=sessionStorage.getItem("firstName");
@@ -23,8 +30,33 @@ export class AppComponent implements OnInit{
 
   }
 
+  Idle()
+  {
+    if(sessionStorage.getItem("login")=="true"){
+      this.loginMessage=" "+sessionStorage.getItem("userName");
+      this.disableContext=true;
+      //console.log("user");
+    }
+    if(sessionStorage.getItem("adminLogin")=="true"){
+      this.loginMessage=" "+sessionStorage.getItem("AdminUsername");
+      this.disableContext=true;
+     // console.log("admin");
+    }
+    return true;
+  }
+
   Booking()
   {
         this.router.navigate(['/bookingDetails']);
+  }
+
+  Logout()
+  {
+    sessionStorage.clear();
+    sessionStorage.setItem('login', 'false');
+    sessionStorage.setItem('adminLogin','false');
+    this.loginMessage=" Login/SignUp";
+    this.disableContext=false;
+    this.router.navigate(['/search']);
   }
 }

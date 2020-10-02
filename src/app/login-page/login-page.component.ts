@@ -37,8 +37,8 @@ export class LoginPageComponent implements OnInit {
       if (response.status == true) {
         //console.log('Welcome back ' + response.firstName);
         sessionStorage.setItem('customerId', response.customerId);
-        sessionStorage.setItem('firstName', response.firstName);
-        sessionStorage.setItem('login', JSON.stringify(true));
+        sessionStorage.setItem('userName', response.firstName+" "+response.lastName);
+        sessionStorage.setItem('login', 'true');
         if (sessionStorage.getItem('searchDetails') == null) {
           this.router.navigate(['/search']);
         } else if (sessionStorage.getItem('oneWayDetails') == null) {
