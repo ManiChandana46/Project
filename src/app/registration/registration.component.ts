@@ -102,19 +102,19 @@ export class RegistrationComponent implements OnInit {
       this.router.navigate(['/dashboardLink']);
     }
   }*/
-  search:User=new User();
+ // search:User=new User();
   searchb:RegisterStatus;
   info:String;
   register(){
-    //alert(JSON.stringify(this.search));
-    this.service.register(this.search).subscribe(data=>{
-      if(data.status=="SUCCESS"){
-        console.log(data.message);
-        this.info=data.message;
+    alert(JSON.stringify(this.user));
+    this.service.register(this.user).subscribe(data=>{
+      if(data.status==true){
+        console.log(data.statusMessage);
+        this.info=data.statusMessage;
       }
       else{
-        this.info=data.message;
-        console.log(data.message);
+        this.info=data.statusMessage;
+        console.log(data.statusMessage);
       }
     })
     

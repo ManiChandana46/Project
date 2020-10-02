@@ -1,4 +1,4 @@
 export class RegisterStatus{
-    status: String;
-    message: String;
+    status: boolean;
+    statusMessage: string;
 }

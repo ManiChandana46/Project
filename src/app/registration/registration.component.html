@@ -20,7 +20,7 @@
 
 			<!-- First Name -->
 			<label for="fName" >First Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
-			<input type="text" formControlName="fName" [(ngModel)]=user.firstName
+			<input type="text" formControlName="fName" [(ngModel)]=user.customerFirstName
 				[class.is-invalid]="registerForm.controls.fName.invalid && FName.touched" class="form-control"
 				placeholder="Enter First Name">
 
@@ -35,7 +35,7 @@
 			<label for="lName">Last Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;
 			</label>
-			<input formControlName="lName" type="text" [(ngModel)]=user.lastName
+			<input formControlName="lName" type="text" [(ngModel)]=user.customerLastName
 				[class.is-invalid]="LName.invalid && LName.touched" class="form-control" placeholder="Enter Last Name">
 
 			<div *ngIf="LName.invalid && LName.touched">
@@ -48,7 +48,7 @@
 		<div class="One">
 		<div class="form-group Two">
 			<label>Contact Number</label>
-			<input type="number" formControlName="contactNumber" [(ngModel)]=user.phone class="form-control"
+			<input type="number" formControlName="contactNumber" [(ngModel)]=user.customerPhoneNo class="form-control"
 				[class.is-invalid]="ContactNumber.invalid && ContactNumber.touched" class="form-control"
 				class="form-control" placeholder="Enter Contact Number">
 
@@ -61,7 +61,7 @@
 			<label>Email Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;
 			</label>
-			<input type="email" formControlName="email" [(ngModel)]=user.email
+			<input type="email" formControlName="email" [(ngModel)]=user.customerEmail
 				[class.is-invalid]="Email.invalid && Email.touched" class="form-control" class="form-control"
 				placeholder="Enter Email Address">
 
@@ -75,7 +75,7 @@
 		<div class="One">
 		<div class="form-group Two">
 			<label>Password &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-			<input type="password" formControlName="password" [(ngModel)]=user.password class="form-control"
+			<input type="password" formControlName="password" [(ngModel)]=user.customerPassword class="form-control"
 				placeholder="Enter 8 digit Password"
 				[class.is-invalid]="registerForm.controls.password.invalid && registerForm.controls.password.touched">
 

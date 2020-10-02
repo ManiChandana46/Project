@@ -1,10 +1,10 @@
 export class User{
-    
-    
-    email:String;
-    firstName:String;
-    lastName:String;
-    password:String;
-    phone:number;
+
+    customerEmail:String;
+    customerFirstName:String;
+    customerLastName:String;
+    customerPassword:String;
+    customerPhoneNo:number;
+    customerDateOfBirth:Date;
 
 }

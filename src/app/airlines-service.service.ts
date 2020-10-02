@@ -11,8 +11,8 @@ export class AirlinesServiceService {
 
   constructor(private http:HttpClient) { }
 
-  register(user:User){
-    let url="http://localhost:8080/addregistration";
+  register(user:User):Observable<RegisterStatus>{
+    let url="http://localhost:8181/addregistration";
     return this.http.post<RegisterStatus>(url,user);
   }
 }
