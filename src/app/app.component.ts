@@ -19,14 +19,6 @@ export class AppComponent implements OnInit{
     sessionStorage.setItem('login', 'false');
     sessionStorage.setItem('adminLogin','false');
     }
-    // if(sessionStorage.getItem("login"))
-    // {
-    //   this.loginMessage=sessionStorage.getItem("firstName");
-    // }
-    // if(sessionStorage.getItem("adminLogin"))
-    // {
-    //   this.loginMessage=sessionStorage.getItem("AdminUsername")
-    // }
 
   }
 

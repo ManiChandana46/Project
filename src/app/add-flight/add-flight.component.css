@@ -24,13 +24,17 @@ h2 {
   margin-right: 60px;
 }
 input[type="time"] {
-  width: 170px !important;
+  width: 200px !important;
 }
 select {
-  width: 170px !important;
+  width: 200px !important;
 }
-.cabin {
-  width: 170px !important;
+.price{
+  width: 200px !important;
+}
+.cabin
+{
+  width: 200px !important;
 }
 
 .back {
@@ -38,9 +42,8 @@ select {
   left: 80%;
 }
 .ForDate {
-  width: 180px;
+  width: 200px !important;
 }
-
 .center {
   display: flex;
   justify-content: center;
