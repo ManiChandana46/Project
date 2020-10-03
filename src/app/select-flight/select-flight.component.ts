@@ -97,13 +97,13 @@ export class SelectFlightComponent implements OnInit {
       if (this.returnflights.length != 0 && this.returnstatus == 1) {
         console.log(this.returnfly);
         sessionStorage.setItem("returnDetails", JSON.stringify(this.returnfly));
-        if (sessionStorage.getItem("login") == null)
+        if (sessionStorage.getItem("login") == 'false')
           this.router.navigate(['/login']);
         else
           this.router.navigate(['/reviewBooking']);
       }
       else if (this.returnflights.length == 0) {
-        if (sessionStorage.getItem("login") == null)
+        if (sessionStorage.getItem("login") == 'false')
           this.router.navigate(['/login']);
         else
           this.router.navigate(['/reviewBooking']);
