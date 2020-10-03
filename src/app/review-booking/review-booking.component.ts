@@ -34,6 +34,10 @@ export class ReviewBookingComponent implements OnInit {
     this.totalFare=this.baseFare+this.charges; 
     }
 
+    sessionStorage.setItem("totalFare",this.totalFare);
+
+
+
   }
 
 

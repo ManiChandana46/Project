@@ -70,6 +70,7 @@ export class PersonalInfoComponent implements OnInit {
   continue()
   {
     console.log(this.list);
+    sessionStorage.setItem("passesngersList",JSON.stringify(this.list));
     this.router.navigate(['/payment']);
   }
 }
