@@ -141,7 +141,7 @@ export class SearchModuleComponent implements OnInit {
         sessionStorage.setItem("searchDetails",JSON.stringify(this.sd));
         sessionStorage.setItem("OneWaySearch",JSON.stringify(data.searchResults));
         sessionStorage.setItem("ReturnSearch",JSON.stringify(data.returnResults));
-        sessionStorage.setItem("statusMessage",data.statusMessage);
+       // sessionStorage.setItem("statusMessage",data.statusMessage);
         this.router.navigate(['/selectflight']);
       }
       else{
