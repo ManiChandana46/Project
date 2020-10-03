@@ -12,15 +12,16 @@ import { AirlinesServiceService } from '../airlines-service.service';
 })
 export class BookingDetailsComponent implements OnInit {
   booking: Booking;
-  bookings: Booking[] = [];
+  bookings: Booking;
   book: Booking;
   SearchTicketForm: FormGroup;
   submitted = false;
   show = false;
   return = false;
-  re: number = 1;
+ 
   message="";
   disabled=false;
+  show1 = false;
 
   get TicketId() {
     return this.SearchTicketForm.get('ticketId');
@@ -72,8 +73,15 @@ export class BookingDetailsComponent implements OnInit {
 
       }*/
       this.show = true;
-      this.service.bookedTicketSearch(this.search).subscribe((searchb:Booking[])=>{
-        this.bookings=searchb;
+      this.service.bookedTicketSearch(this.search).subscribe((response)=>{
+        //if(this.bookings.returnId!=null){
+          //this.show1=true;
+          this.bookings=response
+        //}
+        //else{
+          //this.bookings=response;
+        //}
+        
       })
     }
     else {
@@ -86,7 +94,7 @@ export class BookingDetailsComponent implements OnInit {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {
-        if (`${result}` === 'Save click') this.bookings.splice(id, 1);
+        //if (`${result}` === 'Save click') this.bookings.splice(id, 1);
       });
   }
 

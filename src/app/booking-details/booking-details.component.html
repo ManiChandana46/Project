@@ -28,7 +28,7 @@
 
 <div class="full">
   <div *ngIf="show" class="main" >
-    <div *ngFor="let book of bookings; let index = index">
+    <div  let index = "index">
       <div id="print-details">
         <table>
           <h2>Booking Details</h2>
@@ -63,33 +63,39 @@
             <td style="display: inline-block;padding-left: 15%;">
               <h3>&nbsp;&nbsp; {{ book.flightNumber }}</h3>
             </td>
-          </tr>
+          </tr>-->
           <tr>
             <td><h3>From</h3></td>
             <td style="display: inline-block;padding-left: 25%;">
-              <h3>&nbsp;&nbsp; {{ book.from }}</h3>
+              <h3>&nbsp;&nbsp; {{ bookings.from }}</h3>
             </td>
           </tr>
           <tr>
             <td><h3>To</h3></td>
             <td style="display: inline-block;padding-left: 30%;">
-              <h3>&nbsp;&nbsp; {{ book.to }}</h3>
+              <h3>&nbsp;&nbsp; {{ bookings.to }}</h3>
             </td>
           </tr>
           <tr>
             <td><h3>Start Time</h3></td>
             <td style="display: inline-block;padding-left: 20%;">
-              <h3>&nbsp;&nbsp; {{ book.startTime }}</h3>
+              <h3>&nbsp;&nbsp; {{ bookings.startTime }}</h3>
             </td>
           </tr>
           <tr>
             <td><h3>End Time</h3></td>
             <td style="display: inline-block;padding-left: 20%;">
-              <h3>&nbsp;&nbsp;{{ book.endTime }}</h3>
+              <h3>&nbsp;&nbsp;{{ bookings.endTime }}</h3>
+            </td>
+          </tr>
+          <tr>
+            <td><h3>Seats Selected</h3></td>
+            <td style="display: inline-block;padding-left: 20%;">
+              <h3>&nbsp;&nbsp; {{ bookings.seatSelected }}</h3>
             </td>
           </tr>
 
-          <tr>
+          <!--<tr>
             <td><h3>Ticket Fare</h3></td>
             <td style="display: inline-block;padding-left: 20%;">
               <h3>&nbsp;&nbsp; {{ book.price }}</h3>
@@ -109,22 +115,22 @@
       
     </div>
   
-    <div *ngIf="return"class="main1" >
-      <div *ngFor="let book of bookings; let index = index">
+    <div class="main1" >
+      <div  let index = "index">
         <div id="print-details">
           <table>
             <h2>Return Booking Details</h2>
             <tr>
               <td><h3>Return-Id</h3></td>
               <td style="display: inline-block;padding-left: 20%;">
-                <h3>&nbsp;&nbsp;{{ book.returnId }}</h3>
+                <h3>&nbsp;&nbsp;{{ bookings.returnId }}</h3>
               </td>
             </tr>
 
             <!--<tr>
               <td><h3>Date of booking</h3></td>
               <td style="display: inline-block;padding-left: 14%;">
-                <h3> {{ book.dateOfBooking }}</h3>
+                <h3> {{ book.returnDateOfBooking }}</h3>
               </td>
             </tr>-->
 
@@ -140,47 +146,53 @@
                 <h3>&nbsp;&nbsp; {{ bookings.returnNoOfSeats }}</h3>
               </td>
             </tr>
-            <tr>
-              <!--<td><h3>Flight Number</h3></td>
+            <!--<tr>
+              <td><h3>Flight Number</h3></td>
               <td style="display: inline-block;padding-left: 15%;">
                 <h3>&nbsp;&nbsp; {{ book.flightNumber }}</h3>
               </td>
-            </tr>
+            </tr>-->
             <tr>
               <td><h3>From</h3></td>
               <td style="display: inline-block;padding-left: 25%;">
-                <h3>&nbsp;&nbsp; {{ book.from }}</h3>
+                <h3>&nbsp;&nbsp; {{ bookings.returnFrom }}</h3>
               </td>
             </tr>
             <tr>
               <td><h3>To</h3></td>
               <td style="display: inline-block;padding-left: 30%;">
-                <h3>&nbsp;&nbsp; {{ book.to }}</h3>
+                <h3>&nbsp;&nbsp; {{ bookings.returnTo }}</h3>
               </td>
             </tr>
             <tr>
               <td><h3>Start Time</h3></td>
               <td style="display: inline-block;padding-left: 20%;">
-                <h3>&nbsp;&nbsp; {{ book.startTime }}</h3>
+                <h3>&nbsp;&nbsp; {{ bookings.returnStartTime }}</h3>
               </td>
             </tr>
             <tr>
               <td><h3>End Time</h3></td>
               <td style="display: inline-block;padding-left: 20%;">
-                <h3>&nbsp;&nbsp;{{ book.endTime }}</h3>
+                <h3>&nbsp;&nbsp;{{ bookings.returnEndTime }}</h3>
               </td>
             </tr>
 
-            <tr>
+            <!--<tr>
               <td><h3>Ticket Fare</h3></td>
               <td style="display: inline-block;padding-left: 20%;">
-                <h3>&nbsp;&nbsp; {{ book.price }}</h3>
+                <h3>&nbsp;&nbsp; {{ bookings.price }}</h3>
+              </td>
+            </tr>-->
+            <tr>
+              <td><h3>Seats Selected</h3></td>
+              <td style="display: inline-block;padding-left: 20%;">
+                <h3>&nbsp;&nbsp; {{ bookings.returnSeatSelected }}</h3>
               </td>
             </tr>
-            <tr>-->
+            <tr>
               <td><h3>Class</h3></td>
               <td style="display: inline-block;padding-left: 25%;">
-                <h3>&nbsp;&nbsp; {{ bookings.returnFlightclass }}</h3>
+                <h3>&nbsp;&nbsp; {{ bookings.returnFlightClass }}</h3>
               </td>
             </tr>
             <div class="form-group" style="text-align: center">

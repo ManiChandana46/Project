@@ -10,7 +10,21 @@ export class Booking {
   //public startTime: string;
   //public endTime: string;
   public flightClass: string;
- 
+  //public  dateOfBooking:string ;
+	public to:string;
+	private from: string;
+	private startTime:string;
+	private endTime:string;
+	private price:number;
+	//private returndateOfBooking:string;
+	private returnTo:string;
+	private returnFrom:string;
+	private returnStartTime:string;
+	private returnEndTime:string;
+	private returnPrice:number;
+	private duration:number;
+  private returnDuration:number;
+  private returnTravelDate:string;
 
   //public price: string;
   public returnId: number;
@@ -31,7 +45,7 @@ export class Booking {
     flightclass: string,
     //price: string,
     returnId: number,
-    returnTravelDate: string,
+    //returnTravelDate: string,
     returnNoOfSeats: number,
     returnFlightclass: string,
   ) {
