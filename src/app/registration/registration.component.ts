@@ -88,7 +88,7 @@ export class RegistrationComponent implements OnInit {
     if (this.registerForm.invalid) {
       this.registerForm.markAsTouched(); //fields will remain marked once filled. Even after submit.
       alert('Re-enter Correct Details.');
-////            alert(this.registerForm.controls.fName.value);  <-- how to call the value of a field.   
+ 
 
     }
     else{
@@ -103,20 +103,28 @@ export class RegistrationComponent implements OnInit {
     }
   }*/
  // search:User=new User();
+ 
   searchb:RegisterStatus;
   info:String;
   register(){
-    alert(JSON.stringify(this.user));
-    this.service.register(this.user).subscribe(data=>{
-      if(data.status==true){
-        console.log(data.statusMessage);
-        this.info=data.statusMessage;
-      }
-      else{
-        this.info=data.statusMessage;
-        console.log(data.statusMessage);
-      }
-    })
-    
+    if (this.registerForm.invalid) {
+      this.registerForm.markAsTouched(); //fields will remain marked once filled. Even after submit.
+      alert('Re-enter Correct Details.');
     }
+    else{
+      alert(JSON.stringify(this.user));
+      this.service.register(this.user).subscribe(data=>{
+        if(data.status==true){
+          console.log(data.statusMessage);
+          this.info=data.statusMessage;
+        }
+        else{
+          this.info=data.statusMessage;
+          alert(JSON.stringify(data.statusMessage));
+        }
+      })
+      
+    }
+    //this.router.navigate(['/login']);
+  }
 }

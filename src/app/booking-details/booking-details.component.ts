@@ -3,6 +3,7 @@ import { Booking } from '../booking-details/bookings';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookedTiketSearch } from '../booking-details/bookedTicketSearch';
+import { AirlinesServiceService } from '../airlines-service.service';
 
 @Component({
   selector: 'app-booking-details',
@@ -25,7 +26,7 @@ export class BookingDetailsComponent implements OnInit {
     return this.SearchTicketForm.get('ticketId');
   }
 
-  constructor(private modalService: NgbModal, private fb: FormBuilder) { }
+  constructor(private modalService: NgbModal, private fb: FormBuilder,private service: AirlinesServiceService) { }
 
   ngOnInit(): void {
     if (sessionStorage.getItem("login") == null)
@@ -38,7 +39,7 @@ export class BookingDetailsComponent implements OnInit {
       this.disabled=false;
     }
 
-    this.bookings = [
+    /*this.bookings = [
       new Booking(
         'T303',
         '23-09-2020',
@@ -53,7 +54,7 @@ export class BookingDetailsComponent implements OnInit {
         'INR 4800',
         101
       ),
-    ];
+    ];*/
     this.SearchTicketForm = this.fb.group({
 
       //TicketId Validator
@@ -64,17 +65,22 @@ export class BookingDetailsComponent implements OnInit {
   search: BookedTiketSearch = new BookedTiketSearch();
   searchTicket() {
     if (this.SearchTicketForm.valid) {
-      this.show = true;
+      /*this.show = true;
       alert(JSON.stringify(this.search))
       if (this.re == 1) {
         this.return = true;
 
-      }
+      }*/
+      this.show = true;
+      this.service.bookedTicketSearch(this.search).subscribe((searchb:Booking[])=>{
+        this.bookings=searchb;
+      })
     }
     else {
       alert("Enter TicketId")
     }
   }
+  
 
   open(content: any, id: number) {
     this.modalService
