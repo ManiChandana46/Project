@@ -1,3 +1,3 @@
 export class BookedTiketSearch{
-    ticketNo: number;
+    bookingId: number;
 }

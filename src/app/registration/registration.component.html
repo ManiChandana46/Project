@@ -61,7 +61,7 @@
 			<label>Email Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;
 			</label>
-			<input type="email" formControlName="email" [(ngModel)]=user.customerEmail
+			<input type="email" formControlName="email" [(ngModel)]=user.customerEmail 
 				[class.is-invalid]="Email.invalid && Email.touched" class="form-control" class="form-control"
 				placeholder="Enter Email Address">
 
@@ -101,4 +101,5 @@
 
 	</form>
 	<h3 style="color: red; text-align: center;">{{info}}</h3>
+	<a [routerLink]="['/login']" style="text-align: center"><h3><b>Go to Login</b></h3></a>
 </div>
