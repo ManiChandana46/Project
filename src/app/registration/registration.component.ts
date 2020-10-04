@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { RegisterStatus } from '../registerStatus';
 
 import { AirlinesServiceService } from "../airlines-service.service";
+import { CheckRegistration } from '../checkResgitration';
 
 
 @Component({
@@ -106,6 +107,7 @@ export class RegistrationComponent implements OnInit {
  
   searchb:RegisterStatus;
   info:String;
+  cr:CheckRegistration;
   register(){
     if (this.registerForm.invalid) {
       this.registerForm.markAsTouched(); //fields will remain marked once filled. Even after submit.
@@ -113,16 +115,23 @@ export class RegistrationComponent implements OnInit {
     }
     else{
       alert(JSON.stringify(this.user));
-      this.service.register(this.user).subscribe(data=>{
-        if(data.status==true){
-          console.log(data.statusMessage);
-          this.info=data.statusMessage;
-        }
-        else{
-          this.info=data.statusMessage;
-          alert(JSON.stringify(data.statusMessage));
-        }
-      })
+      //this.service.check(this.user).subscribe(data1=>{
+        //if(data1.status==false){
+          this.service.register(this.user).subscribe(data=>{
+            if(data.status==true){
+              console.log(data.statusMessage);
+              this.info=data.statusMessage;
+            }
+            else{
+              this.info=data.statusMessage;
+              alert(JSON.stringify(data.statusMessage));
+            }
+          })
+        //}
+        //else{
+          //alert("you have already registered please login");
+        //}
+      //})
       
     }
     //this.router.navigate(['/login']);
