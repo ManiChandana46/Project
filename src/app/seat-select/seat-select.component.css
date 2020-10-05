@@ -1,0 +1,32 @@
+.main
+{
+    width: 1500px;
+    margin: auto;
+    margin-top: 100px;
+}
+.secondmain
+{
+    width: 1000px;
+    background-color: white;
+    padding: 10px 50px;
+}
+.One
+{
+  display:flex;
+}
+.Two
+{
+    display: grid;
+}
+input[type="checkbox"]
+{
+    width: 38px;
+    height: 38px;
+    margin-right: 12px;
+}
+span{
+    font-size: 20px;
+    margin-right: 20px;
+    margin-left: 19px;
+
+}
