@@ -14,6 +14,14 @@
                     <small class="text-danger">Flight number required</small>
                     </div> 
         </div>
+        <div class="form-group">
+            <label>Date Of Cancellation:</label>
+            <input type="date" class="form-control" 
+                name="cancelDate" [(ngModel)]="df.travelDate"  #canceldate="ngModel" required />
+                <div *ngIf="(canceldate.touched && !canceldate.valid) || (!canceldate.valid && myForm.submitted)">
+                    <small class="text-danger">Date is required</small>
+                    </div> 
+        </div>
         <div>
             <button class="btn btn-danger" type="submit">Delete Flight Details</button>
         </div>
