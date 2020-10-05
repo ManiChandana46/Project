@@ -4,7 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookedTiketSearch } from '../booking-details/bookedTicketSearch';
 import { AirlinesServiceService } from '../airlines-service.service';
-
+import { CancelBooking } from '../cancelBooking'
 @Component({
   selector: 'app-booking-details',
   templateUrl: './booking-details.component.html',
@@ -63,6 +63,7 @@ export class BookingDetailsComponent implements OnInit {
 
     });
   }
+  info:string;
   bookingId:number;
   search: BookedTiketSearch = new BookedTiketSearch();
   searchTicket() {
@@ -98,7 +99,7 @@ export class BookingDetailsComponent implements OnInit {
     //sessionStorage.setItem("bookingId",)
   }
   cancelReturn(){
-    
+
   }
   
 
@@ -107,6 +108,26 @@ export class BookingDetailsComponent implements OnInit {
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {
         //if (`${result}` === 'Save click') this.bookings.splice(id, 1);
+        this.service.cancelBooking(this.search).subscribe((response)=>{
+          this.info=response;
+          this.show = false;
+        });
+
+
+      });
+  }
+  cancel:CancelBooking=new CancelBooking
+  open1(content: any, id: number) {
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then((result) => {
+        //if (`${result}` === 'Save click') this.bookings.splice(id, 1);
+        this.service.cancelReturnBooking(this.cancel).subscribe((response)=>{
+          this.info=response;
+          this.show = false;
+        });
+
+
       });
   }
 

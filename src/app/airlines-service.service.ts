@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { BookedTiketSearch } from './booking-details/bookedTicketSearch';
 import { Booking } from './booking-details/bookings';
 import { CheckRegistration } from './checkResgitration'
+import { CancelBooking } from './cancelBooking';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,5 +26,13 @@ export class AirlinesServiceService {
   bookedTicketSearch(ticketSearch:BookedTiketSearch):Observable<any>{
     let url="http://localhost:8181/searchbooking";
     return this.http.post<Booking>(url,ticketSearch);
+  }
+  cancelBooking(cancelticket:BookedTiketSearch):Observable<any>{
+    let url="http://localhost:8181/cancelbooking";
+    return this.http.post<any>(url,cancelticket);
+  }
+  cancelReturnBooking(cancelticket:CancelBooking):Observable<any>{
+    let url="http://localhost:8181/cancelbooking";
+    return this.http.post<any>(url,cancelticket);
   }
 }
