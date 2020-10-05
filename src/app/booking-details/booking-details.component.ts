@@ -63,6 +63,7 @@ export class BookingDetailsComponent implements OnInit {
 
     });
   }
+  bookingId:number;
   search: BookedTiketSearch = new BookedTiketSearch();
   searchTicket() {
     if (this.SearchTicketForm.valid) {
@@ -72,21 +73,32 @@ export class BookingDetailsComponent implements OnInit {
         this.return = true;
 
       }*/
-      this.show = true;
+      
       this.service.bookedTicketSearch(this.search).subscribe((response)=>{
-        //if(this.bookings.returnId!=null){
-          //this.show1=true;
-          this.bookings=response
-        //}
-        //else{
-          //this.bookings=response;
-        //}
+        this.bookings=response;
+        if(this.bookings.returnId!=0){
+          this.show = true;
+          this.show1=true;
+          this.bookingId=this.bookings.bookId;
+
+          
+        }
+        else{
+          this.bookings=response;
+          this.show = true;
+        }
         
       })
     }
     else {
       alert("Enter TicketId")
     }
+  }
+  cancelBooking(){
+    //sessionStorage.setItem("bookingId",)
+  }
+  cancelReturn(){
+    
   }
   
 

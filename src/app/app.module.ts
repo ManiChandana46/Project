@@ -32,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CancelBookingComponent } from './cancel-booking/cancel-booking.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     DeleteBookingComponent,
     AboutPageComponent,
+    CancelBookingComponent,
   ],
   imports: [
     BrowserModule,

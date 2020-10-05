@@ -90,7 +90,7 @@
           </tr>
           <tr>
             <td><h3>Seats Selected</h3></td>
-            <td style="display: inline-block;padding-left: 20%;">
+            <td style="display: inline-block;padding-left: 12%;">
               <h3>&nbsp;&nbsp; {{ bookings.seatSelected }}</h3>
             </td>
           </tr>
@@ -108,14 +108,14 @@
             </td>
           </tr>
           <div class="form-group" style="text-align: center">
-            <button class="register" (click)="open(content, index)">Cancel</button>
+            <button class="register" (click)="cancelBooking">Cancel</button>
           </div>
         </table>
       </div>
       
     </div>
   
-    <div class="main1" >
+    <div class="main1" *ngIf="show1">
       <div  let index = "index">
         <div id="print-details">
           <table>
@@ -185,7 +185,7 @@
             </tr>-->
             <tr>
               <td><h3>Seats Selected</h3></td>
-              <td style="display: inline-block;padding-left: 20%;">
+              <td style="display: inline-block;padding-left: 12%;">
                 <h3>&nbsp;&nbsp; {{ bookings.returnSeatSelected }}</h3>
               </td>
             </tr>
@@ -196,7 +196,7 @@
               </td>
             </tr>
             <div class="form-group" style="text-align: center">
-              <button class="register" (click)="open(content, index)">Cancel</button>
+              <button class="register" (click)="cancelReturn()">Cancel</button>
             </div>
           </table>
         </div>
