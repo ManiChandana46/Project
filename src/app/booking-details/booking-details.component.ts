@@ -30,7 +30,7 @@ export class BookingDetailsComponent implements OnInit {
   constructor(private modalService: NgbModal, private fb: FormBuilder,private service: AirlinesServiceService) { }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem("login") == null)
+    if (sessionStorage.getItem("login") == "false")
     {
       this.message="*You have to login first";
       this.disabled=true;

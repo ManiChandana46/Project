@@ -71,6 +71,6 @@ export class PersonalInfoComponent implements OnInit {
   {
     console.log(this.list);
     sessionStorage.setItem("passesngersList",JSON.stringify(this.list));
-    this.router.navigate(['/payment']);
+    this.router.navigate(['/reviewBooking']);
   }
 }

@@ -1,53 +1,85 @@
-<div class="main Two">
-    <div>
-        <p class="heading">Review Booking</p>
-        <p class="classheading">Depart Details</p>
-        <div class="card">
-            <br>
-            <div class="container">
-                <div class="One">
-                    <div class="Two">
-                        <p class="time"><b>{{oneWay.departureTime}}</b></p>
-                        <p class="duration">{{oneWay.duration}} hrs</p>
-                        <p class="time"><b>{{oneWay.arrivalTime}}</b></p>
-                        <p>{{oneWay.classtype}}</p>
-                        <p class="price"><i class="fa fa-inr" aria-hidden="true"></i>{{oneWay.classprice}}</p>
+<div class="main">
+    <p class="heading">Review Booking</p>
+    <div class="Two">
+        <div>
+            <p class="classheading">Depart Details</p>
+            <div class="card">
+                <br>
+                <div class="container">
+                    <div class="One">
+                        <div class="Two">
+                            <p class="time"><b>{{oneWay.departureTime}}</b></p>
+                            <p class="duration">{{oneWay.duration}} hrs</p>
+                            <p class="time"><b>{{oneWay.arrivalTime}}</b></p>
+                            <p>{{oneWay.classtype}}</p>
+                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i>{{oneWay.classprice}}</p>
+                        </div>
+                        <div class="Two">
+                            <p class="TwoOne">{{oneWay.cityFrom}}</p>
+                            <p class="TwoOne">{{oneWay.cityTo}}</p>
+                        </div>
                     </div>
-                    <div class="Two">
-                        <p class="TwoOne">{{oneWay.cityFrom}}</p>
-                        <p class="TwoOne">{{oneWay.cityTo}}</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <p class="classheading" *ngIf="return!=null">Return Details</p>
+            <div *ngIf="return!=null" class="card">
+                <br>
+                <div class="container">
+                    <div class="One">
+                        <div class="Two">
+                            <p class="time"><b>{{return.departureTime}}</b></p>
+                            <p class="duration">{{return.duration}} hrs</p>
+                            <p class="time"><b>{{return.arrivalTime}}</b></p>
+                            <p>{{return.classtype}}</p>
+                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i>{{return.classprice}}</p>
+                        </div>
+                        <div class="Two">
+                            <p class="TwoOne">{{return.cityFrom}}</p>
+                            <p class="TwoOne">{{return.cityTo}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <br>
-        <br>
-        <p class="classheading" *ngIf="return!=null">Return Details</p>
-        <div *ngIf="return!=null" class="card">
-            <br>
-            <div class="container">
-                <div class="One">
-                    <div class="Two">
-                        <p class="time"><b>{{return.departureTime}}</b></p>
-                        <p class="duration">{{return.duration}} hrs</p>
-                        <p class="time"><b>{{return.arrivalTime}}</b></p>
-                        <p>{{return.classtype}}</p>
-                        <p class="price"><i class="fa fa-inr" aria-hidden="true"></i>{{return.classprice}}</p>
-                    </div>
-                    <div class="Two">
-                        <p class="TwoOne">{{return.cityFrom}}</p>
-                        <p class="TwoOne">{{return.cityTo}}</p>
-                    </div>
-                </div>
-            </div>
+        <div class="cardOne">
+
+            <p><b>Fare Summary</b></p>
+            <p class="fare">Base Fare &nbsp;&nbsp;:&nbsp;&nbsp; <i class="fa fa-inr" aria-hidden="true"></i>{{baseFare}}
+            </p>
+            <p class="fare">Charges &nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;<i class="fa fa-inr"
+                    aria-hidden="true"></i>{{charges}}</p>
+            <p class="fare">TotalFare &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; <i class="fa fa-inr"
+                    aria-hidden="true"></i>{{totalFare}}</p>
         </div>
-        <input type="submit" value="Continue Booking" routerLink="/personalInfo">
     </div>
-    <div class="cardOne">
-        
-        <p><b>Fare Summary</b></p>
-        <p class="fare">Base Fare &nbsp;&nbsp;:&nbsp;&nbsp; <i class="fa fa-inr" aria-hidden="true"></i>{{baseFare}}</p>
-        <p class="fare">Charges  &nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;<i class="fa fa-inr" aria-hidden="true"></i>{{charges}}</p>
-        <p class="fare">TotalFare &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; <i class="fa fa-inr" aria-hidden="true"></i>{{totalFare}}</p>
+    <div>
+        <p class="classheading">Passenger Details</p>
+        <div *ngFor="let p of passengerDetail; let index = index" class="Two cardTwo">
+            <p class="forDetails1" style="font-weight: 500;">Passenger {{index+1}}</p>
+            <div class="Two">
+                <img src="assets/bg_images/name.png" alt="">
+                <!-- <p>Name : </p> -->
+                <p class="forDetails2">{{p.name}}</p>
+            </div>
+            <div class="Two">
+                <img src="assets/bg_images/age.png" alt="">
+                <!-- <p>Age : </p> -->
+                <p class="forDetails">{{p.age}}</p>
+            </div>
+            <div class="Two">
+                <img src="assets/bg_images/gender.png" alt="">
+                <!-- <p>Gender : </p> -->
+                <p *ngIf="p.gender==0" class="forDetails">Male</p>
+                <p *ngIf="p.gender==1" class="forDetails">Female</p>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="Two">
+        <input type="button" value="Back For Editing" routerLink="/personalInfo">
+        <input type="submit" value="Continue For Payment" routerLink="/payment">
     </div>
 </div>

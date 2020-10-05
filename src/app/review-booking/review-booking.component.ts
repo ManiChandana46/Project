@@ -14,6 +14,7 @@ export class ReviewBookingComponent implements OnInit {
   baseFare
   totalFare;
   charges;
+  passengerDetail: any;
 
   constructor() { }
 
@@ -35,8 +36,8 @@ export class ReviewBookingComponent implements OnInit {
     }
 
     sessionStorage.setItem("totalFare",this.totalFare);
-
-
+    this.passengerDetail = JSON.parse(
+      sessionStorage.getItem('passesngersList'));
 
   }
 
