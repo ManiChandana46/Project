@@ -12,6 +12,7 @@ import { RegistrationComponent} from '../app/registration/registration.component
 import{ SuccessPageComponent} from '../app/success-page/success-page.component';
 import{AddFlightComponent} from '../app/add-flight/add-flight.component';
 import{ BookingDetailsComponent} from '../app/booking-details/booking-details.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path:'registration',component:RegistrationComponent},
   { path:'successPage',component:SuccessPageComponent},
   { path:'addFlight',component:AddFlightComponent},
-  { path:'bookingDetails',component:BookingDetailsComponent}
+  { path:'bookingDetails',component:BookingDetailsComponent},
+  { path:'forgotPassword',component:ForgotPasswordComponent}
 
 ];
 
