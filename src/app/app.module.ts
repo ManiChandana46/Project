@@ -33,6 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CancelBookingComponent } from './cancel-booking/cancel-booking.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +53,11 @@ import { CancelBookingComponent } from './cancel-booking/cancel-booking.componen
     DashboardComponent,
     DeleteBookingComponent,
     AboutPageComponent,
+
     CancelBookingComponent,
+
+    ForgotPasswordComponent,
+
   ],
   imports: [
     BrowserModule,
