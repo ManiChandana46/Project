@@ -33,6 +33,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SeatSelectComponent } from './seat-select/seat-select.component';
+import { CancelBookingComponent } from './cancel-booking/cancel-booking.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +55,11 @@ import { SeatSelectComponent } from './seat-select/seat-select.component';
     DeleteBookingComponent,
     AboutPageComponent,
     SeatSelectComponent,
+
+    CancelBookingComponent,
+
+    ForgotPasswordComponent,
+
   ],
   imports: [
     BrowserModule,
