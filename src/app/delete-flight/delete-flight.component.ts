@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {deleteFlight} from '../delete-Flight/deleteFlight';
+import { DeleteFlightService } from '../delete-flight.service';
 @Component({
   selector: 'app-delete-flight',
   templateUrl: './delete-flight.component.html',
@@ -7,13 +8,17 @@ import {deleteFlight} from '../delete-Flight/deleteFlight';
 })
 export class DeleteFlightComponent {
   
-  constructor() { }
+  constructor(private deleteFlightService : DeleteFlightService) { }
 
   df: deleteFlight=new deleteFlight();
 
   submit()
   {
-    alert('The flight details has been deleted successfully!!');
-  }
+    this.deleteFlightService.deleteFlight(this.df).subscribe((response) => {
+    if(response.status == true)
+      alert('The flight details has been deleted successfully!!');
+  });
+ 
+}
 
 }
