@@ -13,6 +13,7 @@ import{ SuccessPageComponent} from '../app/success-page/success-page.component';
 import{AddFlightComponent} from '../app/add-flight/add-flight.component';
 import{ BookingDetailsComponent} from '../app/booking-details/booking-details.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import {SeatSelectComponent } from './seat-select/seat-select.component';
 
 
 
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path:'successPage',component:SuccessPageComponent},
   { path:'addFlight',component:AddFlightComponent},
   { path:'bookingDetails',component:BookingDetailsComponent},
-  { path:'forgotPassword',component:ForgotPasswordComponent}
+  { path:'forgotPassword',component:ForgotPasswordComponent},
+  { path:'seatSelect',component:SeatSelectComponent}
 
 ];
 

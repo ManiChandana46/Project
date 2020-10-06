@@ -38,7 +38,6 @@ export class ReviewBookingComponent implements OnInit {
     sessionStorage.setItem("totalFare",this.totalFare);
     this.passengerDetail = JSON.parse(
       sessionStorage.getItem('passesngersList'));
-
   }
 
 

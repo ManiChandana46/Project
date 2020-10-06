@@ -11,6 +11,9 @@ export class PersonalInfoComponent implements OnInit {
   name: string;
   age: string;
   gender: string;
+  seats;
+  i=0;
+  splittedSeats;
   list: Passenger[];
 
   noOfPassenger: number;
@@ -25,6 +28,8 @@ export class PersonalInfoComponent implements OnInit {
     this.age = '';
     this.gender = 'Male';
     this.noOfPassenger = 0;
+    this.seats=sessionStorage.getItem('seats');
+    this.splittedSeats=this.seats.split(',');
     this.myItem = JSON.parse(sessionStorage.getItem('searchDetails'));
     this.limit = this.myItem.noOfPassengers;
     (<HTMLInputElement>document.getElementById('continue')).disabled = true;
@@ -39,12 +44,14 @@ export class PersonalInfoComponent implements OnInit {
         name: this.name,
         age: Number(this.age),
         gender: this.gender === 'Male' ? 0 : 1,
+        seatAlloted:this.splittedSeats[this.i]
       };
       this.list.push(newItem);
       this.noOfPassenger++;
       this.name = '';
       this.age = '';
       this.gender = 'Male';
+      this.i++;
     }
 
     else if (this.name === '' || this.age === '')

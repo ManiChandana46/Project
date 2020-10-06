@@ -15,6 +15,7 @@ export class PaymentComponent implements OnInit {
   searchDetails: any;
   passengerDetail: any;
   returnDetail: any;
+  seats;
 
   constructor(private paymentService: PaymentService, private router: Router) {}
 
@@ -30,6 +31,8 @@ export class PaymentComponent implements OnInit {
     this.searchDetails = JSON.parse(sessionStorage.getItem('searchDetails'));
     this.payment.noOfSeats = this.searchDetails.noOfPassengers;
     this.payment.travelDate = this.searchDetails.travelDate;
+    this.seats=sessionStorage.getItem('seats');
+    this.payment.seatSelected=this.seats;
 
     if (sessionStorage.getItem('ReturnSearch') === 'null') {
       this.payment.returnStatus = false;

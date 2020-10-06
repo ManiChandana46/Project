@@ -71,9 +71,14 @@
             <div class="Two">
                 <img src="assets/bg_images/gender.png" alt="">
                 <!-- <p>Gender : </p> -->
-                <p *ngIf="p.gender==0" class="forDetails">Male</p>
-                <p *ngIf="p.gender==1" class="forDetails">Female</p>
+                <p *ngIf="p.gender==0" class="forDetails3">Male</p>
+                <p *ngIf="p.gender==1" class="forDetails3">Female</p>
 
+            </div>
+            <div class="Two">
+                <img src="assets/bg_images/seat.png" alt="">
+                <!-- <p>Age : </p> -->
+                <p class="forDetails">{{p.seatAlloted}}</p>
             </div>
         </div>
 

@@ -2,7 +2,7 @@
 {
     width: 1500px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 .secondmain
 {
@@ -29,4 +29,72 @@ span{
     margin-right: 20px;
     margin-left: 19px;
 
+}
+.mainTotal
+{
+    height: 650px;
+    width: 1600px;
+    margin: auto;
+    padding: 30px;
+    background-color: rgba(157, 184, 211, 0.3);
+}
+.heading
+{
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+input[type="submit"]
+{
+    outline: none !important;
+    background-color: skyblue;
+    border-radius: 20px;
+    width:150px;
+    height:40px;
+    color: white;
+    border:none;
+    font-size:20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+}
+input[type="reset"]
+{
+    outline: none !important;
+    background-color: skyblue;
+    border-radius: 20px;
+    width:150px;
+    height:40px;
+    color: white;
+    border:none;
+    font-size:20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    margin-left: 36%;
+}
+.classheading
+{
+    font-size: 25px;
+    font-weight: 700;
+    width: 450px;
+    height: 50px;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+input[type="submit"]:hover,input[type="reset"]:hover
+{
+    color:black;
+    border:1px solid black ;
+    box-shadow: 0px 0px 5px black;
+}
+.para
+{
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin:30px 0px;
 }

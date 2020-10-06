@@ -108,7 +108,7 @@ input[type="submit"]:hover,input[type="button"]:hover
 }
 .cardTwo
 {
-    width: 1000px;
+    width: 1150px;
     padding: 15px;
     height: max-content;
     background-color: white;
@@ -123,7 +123,7 @@ img{
 }
 .forDetails{
     margin-top: 12px;
-    width: 100px;
+    width: 110px;
     margin-right: 20px !important;
 }
 .forDetails1
@@ -137,4 +137,10 @@ img{
     margin-top: 12px;
     width: 220px;
     margin-right: 20px !important;
+}
+.forDetails3
+{
+    margin-top: 12px;
+    width: 140px;
+    margin-right: 30px !important;
 }

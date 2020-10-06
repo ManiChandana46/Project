@@ -44,7 +44,7 @@ export class LoginPageComponent implements OnInit {
         } else if (sessionStorage.getItem('oneWayDetails') == null) {
           this.router.navigate(['/selectflight']);
         } else {
-          this.router.navigate(['/personalInfo']);
+          this.router.navigate(['/seatSelect']);
         }
       } else {
         this.message = response.statusMessage;
