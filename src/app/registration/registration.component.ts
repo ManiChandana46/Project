@@ -11,6 +11,7 @@ import { RegisterStatus } from '../registerStatus';
 
 import { AirlinesServiceService } from "../airlines-service.service";
 import { CheckRegistration } from '../checkResgitration';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -45,7 +46,7 @@ export class RegistrationComponent implements OnInit {
 
 
   //constructor
-  constructor(private fb: FormBuilder,private router:Router,private service: AirlinesServiceService , private http: HttpClient){}
+  constructor(private fb: FormBuilder,private router:Router,private service: AirlinesServiceService , private http: HttpClient, private spinner: NgxSpinnerService){}
 
 
 
@@ -109,11 +110,15 @@ export class RegistrationComponent implements OnInit {
   info:String;
   cr:CheckRegistration;
   register(){
+    this.spinner.show();
     if (this.registerForm.invalid) {
+      this.spinner.hide();
       this.registerForm.markAsTouched(); //fields will remain marked once filled. Even after submit.
       alert('Re-enter Correct Details.');
     }
+    
     else{
+      this.spinner.hide();
       alert(JSON.stringify(this.user));
       //this.service.check(this.user).subscribe(data1=>{
         //if(data1.status==false){

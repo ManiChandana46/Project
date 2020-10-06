@@ -12,7 +12,7 @@ import { CancelBooking } from '../cancelBooking'
 })
 export class BookingDetailsComponent implements OnInit {
   booking: Booking;
-  bookings: Booking;
+  bookings: Booking[]=[];
   book: Booking;
   SearchTicketForm: FormGroup;
   submitted = false;
@@ -40,22 +40,26 @@ export class BookingDetailsComponent implements OnInit {
       this.disabled=false;
     }
 
-    /*this.bookings = [
+    this.bookings = [
       new Booking(
-        'T303',
-        '23-09-2020',
-        '30-09-2020',
-        5,
-        'AA-203',
-        'Mumbai',
-        'Chennai',
-        '3:30 P.M',
-        '5:00 P.M',
-        'Business',
-        'INR 4800',
-        101
-      ),
-    ];*/
+        601,
+        '23-10-2020',
+        2,
+        '2A,2B',
+        'bangalore',
+        'chennai',
+        '11:00',
+        '12:00',
+        'economy',
+        500,
+        2,
+        'buissness',
+        '3A,3B',
+        'chennai',
+        'bangalore',
+        '15:00',
+        '17:00'),
+    ];
     this.SearchTicketForm = this.fb.group({
 
       //TicketId Validator
@@ -68,14 +72,14 @@ export class BookingDetailsComponent implements OnInit {
   search: BookedTiketSearch = new BookedTiketSearch();
   searchTicket() {
     if (this.SearchTicketForm.valid) {
-      /*this.show = true;
+      this.show = true;
       alert(JSON.stringify(this.search))
-      if (this.re == 1) {
+      /*if (this.re == 1) {
         this.return = true;
 
       }*/
       
-      this.service.bookedTicketSearch(this.search).subscribe((response)=>{
+      /*this.service.bookedTicketSearch(this.search).subscribe((response)=>{
         this.bookings=response;
         if(this.bookings.returnId!=0){
           this.show = true;
@@ -89,7 +93,7 @@ export class BookingDetailsComponent implements OnInit {
           this.show = true;
         }
         
-      })
+      })*/
     }
     else {
       alert("Enter TicketId")

@@ -28,14 +28,14 @@
 
 <div class="full">
   <div *ngIf="show" class="main" >
-    <div  let index = "index">
+    <div *ngFor="let booking of bookings" let index = "index">
       <div id="print-details">
         <table>
           <h2>Booking Details</h2>
           <tr>
             <td><h3>Booking-Id</h3></td>
             <td style="display: inline-block;padding-left: 20%;">
-              <h3>&nbsp;&nbsp;{{ bookings.bookId }}</h3>
+              <h3>&nbsp;&nbsp;{{ booking.bookId }}</h3>
             </td>
           </tr>
 
@@ -49,13 +49,13 @@
           <tr>
             <td><h3>Date of Journey</h3></td>
             <td style="display: inline-block;padding-left: 12%;">
-              <h3>&nbsp;&nbsp;{{ bookings.travelDate }}</h3>
+              <h3>&nbsp;&nbsp;{{ booking.travelDate }}</h3>
             </td>
           </tr>
           <tr>
             <td><h3>Number of Seats</h3></td>
             <td style="display: inline-block;padding-left: 12%;">
-              <h3>&nbsp;&nbsp; {{ bookings.noOfSeats }}</h3>
+              <h3>&nbsp;&nbsp; {{ booking.noOfSeats }}</h3>
             </td>
           </tr>
           <!--<tr>
@@ -67,31 +67,31 @@
           <tr>
             <td><h3>From</h3></td>
             <td style="display: inline-block;padding-left: 25%;">
-              <h3>&nbsp;&nbsp; {{ bookings.from }}</h3>
+              <h3>&nbsp;&nbsp; {{ booking.from }}</h3>
             </td>
           </tr>
           <tr>
             <td><h3>To</h3></td>
             <td style="display: inline-block;padding-left: 30%;">
-              <h3>&nbsp;&nbsp; {{ bookings.to }}</h3>
+              <h3>&nbsp;&nbsp; {{ booking.to }}</h3>
             </td>
           </tr>
           <tr>
             <td><h3>Start Time</h3></td>
             <td style="display: inline-block;padding-left: 20%;">
-              <h3>&nbsp;&nbsp; {{ bookings.startTime }}</h3>
+              <h3>&nbsp;&nbsp; {{ booking.startTime }}</h3>
             </td>
           </tr>
           <tr>
             <td><h3>End Time</h3></td>
             <td style="display: inline-block;padding-left: 20%;">
-              <h3>&nbsp;&nbsp;{{ bookings.endTime }}</h3>
+              <h3>&nbsp;&nbsp;{{ booking.endTime }}</h3>
             </td>
           </tr>
           <tr>
             <td><h3>Seats Selected</h3></td>
             <td style="display: inline-block;padding-left: 12%;">
-              <h3>&nbsp;&nbsp; {{ bookings.seatSelected }}</h3>
+              <h3>&nbsp;&nbsp; {{ booking.seatSelected }}</h3>
             </td>
           </tr>
 
@@ -104,7 +104,7 @@
           <tr>
             <td><h3>Class</h3></td>
             <td style="display: inline-block;padding-left: 25%;">
-              <h3>&nbsp;&nbsp; {{ bookings.flightClass }}</h3>
+              <h3>&nbsp;&nbsp; {{ booking.flightClass }}</h3>
             </td>
           </tr>
           <div class="form-group" style="text-align: center">
@@ -115,15 +115,15 @@
       
     </div>
   
-    <div class="main1" *ngIf="show1">
-      <div  let index = "index">
+    <div class="main1" *ngFor="let booking of bookings" >                <!--*ngIf="show1"-->
+      <div let index = "index">
         <div id="print-details">
           <table>
             <h2>Return Booking Details</h2>
             <tr>
               <td><h3>Return-Id</h3></td>
               <td style="display: inline-block;padding-left: 20%;">
-                <h3>&nbsp;&nbsp;{{ bookings.returnId }}</h3>
+                <h3>&nbsp;&nbsp;{{ booking.returnId }}</h3>
               </td>
             </tr>
 
@@ -137,13 +137,13 @@
             <tr>
               <td><h3>Date of Journey</h3></td>
               <td style="display: inline-block;padding-left: 12%;">
-                <h3>&nbsp;&nbsp;{{ bookings.returnTravelDate }}</h3>
+                <h3>&nbsp;&nbsp;{{ booking.returnTravelDate }}</h3>
               </td>
             </tr>
             <tr>
               <td><h3>Number of Seats</h3></td>
               <td style="display: inline-block;padding-left: 12%;">
-                <h3>&nbsp;&nbsp; {{ bookings.returnNoOfSeats }}</h3>
+                <h3>&nbsp;&nbsp; {{ booking.returnNoOfSeats }}</h3>
               </td>
             </tr>
             <!--<tr>
@@ -155,25 +155,25 @@
             <tr>
               <td><h3>From</h3></td>
               <td style="display: inline-block;padding-left: 25%;">
-                <h3>&nbsp;&nbsp; {{ bookings.returnFrom }}</h3>
+                <h3>&nbsp;&nbsp; {{ booking.returnFrom }}</h3>
               </td>
             </tr>
             <tr>
               <td><h3>To</h3></td>
               <td style="display: inline-block;padding-left: 30%;">
-                <h3>&nbsp;&nbsp; {{ bookings.returnTo }}</h3>
+                <h3>&nbsp;&nbsp; {{ booking.returnTo }}</h3>
               </td>
             </tr>
             <tr>
               <td><h3>Start Time</h3></td>
               <td style="display: inline-block;padding-left: 20%;">
-                <h3>&nbsp;&nbsp; {{ bookings.returnStartTime }}</h3>
+                <h3>&nbsp;&nbsp; {{ booking.returnStartTime }}</h3>
               </td>
             </tr>
             <tr>
               <td><h3>End Time</h3></td>
               <td style="display: inline-block;padding-left: 20%;">
-                <h3>&nbsp;&nbsp;{{ bookings.returnEndTime }}</h3>
+                <h3>&nbsp;&nbsp;{{ booking.returnEndTime }}</h3>
               </td>
             </tr>
 
@@ -186,13 +186,13 @@
             <tr>
               <td><h3>Seats Selected</h3></td>
               <td style="display: inline-block;padding-left: 12%;">
-                <h3>&nbsp;&nbsp; {{ bookings.returnSeatSelected }}</h3>
+                <h3>&nbsp;&nbsp; {{ booking.returnSeatSelected }}</h3>
               </td>
             </tr>
             <tr>
               <td><h3>Class</h3></td>
               <td style="display: inline-block;padding-left: 25%;">
-                <h3>&nbsp;&nbsp; {{ bookings.returnFlightClass }}</h3>
+                <h3>&nbsp;&nbsp; {{ booking.returnFlightClass }}</h3>
               </td>
             </tr>
             <div class="form-group" style="text-align: center">

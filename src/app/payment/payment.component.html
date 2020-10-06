@@ -1,3 +1,12 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="square-jelly-box"
+>
+  <p style="font-size: 20px; color: white">Please Wait, Do not refresh the page...</p>
+</ngx-spinner>
+
 <div class="row">
   <div class="col-75">
     <div class="container">
@@ -110,9 +119,28 @@
           [disabled]="!paymentForm.form.valid"
           value="Pay"
           class="btn"
-          (click)="pay()"
+          (click)="pay(content)"
         />
       </form>
     </div>
   </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-body">
+    <h2>
+      <div>{{ statusMessage }}</div>
+    </h2>
+  </div>
+
+  <div class="modal-footer">
+    <button
+      type="button"
+      id="yes"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
