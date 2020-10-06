@@ -110,9 +110,28 @@
           [disabled]="!paymentForm.form.valid"
           value="Pay"
           class="btn"
-          (click)="pay()"
+          (click)="pay(content)"
         />
       </form>
     </div>
   </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-body">
+    <h2>
+      <div>{{ statusMessage }}</div>
+    </h2>
+  </div>
+
+  <div class="modal-footer">
+    <button
+      type="button"
+      id="yes"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>

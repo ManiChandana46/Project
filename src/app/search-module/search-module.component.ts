@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchDetails } from '../search-module/search-details';
 import { Router } from '@angular/router';
 import {SearchService} from '../search.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-search-module',
@@ -12,7 +13,7 @@ import {SearchService} from '../search.service';
 export class SearchModuleComponent implements OnInit {
 
   
-  constructor(private datepipe:DatePipe,private router: Router,private searchService:SearchService) { }
+  constructor(private datepipe:DatePipe,private router: Router,private searchService:SearchService, private spinner: NgxSpinnerService) { }
 
   sd:SearchDetails=new SearchDetails();
   infantNumber=0;
@@ -136,8 +137,10 @@ export class SearchModuleComponent implements OnInit {
 
   submit()
   {
+    this.spinner.show();
     this.searchService.searchFlights(this.sd).subscribe((data) =>{
       if(data.statusMessage=="Successful") {
+        this.spinner.hide();
         sessionStorage.setItem("searchDetails",JSON.stringify(this.sd));
         sessionStorage.setItem("OneWaySearch",JSON.stringify(data.searchResults));
         sessionStorage.setItem("ReturnSearch",JSON.stringify(data.returnResults));
@@ -145,6 +148,7 @@ export class SearchModuleComponent implements OnInit {
         this.router.navigate(['/selectflight']);
       }
       else{
+        this.spinner.hide();
         this.Errormessage=data.statusMessage;
         this.styleForErrorMessage="styleforH2";
 
