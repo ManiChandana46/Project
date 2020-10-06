@@ -57,7 +57,9 @@ export class BookingDetailsComponent implements OnInit {
     this.service.displayBooking(this.customerId).subscribe((response) => {
       this.bookings = response;
       this.show = true;
-      this.show1 = true;
+      if(response.returnId ==0)
+        this.show1 = false;
+      
       this.spinner.hide();
     });
   }
