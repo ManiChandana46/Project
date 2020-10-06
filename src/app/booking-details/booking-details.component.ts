@@ -90,13 +90,15 @@ export class BookingDetailsComponent implements OnInit {
   }
   cancelReturn() {}
 
-  open(content: any, id: number) {
+  open(content: any, id: number, bookingId: number) {
+    this.search.bookingId = bookingId;
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {
         if (`${result}` === 'Save click') {
           this.service.cancelBooking(this.search).subscribe((response) => {
-            this.bookings.splice(id, 1);
+            //this.bookings.splice(id, 1);
+            this.bookings = this.bookings.filter((item) => item.bookId !== bookingId);
             //this.info = response;
             //this.show = false;
           });
@@ -104,7 +106,8 @@ export class BookingDetailsComponent implements OnInit {
       });
   }
 
-  open1(content: any, id: number) {
+  open1(content: any, id: number, bookingId: number) {
+    this.search.bookingId = bookingId;
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {
@@ -112,6 +115,7 @@ export class BookingDetailsComponent implements OnInit {
           this.service
             .cancelReturnBooking(this.search)
             .subscribe((response) => {
+              this.bookings = this.bookings.filter((item) => item.bookId !== bookingId);
               //this.bookings.splice(id, 1);
               // this.info = response;
               this.show1 = false;
