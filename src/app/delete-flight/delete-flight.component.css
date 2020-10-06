@@ -20,3 +20,13 @@ h2{
     position: absolute;
     left: 80%;
 }
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+  }
+  
+.container {
+    position: relative;
+  }
