@@ -38,31 +38,43 @@ export class Booking {
     travelDate: string,
     noOfSeats: number,
     //flightNumber: string,
-    //from: string,
-    //to: string,
-    //startTime: string,
-    //endTime: string,
+    seatSelected: string,
+    from: string,
+    to: string,
+    startTime: string,
+    endTime: string,
     flightclass: string,
     //price: string,
     returnId: number,
     //returnTravelDate: string,
     returnNoOfSeats: number,
     returnFlightclass: string,
+    returnSeatSelected: string,
+    returnFrom: string,
+    returnTo: string,
+    returnStartTime: string,
+    returnEndTime: string,
   ) {
     this.bookId =  bookId;
    // this.dateOfBooking = dateOfBooking;
     this.travelDate = travelDate;
     this.noOfSeats = noOfSeats;
+    this.seatSelected= seatSelected;
     //this.flightNumber = flightNumber;
     //this.price = price;
-    //this.from = from;
+    this.from = from;
     this.flightClass = flightclass;
-    //this.to = to;
-    //this.startTime = startTime;
-    //his.endTime = endTime;
+    this.to = to;
+    this.startTime = startTime;
+    this.endTime = endTime;
     this.returnId= returnId;
     //this.returnTravelDate = travelDate;
     this.returnNoOfSeats = returnNoOfSeats;
     this.returnFlightClass = returnFlightclass;
+    this.returnSeatSelected= returnSeatSelected;
+    this.returnFrom = returnFrom;
+    this.returnTo = returnTo;
+    this.returnStartTime = returnStartTime;
+    this.returnEndTime = returnEndTime;
   }
 }
