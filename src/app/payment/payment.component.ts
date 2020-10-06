@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Payment } from './payment';
 import { PaymentService } from '../payment.service';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-payment',
@@ -17,11 +19,19 @@ export class PaymentComponent implements OnInit {
   returnDetail: any;
   seats;
 
-  constructor(private paymentService: PaymentService, private router: Router) {}
+  statusMessage: string;
+
+  constructor(
+    private paymentService: PaymentService,
+    private router: Router,
+    private spinner: NgxSpinnerService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {}
 
-  pay() {
+  pay(content: any) {
+    this.spinner.show();
     this.oneWayDetails = JSON.parse(sessionStorage.getItem('oneWayDetails'));
     this.payment.flightClass = this.oneWayDetails.classtype;
     this.payment.scheduleId = this.oneWayDetails.scheduleid;
@@ -63,10 +73,19 @@ export class PaymentComponent implements OnInit {
 
     this.paymentService.pay(this.payment).subscribe((response) => {
       if (response.status == true) {
-        alert('Payment Successful');
-        this.router.navigate(['/successPage']);
+        this.statusMessage = response.statusMessage;
+        this.spinner.hide();
+        this.modalService.open(content).result.then((result) => {
+          if (`${result}` === 'Save click') {
+            this.router.navigate(['/successPage']);
+          }
+        });
+        //alert('Payment Successful');
       } else {
-        alert(response.statusMessage);
+        this.spinner.hide();
+        this.statusMessage = response.statusMessage;
+        this.modalService.open(content).result.then();
+        //alert(response.statusMessage);
       }
     });
   }

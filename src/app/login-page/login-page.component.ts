@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { loginDetails } from './login-details';
 import { LoginService } from '../login.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login-page',
@@ -18,7 +19,7 @@ export class LoginPageComponent implements OnInit {
   login: loginDetails = new loginDetails();
   message: string;
 
-  constructor(private router: Router, private loginService: LoginService) {}
+  constructor(private router: Router, private loginService: LoginService, private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {
     this.userEmail = '';
@@ -28,6 +29,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   userSignIn() {
+    this.spinner.show();
     this.login.email = this.userEmail;
     this.login.password = this.userPassword;
 
@@ -36,6 +38,7 @@ export class LoginPageComponent implements OnInit {
       console.log(response);
       if (response.status == true) {
         //console.log('Welcome back ' + response.firstName);
+        this.spinner.hide();
         sessionStorage.setItem('customerId', response.customerId);
         sessionStorage.setItem('userName', response.firstName+" "+response.lastName);
         sessionStorage.setItem('login', 'true');
@@ -47,6 +50,7 @@ export class LoginPageComponent implements OnInit {
           this.router.navigate(['/seatSelect']);
         }
       } else {
+        this.spinner.hide();
         this.message = response.statusMessage;
         alert(this.message);
         //console.log(this.message);

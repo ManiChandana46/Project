@@ -25,7 +25,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { DeleteBookingComponent } from './delete-booking/delete-booking.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,9 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SeatSelectComponent } from './seat-select/seat-select.component';
-import { CancelBookingComponent } from './cancel-booking/cancel-booking.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-
 
 @NgModule({
   declarations: [
@@ -52,14 +49,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     SuccessPageComponent,
     BookingDetailsComponent,
     DashboardComponent,
-    DeleteBookingComponent,
     AboutPageComponent,
     SeatSelectComponent,
 
-    CancelBookingComponent,
-
     ForgotPasswordComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -77,7 +70,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     NgbModule,
     HttpClientModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [DatePipe],
