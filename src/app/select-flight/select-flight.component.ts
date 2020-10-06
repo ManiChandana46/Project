@@ -100,13 +100,13 @@ export class SelectFlightComponent implements OnInit {
         if (sessionStorage.getItem("login") == 'false')
           this.router.navigate(['/login']);
         else
-          this.router.navigate(['/personalInfo']);
+          this.router.navigate(['/seatSelect']);
       }
       else if (this.returnflights.length == 0) {
         if (sessionStorage.getItem("login") == 'false')
           this.router.navigate(['/login']);
         else
-          this.router.navigate(['/personalInfo']);
+          this.router.navigate(['/seatSelect']);
       }
       else {
         alert("Select return flight");
