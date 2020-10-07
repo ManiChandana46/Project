@@ -47,11 +47,385 @@
   </form>
 </div>
 
-<div class="full">
-  <div class="main">
-    <div *ngIf="show">
-      <div *ngFor="let booking of bookings" let index="index">
-        <div id="print-details">
+<mat-card class="mat-elevation-z12">
+  <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+    <mat-tab label="Upcoming Bookings">
+      <mat-card-content>
+        <div
+          *ngFor="let booking of bookings; let index = index"
+          class="panel-group"
+          id="accordion"
+        >
+          <div
+            *ngIf="!compare(booking.travelDate) && index === 0"
+            style="text-align: center"
+          >
+            <h2>You Don't Have any Upcoming Booking</h2>
+          </div>
+          <div *ngIf="compare(booking.travelDate)" class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a
+                  class="btn-class"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="{{ '#collapse' + booking.bookId }}"
+                  >Booking Id {{ booking.bookId }}
+                  <i class="fa fa-angle-down"></i>
+                </a>
+              </h4>
+            </div>
+            <div
+              id="{{ 'collapse' + booking.bookId }}"
+              class="panel-collapse collapse"
+            >
+              <div class="panel-body">
+                <div *ngIf="show" id="print-details">
+                  <table>
+                    <h2>Booking Details</h2>
+                    <tr>
+                      <td><h3>Booking-Id</h3></td>
+                      <td style="display: inline-block; padding-left: 20%">
+                        <h3>&nbsp;&nbsp;{{ booking.bookId }}</h3>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><h3>Date of Journey</h3></td>
+                      <td style="display: inline-block; padding-left: 12%">
+                        <h3>&nbsp;&nbsp;{{ booking.travelDate }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>Number of Seats</h3></td>
+                      <td style="display: inline-block; padding-left: 12%">
+                        <h3>&nbsp;&nbsp; {{ booking.noOfSeats }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>From</h3></td>
+                      <td style="display: inline-block; padding-left: 25%">
+                        <h3>&nbsp;&nbsp; {{ booking.from }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>To</h3></td>
+                      <td style="display: inline-block; padding-left: 30%">
+                        <h3>&nbsp;&nbsp; {{ booking.to }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>Start Time</h3></td>
+                      <td style="display: inline-block; padding-left: 20%">
+                        <h3>&nbsp;&nbsp; {{ booking.startTime }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>End Time</h3></td>
+                      <td style="display: inline-block; padding-left: 20%">
+                        <h3>&nbsp;&nbsp;{{ booking.endTime }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>Seats Selected</h3></td>
+                      <td style="display: inline-block; padding-left: 12%">
+                        <h3>&nbsp;&nbsp; {{ booking.seatSelected }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>Class</h3></td>
+                      <td style="display: inline-block; padding-left: 25%">
+                        <h3>&nbsp;&nbsp; {{ booking.flightClass }}</h3>
+                      </td>
+                    </tr>
+                    <div class="form-group" style="text-align: center">
+                      <button
+                        class="register"
+                        (click)="open(content, booking.bookId)"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </table>
+                </div>
+
+                <div *ngIf="booking.returnId != 0" class="main1">
+                  <div id="print-details">
+                    <table>
+                      <h2>Return Booking Details</h2>
+                      <tr>
+                        <td><h3>Return-Id</h3></td>
+                        <td style="display: inline-block; padding-left: 20%">
+                          <h3>&nbsp;&nbsp;{{ booking.returnId }}</h3>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td><h3>Date of Journey</h3></td>
+                        <td style="display: inline-block; padding-left: 12%">
+                          <h3>&nbsp;&nbsp;{{ booking.returnTravelDate }}</h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><h3>Number of Seats</h3></td>
+                        <td style="display: inline-block; padding-left: 12%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnNoOfSeats }}</h3>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td><h3>From</h3></td>
+                        <td style="display: inline-block; padding-left: 25%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnFrom }}</h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><h3>To</h3></td>
+                        <td style="display: inline-block; padding-left: 30%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnTo }}</h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><h3>Start Time</h3></td>
+                        <td style="display: inline-block; padding-left: 20%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnStartTime }}</h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><h3>End Time</h3></td>
+                        <td style="display: inline-block; padding-left: 20%">
+                          <h3>&nbsp;&nbsp;{{ booking.returnEndTime }}</h3>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td><h3>Seats Selected</h3></td>
+                        <td style="display: inline-block; padding-left: 12%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnSeatSelected }}</h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><h3>Class</h3></td>
+                        <td style="display: inline-block; padding-left: 25%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnFlightClass }}</h3>
+                        </td>
+                      </tr>
+                      <div class="form-group" style="text-align: center">
+                        <button
+                          class="register"
+                          (click)="open1(content, booking.bookId, index)"
+                        >
+                          Cancel Return
+                        </button>
+                      </div>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-tab>
+
+    <mat-tab label="Past Bookings">
+      <mat-card-content>
+        <div
+          *ngFor="let booking of bookings; let index = index"
+          class="panel-group"
+          id="accordion"
+        >
+          <div
+            *ngIf="compare(booking.travelDate) && index === 0"
+            style="text-align: center"
+          >
+            <h2>You havn't Booked anything in past</h2>
+          </div>
+          <div *ngIf="!compare(booking.travelDate)" class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="{{ '#collapse' + booking.bookId }}"
+                  >Booking Id {{ booking.bookId }}</a
+                >
+              </h4>
+            </div>
+            <div
+              id="{{ 'collapse' + booking.bookId }}"
+              class="panel-collapse collapse"
+            >
+              <div class="panel-body">
+                <div *ngIf="show" id="print-details">
+                  <table>
+                    <h2>Booking Details</h2>
+                    <tr>
+                      <td><h3>Booking-Id</h3></td>
+                      <td style="display: inline-block; padding-left: 20%">
+                        <h3>&nbsp;&nbsp;{{ booking.bookId }}</h3>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><h3>Date of Journey</h3></td>
+                      <td style="display: inline-block; padding-left: 12%">
+                        <h3>&nbsp;&nbsp;{{ booking.travelDate }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>Number of Seats</h3></td>
+                      <td style="display: inline-block; padding-left: 12%">
+                        <h3>&nbsp;&nbsp; {{ booking.noOfSeats }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>From</h3></td>
+                      <td style="display: inline-block; padding-left: 25%">
+                        <h3>&nbsp;&nbsp; {{ booking.from }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>To</h3></td>
+                      <td style="display: inline-block; padding-left: 30%">
+                        <h3>&nbsp;&nbsp; {{ booking.to }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>Start Time</h3></td>
+                      <td style="display: inline-block; padding-left: 20%">
+                        <h3>&nbsp;&nbsp; {{ booking.startTime }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>End Time</h3></td>
+                      <td style="display: inline-block; padding-left: 20%">
+                        <h3>&nbsp;&nbsp;{{ booking.endTime }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>Seats Selected</h3></td>
+                      <td style="display: inline-block; padding-left: 12%">
+                        <h3>&nbsp;&nbsp; {{ booking.seatSelected }}</h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><h3>Class</h3></td>
+                      <td style="display: inline-block; padding-left: 25%">
+                        <h3>&nbsp;&nbsp; {{ booking.flightClass }}</h3>
+                      </td>
+                    </tr>
+                    <div class="form-group" style="text-align: center">
+                      <button
+                        class="register"
+                        (click)="open(content, booking.bookId)"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </table>
+                </div>
+
+                <div *ngIf="booking.returnId != 0" class="main1">
+                  <div id="print-details">
+                    <table>
+                      <h2>Return Booking Details</h2>
+                      <tr>
+                        <td><h3>Return-Id</h3></td>
+                        <td style="display: inline-block; padding-left: 20%">
+                          <h3>&nbsp;&nbsp;{{ booking.returnId }}</h3>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td><h3>Date of Journey</h3></td>
+                        <td style="display: inline-block; padding-left: 12%">
+                          <h3>&nbsp;&nbsp;{{ booking.returnTravelDate }}</h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><h3>Number of Seats</h3></td>
+                        <td style="display: inline-block; padding-left: 12%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnNoOfSeats }}</h3>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td><h3>From</h3></td>
+                        <td style="display: inline-block; padding-left: 25%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnFrom }}</h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><h3>To</h3></td>
+                        <td style="display: inline-block; padding-left: 30%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnTo }}</h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><h3>Start Time</h3></td>
+                        <td style="display: inline-block; padding-left: 20%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnStartTime }}</h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><h3>End Time</h3></td>
+                        <td style="display: inline-block; padding-left: 20%">
+                          <h3>&nbsp;&nbsp;{{ booking.returnEndTime }}</h3>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td><h3>Seats Selected</h3></td>
+                        <td style="display: inline-block; padding-left: 12%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnSeatSelected }}</h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><h3>Class</h3></td>
+                        <td style="display: inline-block; padding-left: 25%">
+                          <h3>&nbsp;&nbsp; {{ booking.returnFlightClass }}</h3>
+                        </td>
+                      </tr>
+                      <div class="form-group" style="text-align: center">
+                        <button
+                          class="register"
+                          (click)="open1(content, booking.bookId, index)"
+                        >
+                          Cancel Return
+                        </button>
+                      </div>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>
+
+<!-- <div
+  *ngFor="let booking of bookings; let index = index"
+  class="panel-group"
+  id="accordion"
+>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a
+          data-toggle="collapse"
+          data-parent="#accordion"
+          href="{{ '#collapse' + index }}"
+          >Booking Id {{ booking.bookId }}</a
+        >
+      </h4>
+    </div>
+    <div id="{{ 'collapse' + index }}" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div *ngIf="show" id="print-details">
           <table>
             <h2>Booking Details</h2>
             <tr>
@@ -60,13 +434,6 @@
                 <h3>&nbsp;&nbsp;{{ booking.bookId }}</h3>
               </td>
             </tr>
-
-            <!--<tr>
-            <td><h3>Date of booking</h3></td>
-            <td style="display: inline-block;padding-left: 14%;">
-              <h3> {{ book.dateOfBooking }}</h3>
-            </td>
-          </tr>-->
 
             <tr>
               <td><h3>Date of Journey</h3></td>
@@ -80,12 +447,6 @@
                 <h3>&nbsp;&nbsp; {{ booking.noOfSeats }}</h3>
               </td>
             </tr>
-            <!--<tr>
-            <td><h3>Flight Number</h3></td>
-            <td style="display: inline-block;padding-left: 15%;">
-              <h3>&nbsp;&nbsp; {{ book.flightNumber }}</h3>
-            </td>
-          </tr>-->
             <tr>
               <td><h3>From</h3></td>
               <td style="display: inline-block; padding-left: 25%">
@@ -116,13 +477,6 @@
                 <h3>&nbsp;&nbsp; {{ booking.seatSelected }}</h3>
               </td>
             </tr>
-
-            <!--<tr>
-            <td><h3>Ticket Fare</h3></td>
-            <td style="display: inline-block;padding-left: 20%;">
-              <h3>&nbsp;&nbsp; {{ book.price }}</h3>
-            </td>
-          </tr>-->
             <tr>
               <td><h3>Class</h3></td>
               <td style="display: inline-block; padding-left: 25%">
@@ -130,18 +484,17 @@
               </td>
             </tr>
             <div class="form-group" style="text-align: center">
-              <button class="register" (click)="open(content, index, booking.bookId)">
+              <button
+                class="register"
+                (click)="open(content, index, booking.bookId)"
+              >
                 Cancel
               </button>
             </div>
           </table>
         </div>
-      </div>
-    </div>
 
-    <div *ngIf="show1">
-      <div class="main1" *ngFor="let booking of bookings">
-        <div let index="index">
+        <div *ngIf="show1" class="main1">
           <div id="print-details">
             <table>
               <h2>Return Booking Details</h2>
@@ -151,13 +504,6 @@
                   <h3>&nbsp;&nbsp;{{ booking.returnId }}</h3>
                 </td>
               </tr>
-
-              <!--<tr>
-              <td><h3>Date of booking</h3></td>
-              <td style="display: inline-block;padding-left: 14%;">
-                <h3> {{ book.returnDateOfBooking }}</h3>
-              </td>
-            </tr>-->
 
               <tr>
                 <td><h3>Date of Journey</h3></td>
@@ -171,12 +517,7 @@
                   <h3>&nbsp;&nbsp; {{ booking.returnNoOfSeats }}</h3>
                 </td>
               </tr>
-              <!--<tr>
-              <td><h3>Flight Number</h3></td>
-              <td style="display: inline-block;padding-left: 15%;">
-                <h3>&nbsp;&nbsp; {{ book.flightNumber }}</h3>
-              </td>
-            </tr>-->
+
               <tr>
                 <td><h3>From</h3></td>
                 <td style="display: inline-block; padding-left: 25%">
@@ -202,12 +543,6 @@
                 </td>
               </tr>
 
-              <!--<tr>
-              <td><h3>Ticket Fare</h3></td>
-              <td style="display: inline-block;padding-left: 20%;">
-                <h3>&nbsp;&nbsp; {{ bookings.price }}</h3>
-              </td>
-            </tr>-->
               <tr>
                 <td><h3>Seats Selected</h3></td>
                 <td style="display: inline-block; padding-left: 12%">
@@ -221,7 +556,10 @@
                 </td>
               </tr>
               <div class="form-group" style="text-align: center">
-                <button class="register" (click)="open1(content, index, booking.bookId)">
+                <button
+                  class="register"
+                  (click)="open1(content, index, booking.bookId)"
+                >
                   Cancel Return
                 </button>
               </div>
@@ -231,7 +569,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <ng-template #content let-modal>
   <div class="modal-header">
