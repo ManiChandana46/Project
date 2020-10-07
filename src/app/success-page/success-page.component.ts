@@ -39,6 +39,8 @@ export class SuccessPageComponent implements OnInit {
   returnCityToS: string;
   customerName: string;
   bookId: string;
+  returnCityTo: any;
+  returnCityFrom: any;
 
   constructor(private router: Router) { }
 
@@ -71,6 +73,8 @@ export class SuccessPageComponent implements OnInit {
       this.returnNoOfSeats = this.searchDetails.noOfPassengers;
       this.returnClass = this.returnDetails.classtype;
       this.returnTravelDate = this.searchDetails.returnTravelDate;
+      this.returnCityTo=this.returnDetails.cityTo;
+      this.returnCityFrom=this.returnDetails.cityFrom;
       this.returnCityFromS = this.returnDetails.cityFrom.substring(0,3);
       this.returnCityToS = this.returnDetails.cityTo.substring(0,3); 
     }
@@ -97,10 +101,83 @@ export class SuccessPageComponent implements OnInit {
   }
   savePdf() {    
         
-    let docDefinition = {      
-        header: 'booking Detail',      
-        content: 'thank you for registering with us'      
-      };    
+    let docDefinition = {     
+        
+      header: 'Booking Details',      
+      content: [
+        {
+          text:'Name :'+ this.customerName 
+        },
+      {
+        columns: [
+          [{
+            text: 'Booking Id : ' + this.bookId
+          },
+          {
+            text: 'Source : ' + this.cityFrom
+          },
+          {
+            text: 'Destination : ' + this.cityTo
+          },
+          {
+            text: 'Departure Time : ' + this.oneWayDetails.departureTime
+          },
+          {
+            text: 'Arrival Time : ' + this.oneWayDetails.arrivalTime
+          },
+          {
+            text: 'Seats Selected : ' + this.seats
+          },
+          {
+            text: 'Class : ' + this.flightClass
+          }] 
+         ]
+        }
+      ]          
+  }
+  pdfMake.createPdf(docDefinition).download();
+};
+    savePdf1() {    
+        
+      let docDefinition = {     
+        
+          header: 'Return Details',      
+          content: [
+            {
+              text:'Name :'+ this.customerName 
+            },
+          {
+            columns: [
+              [{
+                text: 'Booking Id : ' + this.bookId
+              },
+              {
+                text: 'Source : ' + this.returnCityFrom
+              },
+              {
+                text: 'Destination : ' + this.returnCityTo
+              },
+              {
+                text: 'Departure Time : ' + this.returnDetails.departureTime
+              },
+              {
+                text: 'Arrival Time : ' + this.returnDetails.arrivalTime
+              },
+              {
+                text: 'Seats Selected : ' + this.seats
+              },
+              {
+                text: 'Class : ' + this.flightClass
+              }] 
+             ]
+            }
+          ]     
+        
+     
+       
+          
+            
+      }
       pdfMake.createPdf(docDefinition).download();
-    }
+    };
 }
