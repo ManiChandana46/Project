@@ -4,7 +4,7 @@ body
 {
     background-image: url('assets/bg_images/aero1.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     
 }
 html, body { height: 100%; }
