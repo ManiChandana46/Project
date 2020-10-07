@@ -38,6 +38,7 @@ export class SuccessPageComponent implements OnInit {
   returnCityFromS: string;
   returnCityToS: string;
   customerName: string;
+  bookId: string;
 
   constructor(private router: Router) { }
 
@@ -49,7 +50,7 @@ export class SuccessPageComponent implements OnInit {
     this.cityTo=this.oneWayDetails.cityTo;
     this.cityFromS=this.cityFrom.substring(0,3);
     this.cityToS=this.cityTo.substring(0,3);
-    
+    this.bookId= JSON.parse(sessionStorage.getItem('bookingId'));
     this.customerName = (sessionStorage.getItem('userName'));
     this.customerId = Number(sessionStorage.getItem('customerId'));
 
