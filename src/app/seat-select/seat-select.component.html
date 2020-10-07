@@ -1,107 +1,89 @@
-<form class="mainTotal">
-    <p class="heading">Select your Seats Here</p>
-    <p class="para">{{finalpassengers-passengers}} of {{finalpassengers}} are selected</p>
-    <div class="main One">
-        <img src="assets/bg_images/front.png" alt="">
-        <div class="secondmain">
-            <div class="Two">
+<div class="mainTotal">
+    <form>
+        <p class="heading">Select your Seats Here</p>
+        <p class="para">{{finalpassengers-passengers}} of {{finalpassengers}} are selected</p>
+        <div class="main One">
+            <img src="assets/bg_images/front.png" alt="">
+            <div class="secondmain">
                 <div>
-                    <span></span>
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    <span>5</span>
-                    <span>6</span>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
-                </div>
-                <div>
-                    <span>F</span>
-                    <input type="checkbox" name="1F" value="1F"  [disabled]="disabled" (change)="forTesting($event)" >
-                    <input type="checkbox" name="2F" value="2F"  [disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="3F"  value="3F" [disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="4F"  value="4F" [disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="5F"  value="5F" [disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="6F"  value="6F" [disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="7F"  value="7F" [disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="8F"  value="8F"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="9F"  value="9F"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="10F" value="10F"[disabled]="disabled" (change)="forTesting($event)">
-                </div>
-                <div>
-                    <span>E</span>
-                    <input type="checkbox" name="1E"  value="1E"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="2E"  value="2E"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="3E"  value="3E"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="4E"  value="4E"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="5E"  value="5E"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="6E"  value="6E"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="7E"  value="7E"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="8E"  value="8E"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="9E"  value="9E"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="10E"  value="10E"[disabled]="disabled" (change)="forTesting($event)">
-                </div>
-                <div>
-                    <span>D</span>
-                    <input type="checkbox" name="1D"  value="1D"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="2D"  value="2D"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="3D"  value="3D"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="4D"  value="4D"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="5D"  value="5D"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="6D"  value="6D"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="7D"  value="7D"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="8D"  value="8D"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="9D"  value="9D"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="10D"  value="10D"[disabled]="disabled" (change)="forTesting($event)">
-                </div>
-                <div>
-                    <span>C</span>
-                    <input type="checkbox" name="1C"  value="1C"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="2C"  value="2C"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="3C"  value="3C"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="4C"  value="4C"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="5C"  value="5C"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="6C"  value="6C"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="7C"  value="7C"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="8C"  value="8C"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="9C"  value="9C"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="10C"  value="10C"[disabled]="disabled" (change)="forTesting($event)">
-                </div>
-                <div>
-                    <span>B</span>
-                    <input type="checkbox" name="1B"  value="1B"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="2B"  value="2B"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="3B"  value="3B"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="4B"  value="4B"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="5B"  value="5B"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="6B"  value="6B"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="7B"  value="7B"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="8B"  value="8B"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="9B"  value="9B"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="10B"  value="10B"[disabled]="disabled" (change)="forTesting($event)">
-                </div>
-                <div>
-                    <span>A</span>
-                    <input type="checkbox" name="1A"  value="1A"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="2A"  value="2A"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="3A"  value="3A"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="4A"  value="4A"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="5A"  value="5A"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="6A"  value="6A"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="7A"  value="7A"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="8A"  value="8A"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="9A"  value="9A"[disabled]="disabled" (change)="forTesting($event)">
-                    <input type="checkbox" name="10A"  value="10A"[disabled]="disabled" (change)="forTesting($event)">
+                    <div>
+                        <span class="forSpan"></span>
+                        <span class="forSpan">1</span>
+                        <span class="forSpan">2</span>
+                        <span class="forSpan">3</span>
+                        <span class="forSpan">4</span>
+                        <span class="forSpan">5</span>
+                        <span class="forSpan">6</span>
+                        <span class="forSpan">7</span>
+                        <span class="forSpan">8</span>
+                        <span class="forSpan">9</span>
+                        <span class="forSpan">10</span>
+                    </div>
+                    <div>
+                        <span class="forSpan">F</span>
+                        <span *ngFor="let n of numbers">
+                            <input *ngIf="checkBlockedSeatsF(n)" type="checkbox" name="{{n}}F" value="{{n}}F"
+                                [disabled]="disabled" (change)="forTesting($event)">
+                            <div *ngIf="!checkBlockedSeatsF(n)" class="blockedSeat"></div>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="forSpan">E</span>
+                        <span *ngFor="let n of numbers">
+                            <input *ngIf="checkBlockedSeatsE(n)" type="checkbox" name="{{n}}E" value="{{n}}E"
+                                [disabled]="disabled" (change)="forTesting($event)">
+                            <div *ngIf="!checkBlockedSeatsE(n)" class="blockedSeat"></div>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="forSpan">D</span>
+                        <span *ngFor="let n of numbers">
+                            <input *ngIf="checkBlockedSeatsD(n)" type="checkbox" name="{{n}}D" value="{{n}}D"
+                                [disabled]="disabled" (change)="forTesting($event)">
+                            <div *ngIf="!checkBlockedSeatsD(n)" class="blockedSeat"></div>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="forSpan">C</span>
+                        <span *ngFor="let n of numbers">
+                            <input *ngIf="checkBlockedSeatsC(n)" type="checkbox" name="{{n}}C" value="{{n}}C"
+                                [disabled]="disabled" (change)="forTesting($event)">
+                            <div *ngIf="!checkBlockedSeatsC(n)" class="blockedSeat"></div>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="forSpan">B</span>
+                        <span *ngFor="let n of numbers">
+                            <input *ngIf="checkBlockedSeatsB(n)" type="checkbox" name="{{n}}B" value="{{n}}B"
+                                [disabled]="disabled" (change)="forTesting($event)">
+                            <div *ngIf="!checkBlockedSeatsB(n)" class="blockedSeat"></div>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="forSpan">A</span>
+                        <span *ngFor="let n of numbers">
+                            <input *ngIf="checkBlockedSeatsA(n)" type="checkbox" name="{{n}}A" value="{{n}}A"
+                                [disabled]="disabled" (change)="forTesting($event)">
+                            <div *ngIf="!checkBlockedSeatsA(n)" class="blockedSeat"></div>
+                        </span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <img src="assets/bg_images/tail.png" alt="">
+            <img src="assets/bg_images/tail.png" alt="">
 
-    </div>
-    <p class="classheading">Your Selected Seats are {{str}}</p>
-    <input type="reset" value="Reset" (click)="uncheckAll()">
-    <input type="submit" value="Continue" (click)="Continue()">
-</form>
+        </div>
+        <p class="classheading">Your Selected Seat(s) {{str}}</p>
+        <input type="reset" value="Reset" (click)="uncheckAll()">
+        <input type="submit" value="Continue" (click)="Continue()">
+        <div class="Two" style="float: right;padding: 10px;border-radius: 3px;">
+            <div>
+                <div style="color: white;font-size: 20px;padding-right: 57px;">Not-Available </div>
+                <div class="blockedSeat" style="float: right;"></div>
+            </div>
+            <div>
+                <div style="color: white;font-size: 20px;padding-right: 57px;">Available </div>
+                <div class="availableSeat" style="float: right;"></div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -14,4 +14,10 @@ export class SearchService {
     let url = 'http://localhost:8181/search';
     return this.http.post(url, searchDetails);
   }
+
+  blockedSeats(scheduleId:number):Observable<any>
+  {
+    let url= 'http://localhost:8181/blockedSeats?scheduleId='+scheduleId;
+    return this.http.get(url);
+  }
 }

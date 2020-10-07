@@ -3,6 +3,7 @@ import { Select } from '../select-flight/select';
 import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SearchDetails } from '../search-module/search-details';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-select-flight',
@@ -28,7 +29,7 @@ export class SelectFlightComponent implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router,private service:SearchService) { }
 
   // setForm() {
   //   this.flightForm = this.fb.group({
@@ -94,6 +95,8 @@ export class SelectFlightComponent implements OnInit {
     if (this.fly != null) {
       console.log(this.fly);
       sessionStorage.setItem("oneWayDetails", JSON.stringify(this.fly));
+      this.service.blockedSeats(this.fly.scheduleid).subscribe(data =>{
+        sessionStorage.setItem("seatNames",data)});
       if (this.returnflights.length != 0 && this.returnstatus == 1) {
         console.log(this.returnfly);
         sessionStorage.setItem("returnDetails", JSON.stringify(this.returnfly));
