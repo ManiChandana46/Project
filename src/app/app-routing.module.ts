@@ -14,7 +14,7 @@ import{AddFlightComponent} from '../app/add-flight/add-flight.component';
 import{ BookingDetailsComponent} from '../app/booking-details/booking-details.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import {SeatSelectComponent } from './seat-select/seat-select.component';
-
+import { ViewFlightComponent } from './view-flight/view-flight.component';
 
 
 
@@ -34,7 +34,8 @@ const routes: Routes = [
   { path:'addFlight',component:AddFlightComponent},
   { path:'bookingDetails',component:BookingDetailsComponent},
   { path:'forgotPassword',component:ForgotPasswordComponent},
-  { path:'seatSelect',component:SeatSelectComponent}
+  { path:'seatSelect',component:SeatSelectComponent},
+  {path:'viewFlight',component:ViewFlightComponent}
 
 ];
 

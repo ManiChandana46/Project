@@ -1,0 +1,19 @@
+.main {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 55px;
+    font-size: 16px;
+    line-height: 19px;
+    font-family: Arial, sans-serif;
+    background-color: whitesmoke;
+    padding: 20px 30px;
+    font-weight: 700;
+}
+  
+.back {
+    position: absolute;
+    left: 80%;
+    top:10%;
+}
+  
