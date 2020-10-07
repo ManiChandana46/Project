@@ -20,6 +20,7 @@ export class PaymentComponent implements OnInit {
   seats;
 
   statusMessage: string;
+  bookingId: any;
 
   constructor(
     private paymentService: PaymentService,
@@ -74,6 +75,8 @@ export class PaymentComponent implements OnInit {
     this.paymentService.pay(this.payment).subscribe((response) => {
       if (response.status == true) {
         this.statusMessage = response.statusMessage;
+        this.bookingId =response.bookingId;
+        sessionStorage.setItem('bookingId',JSON.stringify(this.bookingId));
         this.spinner.hide();
         this.modalService.open(content).result.then((result) => {
           if (`${result}` === 'Save click') {
@@ -88,5 +91,6 @@ export class PaymentComponent implements OnInit {
         //alert(response.statusMessage);
       }
     });
+
   }
 }
