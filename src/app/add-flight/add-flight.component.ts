@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { addFlight } from '../add-flight/addFlight';
 import { AddFlightService } from '../add-flight.service';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -9,12 +10,20 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './add-flight.component.html',
   styleUrls: ['./add-flight.component.css'],
 })
-export class AddFlightComponent {
+export class AddFlightComponent implements OnInit{
+  todayString:string=new Date().toDateString();
+  todaydate;
+
   constructor(
     private addFlightService: AddFlightService,
     private spinner: NgxSpinnerService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private datepipe:DatePipe
   ) {}
+
+  ngOnInit(): void {
+    this.todaydate=this.datepipe.transform(this.todayString,'yyyy-MM-dd');
+  }
 
   af: addFlight = new addFlight();
   Fromcities = ['Hyderabad', 'Chennai', 'Mumbai', 'New Delhi', 'Bangalore'];

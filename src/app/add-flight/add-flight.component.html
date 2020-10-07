@@ -129,6 +129,7 @@
           class="form-control ForDate"
           name="initialDate"
           [(ngModel)]="af.initialDate"
+          min="{{todaydate}}"
           required
           #initialdate="ngModel"
         />
@@ -149,6 +150,7 @@
           class="form-control ForDate"
           name="finalDate"
           [(ngModel)]="af.finalDate"
+          min="{{af.initialDate}}"
           required
           #finaldate="ngModel"
         />

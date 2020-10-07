@@ -6,7 +6,7 @@
             <a class="nav-link"(click)="Booking()" style="cursor: pointer;">Booking Details</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">About Us</a>
+            <a class="nav-link" style="cursor: pointer;" routerLink="/about" >About Us</a>
           </li> 
           <li class="nav-item" >
             <a *ngIf="Idle()" class="nav-link" [routerLink]="disableContext ? null: '/login'"><i class="fa fa-user"></i>{{loginMessage}}</a>

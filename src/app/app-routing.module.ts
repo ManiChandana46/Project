@@ -15,6 +15,7 @@ import{ BookingDetailsComponent} from '../app/booking-details/booking-details.co
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import {SeatSelectComponent } from './seat-select/seat-select.component';
 import { ViewFlightComponent } from './view-flight/view-flight.component';
+import {AboutPageComponent} from './about-page/about-page.component';
 
 
 
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path:'bookingDetails',component:BookingDetailsComponent},
   { path:'forgotPassword',component:ForgotPasswordComponent},
   { path:'seatSelect',component:SeatSelectComponent},
-  {path:'viewFlight',component:ViewFlightComponent}
+  {path:'viewFlight',component:ViewFlightComponent},
+  {path:'about',component:AboutPageComponent}
 
 ];
 
