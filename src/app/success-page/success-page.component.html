@@ -1,11 +1,182 @@
 <div class="main">
     <div>
-        <h1>Sucessful!!!</h1>
-    </div>
-    <div>
-        <p>Your Payment Request was executed sucessfully.</p>
-    </div>
-    <div>
-        <a href="#" (click)="goHome()">Go to Home Page.</a>
+        <h1>Thankyou</h1>
+        <h2>For choosing us as your travelling partner</h2>
     </div>
 </div>
+
+<div class="ticket">
+    <header>
+      <div class="company-name"  id="content" #content>
+        Air Aviation
+      </div>
+    </header>
+    <section class="airports">
+      <div class="airport">
+        <div class="airport-name">
+        {{oneWayDetails.cityFrom}}
+        </div>
+        <div class="airport-code">
+          {{cityFromS}}
+        </div>
+        <div class="dep-arr-label">
+          Departing
+        </div>
+        <div class="time">
+        {{oneWayDetails.departureTime}}
+        </div>
+      </div>
+      <div class="airport">
+        <div class="airport-name">
+          {{oneWayDetails.cityTo}}
+        </div>
+        <div class="airport-code">
+          {{cityToS}}
+        </div>
+        <div class="dep-arr-label">
+          Arriving
+        </div>
+        <div class="time">
+         {{oneWayDetails.arrivalTime}}
+        </div>
+      </div>
+    </section>
+    <section class="place">
+        <div class="place-block">
+            <div class="place-label">
+              Name
+            </div>
+            <div class="place-value">
+              {{customerName}}
+            </div>
+          </div>
+          <div class="place-block">
+            <div class="place-label">
+              Booking-Id
+            </div>
+            <div class="place-value">
+              631
+            </div>
+          </div>
+      <div class="place-block">
+        <div class="place-label">
+          Class
+        </div>
+        <div class="place-value">
+          {{oneWayDetails.classtype}}
+        </div>
+      </div>
+      <div class="place-block">
+        <div class="place-label">
+          Seat
+        </div>
+        <div class="place-value">
+          <p>{{seats}}</p>
+        </div>
+      </div>
+      <div class="place-block">
+        <div class="place-label">
+          Price
+        </div>
+        <div class="place-value">
+        {{transactionAmount}}
+        </div>
+      </div>
+      <input type="button" value="Download PDF" class="btn btn-success" (click)="savePdf()">
+      <!--<div class="qr">
+        <img src="http://www.classtools.net/QR/pics/qr.png" />
+      </div>-->
+    </section>
+  </div>
+  <div class="ticket inverse" *ngIf="returnStatus">
+    <header>
+      <div class="company-name">
+        Air Aviation
+      </div>
+      
+    </header>
+    <section class="airports">
+      <div class="airport">
+        <div class="airport-name">
+          {{returnDetails.cityFrom}}
+        </div>
+        <div class="airport-code">
+          {{returnCityFromS}}
+        </div>
+        <div class="dep-arr-label">
+          Departing
+        </div>
+        <div class="time">
+          {{returnDetails.departureTime}}
+        </div>
+      </div>
+      <div class="airport">
+        <div class="airport-name">
+          {{returnDetails.cityTo}}
+        </div>
+        <div class="airport-code">
+         {{returnCityToS}}
+        </div>
+        <div class="dep-arr-label">
+          Arriving
+        </div>
+        <div class="time">
+            {{returnDetails.arrivalTime}}
+        </div>
+      </div>
+    </section>
+    <section class="place">
+        <div class="place-block">
+            <div class="place-label">
+              Name
+            </div>
+            <div class="place-value">
+              {{customerName}}
+            </div>
+          </div>
+          <div class="place-block">
+            <div class="place-label">
+              Return-Id
+            </div>
+            <div class="place-value">
+              631
+            </div>
+          </div>
+          
+        <div class="place-block">
+        <div class="place-label">
+          Class
+        </div>
+        <div class="place-value">
+          {{returnDetails.classtype}}
+        </div>
+      </div>
+      <div class="place-block">
+        <div class="place-label">
+          Seat
+        </div>
+        <div class="place-value">
+          {{seats}}
+        </div>
+      </div>
+      <div class="place-block">
+        <div class="place-label">
+          Price
+        </div>
+        <div class="place-value">
+          {{transactionAmount}}
+        </div>
+      </div>
+      <input type="button" value="Download PDF" class="btn btn-success" (click)="savePdf()">
+      <!--<div class="qr">
+        <img src="http://www.classtools.net/QR/pics/qr.png" />
+      </div>-->
+    </section>
+  </div>
+
+
+
+    <div >
+    
+        <a href="#" (click)="goHome()">Go to Home Page.</a>
+    </div>
