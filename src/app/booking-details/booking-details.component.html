@@ -60,7 +60,7 @@
             *ngIf="!compare(booking.travelDate) && index === 0"
             style="text-align: center"
           >
-            <h2>You Don't Have any Upcoming Booking</h2>
+            <h3>You Don't Have any Upcoming Booking</h3>
           </div>
           <div *ngIf="compare(booking.travelDate)" class="panel panel-default">
             <div class="panel-heading">
@@ -239,7 +239,7 @@
             *ngIf="compare(booking.travelDate) && index === 0"
             style="text-align: center"
           >
-            <h2>You havn't Booked anything in past</h2>
+            <h3>You havn't Booked anything in past</h3>
           </div>
           <div *ngIf="!compare(booking.travelDate)" class="panel panel-default">
             <div class="panel-heading">
