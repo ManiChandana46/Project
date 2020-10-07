@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookedTiketSearch } from '../booking-details/bookedTicketSearch';
 import { AirlinesServiceService } from '../airlines-service.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+declare var $: any;
 
 @Component({
   selector: 'app-booking-details',
@@ -17,11 +18,12 @@ export class BookingDetailsComponent implements OnInit {
   show = false;
   return = false;
 
-  customerId:number;
+  customerId: number;
 
   message = '';
   disabled = false;
-  show1 = false;
+
+  todayDate = Date.parse(new Date().toISOString().slice(0, 10));
 
   get TicketId() {
     return this.SearchTicketForm.get('ticketId');
@@ -51,71 +53,56 @@ export class BookingDetailsComponent implements OnInit {
       ticketId: ['', [Validators.required, Validators.minLength(1)]],
     });
 
-
-    this.customerId = Number(sessionStorage.getItem("customerId"));
+    this.customerId = Number(sessionStorage.getItem('customerId'));
 
     this.service.displayBooking(this.customerId).subscribe((response) => {
       this.bookings = response;
+
       this.show = true;
-      this.show1 = true;
+
       this.spinner.hide();
     });
   }
-  info: string;
-  bookingId: number;
+
+  compare(d1: Date) {
+    return this.todayDate < Date.parse(String(d1)) ? 1 : 0;
+  }
+
   search: BookedTiketSearch = new BookedTiketSearch();
   searchTicket() {
     if (this.SearchTicketForm.valid) {
       this.show = true;
 
-      this.service.bookedTicketSearch(this.search).subscribe((response) => {
-        let addedBooking = this.bookings.find((o) => o.bookId === response.bookId);
-
-        if (response.returnId != 0) {
-          if (addedBooking === undefined) this.bookings.push(response);
-          this.show = true;
-          this.show1 = true;
-          this.bookingId = response.bookId;
-        } else {
-          if (addedBooking === undefined) this.bookings.push(response);
-          this.show = true;
-        }
-      });
+      $('#collapse' + this.search.bookingId).collapse('toggle');
     } else {
       alert('Enter TicketId');
     }
   }
-  cancelBooking() {
-    //sessionStorage.setItem("bookingId",)
-  }
-  cancelReturn() {}
 
-  open(content: any, id: number) {
+  open(content: any, bookingId: number) {
+    this.search.bookingId = bookingId;
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {
         if (`${result}` === 'Save click') {
-          this.service.cancelBooking(this.search).subscribe((response) => {
-            this.bookings.splice(id, 1);
-            //this.info = response;
-            //this.show = false;
+          this.service.cancelBooking(this.search).subscribe(() => {
+            this.bookings = this.bookings.filter(
+              (item) => item.bookId !== bookingId
+            );
           });
         }
       });
   }
 
-  open1(content: any, id: number) {
+  open1(content: any, bookingId: number, id: number) {
+    this.search.bookingId = bookingId;
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {
         if (`${result}` === 'Save click') {
-          this.service
-            .cancelReturnBooking(this.search)
-            .subscribe((response) => {
-              //this.bookings.splice(id, 1);
-              // this.info = response;
-              this.show1 = false;
-            });
+          this.service.cancelReturnBooking(this.search).subscribe(() => {
+            this.bookings[id].returnId = 0;
+          });
         }
       });
   }

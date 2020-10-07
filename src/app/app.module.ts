@@ -33,7 +33,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SeatSelectComponent } from './seat-select/seat-select.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-
+import { ViewFlightComponent } from './view-flight/view-flight.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     SeatSelectComponent,
 
     ForgotPasswordComponent,
+
+    ViewFlightComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     HttpClientModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [DatePipe],
