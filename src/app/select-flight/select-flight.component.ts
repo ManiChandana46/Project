@@ -13,23 +13,23 @@ import { SearchService } from '../search.service';
 export class SelectFlightComponent implements OnInit {
 
   flight: Select;
-  returnFlight:Select;
+  returnFlight: Select;
   flights: Select[] = [];
   returnflights: Select[] = [];
   returnclass = "";
   fly: Select;
   returnfly: Select;
   mainclass = "";
-  returnstatus;
+  returnstatus:any;
   sd: SearchDetails;
-  oneWaySearch;
-  ReturnSearch;
-  statusMessage;
+  oneWaySearch:any;
+  ReturnSearch:any;
+  statusMessage:any;
 
 
 
 
-  constructor(private fb: FormBuilder, private router: Router,private service:SearchService) { }
+  constructor(private fb: FormBuilder, private router: Router, private service: SearchService) { }
 
   // setForm() {
   //   this.flightForm = this.fb.group({
@@ -43,21 +43,18 @@ export class SelectFlightComponent implements OnInit {
 
   ngOnInit(): void {
     this.sd = JSON.parse(sessionStorage.getItem("searchDetails"));
-    this.oneWaySearch=JSON.parse(sessionStorage.getItem("OneWaySearch"));
-    this.ReturnSearch=JSON.parse(sessionStorage.getItem("ReturnSearch"));
-    for(let i=0;i<this.oneWaySearch.length;i++)
-      {
-      this.flight=new Select(this.oneWaySearch[i][5],this.oneWaySearch[i][6],this.oneWaySearch[i][1],this.oneWaySearch[i][0],this.oneWaySearch[i][7],this.oneWaySearch[i][3],this.oneWaySearch[i][4],"Economy",this.oneWaySearch[i][3]);
+    this.oneWaySearch = JSON.parse(sessionStorage.getItem("OneWaySearch"));
+    this.ReturnSearch = JSON.parse(sessionStorage.getItem("ReturnSearch"));
+    for (let i = 0; i < this.oneWaySearch.length; i++) {
+      this.flight = new Select(this.oneWaySearch[i][5], this.oneWaySearch[i][6], this.oneWaySearch[i][1], this.oneWaySearch[i][0], this.oneWaySearch[i][7], this.oneWaySearch[i][3], this.oneWaySearch[i][4], "Economy", this.oneWaySearch[i][3]);
       this.flights.push(this.flight);
+    }
+    if (this.ReturnSearch != null) {
+      for (let j = 0; j < this.ReturnSearch.length; j++) {
+        this.returnFlight = new Select(this.ReturnSearch[j][5], this.ReturnSearch[j][6], this.ReturnSearch[j][1], this.ReturnSearch[j][0], this.ReturnSearch[j][7], this.ReturnSearch[j][3], this.ReturnSearch[j][4], "Economy", this.ReturnSearch[j][3]);
+        this.returnflights.push(this.returnFlight);
       }
-    if(this.ReturnSearch!=null)
-    {
-      for(let j=0;j<this.ReturnSearch.length;j++)
-      {
-      this.returnFlight=new Select(this.ReturnSearch[j][5],this.ReturnSearch[j][6],this.ReturnSearch[j][1],this.ReturnSearch[j][0],this.ReturnSearch[j][7],this.ReturnSearch[j][3],this.ReturnSearch[j][4],"Economy",this.ReturnSearch[j][3]);
-      this.returnflights.push(this.returnFlight);
-      }
-      
+
     }
 
     // this.setForm();
@@ -95,8 +92,9 @@ export class SelectFlightComponent implements OnInit {
     if (this.fly != null) {
       console.log(this.fly);
       sessionStorage.setItem("oneWayDetails", JSON.stringify(this.fly));
-      this.service.blockedSeats(this.fly.scheduleid).subscribe(data =>{
-        sessionStorage.setItem("seatNames",data)});
+      this.service.blockedSeats(this.fly.scheduleid).subscribe(data => {
+        sessionStorage.setItem("seatNames", data)
+      });
       if (this.returnflights.length != 0 && this.returnstatus == 1) {
         console.log(this.returnfly);
         sessionStorage.setItem("returnDetails", JSON.stringify(this.returnfly));
