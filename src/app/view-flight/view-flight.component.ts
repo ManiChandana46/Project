@@ -8,12 +8,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ViewFlightComponent implements OnInit {
 
-  data : Array<any>;
+  data: Array<any>;
   totalRecords: Number;
-  page: Number=1;
+  page: Number = 1;
 
-  constructor(private viewFlightService : ViewFlightService,
-              private spinner: NgxSpinnerService) { 
+  constructor(private viewFlightService: ViewFlightService,
+    private spinner: NgxSpinnerService) {
     this.data = new Array<any>();
   }
 
