@@ -13,6 +13,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class AddFlightComponent implements OnInit {
   todayString: string = new Date().toDateString();
   todaydate;
+  message: string;
 
   constructor(
     private addFlightService: AddFlightService,
@@ -48,10 +49,12 @@ export class AddFlightComponent implements OnInit {
 
       if (response.status == true) {
         this.spinner.hide();
+        this.message = 'Flight Added Successfully';
         this.modalService.open(content).result.then();
       } else {
         this.spinner.hide();
-        alert('Could not add flight');
+        this.message = 'Could not add flight';
+        this.modalService.open(content).result.then();
       }
     });
   }

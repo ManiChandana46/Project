@@ -10,6 +10,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class DeleteFlightComponent {
 
+  message : string;
+
   constructor(private deleteFlightService: DeleteFlightService,
     private spinner: NgxSpinnerService,
     private modalService: NgbModal) { }
@@ -21,10 +23,12 @@ export class DeleteFlightComponent {
     this.deleteFlightService.deleteFlight(this.df).subscribe((response) => {
       if (response.status == true) {
         this.spinner.hide();
+        this.message = 'Flight Deleted Successfully';
         this.modalService.open(content).result.then();
       } else {
         this.spinner.hide();
-        alert('Could not delete flight');
+        this.message = 'Could not delete flight';
+        this.modalService.open(content).result.then();
       }
 
     });
