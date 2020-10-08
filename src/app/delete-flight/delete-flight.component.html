@@ -12,7 +12,7 @@
   <form #myForm="ngForm" (ngSubmit)="myForm.valid && submit(content)">
     <div class="form-group">
       <label>Flight Number:</label>
-      <input type="text" class="form-control" placeholder="Enter the Flight Number" name="flightNumber"
+      <input type="number" class="form-control" placeholder="Enter the Flight Number" name="flightNumber"
         [(ngModel)]="df.flightNumber" #flightNumber="ngModel" required />
       <div *ngIf="(flightNumber.touched && !flightNumber.valid) || (!flightNumber.valid && myForm.submitted)">
         <small class="text-danger">Flight number required</small>
