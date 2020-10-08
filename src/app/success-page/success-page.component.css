@@ -26,7 +26,6 @@ body {
 .ticket {
   display: inline-block;
   width: 350px;
-  margin-left: 680px !important;
   margin-top: 0px;
   margin-left: 20%;
   background-color: #273138;
@@ -180,7 +179,8 @@ body {
 }
 
 .ticket.inverse {
-    margin-top: 20px;
+  margin-top: 20px;
+  margin-left: 20%;
   background-color: #f8f8f8;
 }
 .ticket.inverse header {
@@ -196,4 +196,12 @@ body {
   color: #707884;
   font-weight: 500;
 }
-
+.SinTicket
+{
+  margin-left: 650 !important;
+}
+.TwoTickets
+{
+  display: flex;
+  margin-bottom: 30px;
+}

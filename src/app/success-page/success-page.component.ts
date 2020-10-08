@@ -41,6 +41,7 @@ export class SuccessPageComponent implements OnInit {
   bookId: string;
   returnCityTo: any;
   returnCityFrom: any;
+  class="SinTicket";
 
   constructor(private router: Router) { }
 
@@ -67,6 +68,7 @@ export class SuccessPageComponent implements OnInit {
       console.log('return not avail');
     } else {
       console.log('return avail');
+      this.class="TwoTickets";
       this.returnDetails = JSON.parse(sessionStorage.getItem('returnDetails'));
       this.returnStatus = true;
       this.returnScheduleId = this.returnDetails.scheduleid;

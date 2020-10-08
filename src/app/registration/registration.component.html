@@ -31,7 +31,7 @@
 				<label for="fName">First Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
 				<input type="text" formControlName="fName" [(ngModel)]=user.customerFirstName
 					[class.is-invalid]="registerForm.controls.fName.invalid && FName.touched" class="form-control"
-					placeholder="Enter First Name">
+					placeholder="Enter First Name" pattern="[A-Za-z]+">
 
 				<div *ngIf="FName.invalid && FName.touched">
 					<small class="text-danger">First Name not valid.</small>
@@ -46,7 +46,7 @@
 				</label>
 				<input formControlName="lName" type="text" [(ngModel)]=user.customerLastName
 					[class.is-invalid]="LName.invalid && LName.touched" class="form-control"
-					placeholder="Enter Last Name">
+					placeholder="Enter Last Name" pattern="[A-Za-z]+">
 
 				<div *ngIf="LName.invalid && LName.touched">
 					<small class="text-danger">Last Name not valid.</small>
