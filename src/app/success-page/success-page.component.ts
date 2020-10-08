@@ -42,6 +42,9 @@ export class SuccessPageComponent implements OnInit {
   returnCityTo: any;
   returnCityFrom: any;
   class="SinTicket";
+  oneWayFare: string;
+  returnFare: string;
+  returnId: string;
 
   constructor(private router: Router) { }
 
@@ -56,12 +59,14 @@ export class SuccessPageComponent implements OnInit {
     this.bookId= JSON.parse(sessionStorage.getItem('bookingId'));
     this.customerName = (sessionStorage.getItem('userName'));
     this.customerId = Number(sessionStorage.getItem('customerId'));
-
-    this.searchDetails = JSON.parse(sessionStorage.getItem('searchDetails'));
+    this.oneWayFare= (sessionStorage.getItem('oneWayFare'));
+    this.returnFare= (sessionStorage.getItem('returnFare'));
+    this  .searchDetails = JSON.parse(sessionStorage.getItem('searchDetails'));
     this.noOfSeats = this.searchDetails.noOfPassengers;
     this.travelDate = this.searchDetails.travelDate;
     this.seats=sessionStorage.getItem('seats');
     this.seatSelected=this.seats;
+    this.returnId=(sessionStorage.getItem('returnId'));
     
     if (sessionStorage.getItem('ReturnSearch') === 'null') {
       this.returnStatus = false;
@@ -151,7 +156,7 @@ export class SuccessPageComponent implements OnInit {
           {
             columns: [
               [{
-                text: 'Booking Id : ' + this.bookId
+                text: 'Return Id : ' + this.returnId
               },
               {
                 text: 'Source : ' + this.returnCityFrom
@@ -165,9 +170,9 @@ export class SuccessPageComponent implements OnInit {
               {
                 text: 'Arrival Time : ' + this.returnDetails.arrivalTime
               },
-              {
+              /*{
                 text: 'Seats Selected : ' + this.seats
-              },
+              },*/
               {
                 text: 'Class : ' + this.flightClass
               }] 

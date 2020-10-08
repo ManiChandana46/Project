@@ -21,6 +21,7 @@ export class PaymentComponent implements OnInit {
 
   statusMessage: string;
   bookingId: any;
+  returnId: any;
 
   constructor(
     private paymentService: PaymentService,
@@ -76,7 +77,9 @@ export class PaymentComponent implements OnInit {
       if (response.status == true) {
         this.statusMessage = response.statusMessage;
         this.bookingId =response.bookingId;
+        this.returnId =response.returnId;
         sessionStorage.setItem('bookingId',JSON.stringify(this.bookingId));
+        sessionStorage.setItem('returnId',JSON.stringify(this.returnId));
         this.spinner.hide();
         this.modalService.open(content).result.then((result) => {
           if (`${result}` === 'Save click') {
