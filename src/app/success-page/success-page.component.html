@@ -1,20 +1,21 @@
 <div class="main">
-    <div>
-        <h1>Thankyou</h1>
-        <h2>For choosing us as your travelling partner</h2>
-        <h2><a href="#" (click)="goHome()">Go to Home Page.</a></h2>
-    </div>
+  <div>
+    <h1>Thankyou</h1>
+    <h2>For choosing us as your travelling partner</h2>
+    <h2><a href="#" (click)="goHome()">Go to Home Page.</a></h2>
+  </div>
 </div>
-<div class="ticket">
+<div class="{{class}}">
+  <div class="ticket">
     <header>
-      <div class="company-name"  id="content" #content>
+      <div class="company-name" id="content" #content>
         Air Aviation
       </div>
     </header>
     <section class="airports">
       <div class="airport">
         <div class="airport-name">
-        {{oneWayDetails.cityFrom}}
+          {{oneWayDetails.cityFrom}}
         </div>
         <div class="airport-code">
           {{cityFromS}}
@@ -23,7 +24,7 @@
           Departing
         </div>
         <div class="time">
-        {{oneWayDetails.departureTime}}
+          {{oneWayDetails.departureTime}}
         </div>
       </div>
       <div class="airport">
@@ -37,27 +38,27 @@
           Arriving
         </div>
         <div class="time">
-         {{oneWayDetails.arrivalTime}}
+          {{oneWayDetails.arrivalTime}}
         </div>
       </div>
     </section>
     <section class="place">
-        <div class="place-block">
-            <div class="place-label">
-              Name
-            </div>
-            <div class="place-value">
-              {{customerName}}
-            </div>
-          </div>
-          <div class="place-block">
-            <div class="place-label">
-              Booking-Id
-            </div>
-            <div class="place-value">
-              {{bookId}}
-            </div>
-          </div>
+      <div class="place-block">
+        <div class="place-label">
+          Name
+        </div>
+        <div class="place-value">
+          {{customerName}}
+        </div>
+      </div>
+      <div class="place-block">
+        <div class="place-label">
+          Booking-Id
+        </div>
+        <div class="place-value">
+          {{bookId}}
+        </div>
+      </div>
       <div class="place-block">
         <div class="place-label">
           Class
@@ -87,9 +88,10 @@
           Price
         </div>
         <div class="place-value">
-        {{transactionAmount}}
+          {{transactionAmount}}
         </div>
       </div>
+      <div></div>
       <input type="button" value="Download PDF" class="btn btn-success" (click)="savePdf()">
       <!--<div class="qr">
         <img src="http://www.classtools.net/QR/pics/qr.png" />
@@ -101,7 +103,7 @@
       <div class="company-name">
         Air Aviation
       </div>
-      
+
     </header>
     <section class="airports">
       <div class="airport">
@@ -123,48 +125,40 @@
           {{returnDetails.cityTo}}
         </div>
         <div class="airport-code">
-         {{returnCityToS}}
+          {{returnCityToS}}
         </div>
         <div class="dep-arr-label">
           Arriving
         </div>
         <div class="time">
-            {{returnDetails.arrivalTime}}
+          {{returnDetails.arrivalTime}}
         </div>
       </div>
     </section>
     <section class="place">
-        <div class="place-block">
-            <div class="place-label">
-              Name
-            </div>
-            <div class="place-value">
-              {{customerName}}
-            </div>
-          </div>
-          <div class="place-block">
-            <div class="place-label">
-              Booking-Id
-            </div>
-            <div class="place-value">
-                {{bookId}}
-            </div>
-          </div>
-          
-        <div class="place-block">
+      <div class="place-block">
+        <div class="place-label">
+          Name
+        </div>
+        <div class="place-value">
+          {{customerName}}
+        </div>
+      </div>
+      <div class="place-block">
+        <div class="place-label">
+          Booking-Id
+        </div>
+        <div class="place-value">
+          {{bookId}}
+        </div>
+      </div>
+
+      <div class="place-block">
         <div class="place-label">
           Class
         </div>
         <div class="place-value">
           {{returnDetails.classtype}}
-        </div>
-      </div>
-      <div class="place-block">
-        <div class="place-label">
-          Seat
-        </div>
-        <div class="place-value">
-          {{seats}}
         </div>
       </div>
       <div class="place-block">
@@ -189,7 +183,4 @@
       </div>-->
     </section>
   </div>
-
-
-
-
+</div>
