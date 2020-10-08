@@ -18,7 +18,7 @@ export function PasswordLengthValidator(control: AbstractControl){
   //if validation is success returns null.
   if(control && (control.value !== null || control.value!==undefined)){
     const password= control.value;
-    if(password.length<8){
+    if(password.length<6){
       return{
         isError: true
       };
