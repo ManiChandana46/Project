@@ -16,13 +16,14 @@
         #f_name="ngModel"
       />
       <input
-        type="number"
+        type="text"
         id="age"
         class="input-text form-control"
         ngModel
         name="f_age"
         placeholder="Age"
         [(ngModel)]="age"
+        pattern="\d*"
         required
         #f_age="ngModel"
       />
@@ -38,7 +39,7 @@
         <option value="Female">Female</option>
       </select>
 
-      <button class="add-btn" id="addPass" (click)="addPassenger()">
+      <button type="submit" class="add-btn" id="addPass"  [disabled]="!passengerForm.form.valid" (click)="addPassenger()">
         Add Passenger
       </button>
     </form>

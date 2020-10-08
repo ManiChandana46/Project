@@ -51,9 +51,10 @@
               id="ccnum"
               ngModel
               name="cardnumber"
-              placeholder="Enter your card number"
+              placeholder="Enter Your 16 Digit Card Number"
               class="form-control"
               [(ngModel)]="payment.cardNumber"
+              pattern="\d*"
               minlength="16"
               maxlength="16"
               required
@@ -90,6 +91,7 @@
                   name="expyear"
                   placeholder="Year of Expiry"
                   class="form-control"
+                  pattern="\d*"
                   minlength="4"
                   maxlength="4"
                   required
@@ -105,6 +107,7 @@
                   name="cvv"
                   placeholder="CVV"
                   class="form-control"
+                  pattern="\d*"
                   minlength="3"
                   maxlength="3"
                   required
