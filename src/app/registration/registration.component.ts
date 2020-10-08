@@ -5,12 +5,12 @@ import { PasswordValidator } from '../../assets/shared/password.validator';
 import { ContactNumberValidator } from '../../assets/shared/contact-number.validator';
 import{ User} from '../user';
 import { Router } from '@angular/router';
-import { DataService } from "../data.service";
+
 import { HttpClient } from '@angular/common/http';
-import { RegisterStatus } from '../registerStatus';
+
 
 import { AirlinesServiceService } from "../airlines-service.service";
-import { CheckRegistration } from '../checkResgitration';
+
 import { NgxSpinnerService } from 'ngx-spinner';
 
 
@@ -106,9 +106,9 @@ export class RegistrationComponent implements OnInit {
   }*/
  // search:User=new User();
  
-  searchb:RegisterStatus;
+  
   info:String;
-  cr:CheckRegistration;
+ 
   register(){
     this.spinner.show();
     if (this.registerForm.invalid) {
