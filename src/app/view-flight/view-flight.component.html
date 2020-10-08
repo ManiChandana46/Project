@@ -1,45 +1,42 @@
-<ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="square-jelly-box"
->
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
   <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
 
 
 <div class="back">
-    <button class="btn btn-primary" routerLink="/dashboard">Back</button>
-  </div>
+  <button class="btn btn-primary" routerLink="/dashboard">Back</button>
+</div>
 
-  <div class="main">
-    <table class="table table-striped table-dark">
-        <thead>
-            <tr>
-                <th>Flight Number</th>
-                <th>Source City</th>
-                <th>Destination City</th>
-                <th>Initial Date Of Operation</th>
-                <th>Final Date Of Operation</th>
-                <th>Departure Time</th>
-                <th>Arrival Time</th>
-                <th>Base Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let flight of data | paginate: { id: 'listing_pagination' ,itemsPerPage: 5, currentPage: page, totalItems: totalRecords }">
-                <td>{{flight.flightNumber}}</td>
-                <td>{{flight.source}}</td>
-                <td>{{flight.destination}}</td>
-                <td>{{flight.initialDate}}</td>
-                <td>{{flight.finalDate}}</td>
-                <td>{{flight.departureTime}}</td>
-                <td>{{flight.arrivalTime}}</td>
-                <td>{{flight.basePrice}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <div>
-        <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
-    </div>
+<div class="main">
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th>Flight Number</th>
+        <th>Source City</th>
+        <th>Destination City</th>
+        <th>Initial Date Of Operation</th>
+        <th>Final Date Of Operation</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Base Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let flight of data | paginate: { id: 'listing_pagination' ,itemsPerPage: 5, currentPage: page, totalItems: totalRecords }">
+        <td>{{flight.flightNumber}}</td>
+        <td>{{flight.source}}</td>
+        <td>{{flight.destination}}</td>
+        <td>{{flight.initialDate}}</td>
+        <td>{{flight.finalDate}}</td>
+        <td>{{flight.departureTime}}</td>
+        <td>{{flight.arrivalTime}}</td>
+        <td>{{flight.basePrice}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event">
+    </pagination-controls>
   </div>
+</div>

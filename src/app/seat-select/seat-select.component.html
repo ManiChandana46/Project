@@ -74,7 +74,7 @@
         </div>
         <p class="classheading">Your Selected Seat(s) {{str}}</p>
         <input type="reset" value="Reset" (click)="uncheckAll()">
-        <input type="submit" value="Continue" (click)="Continue()">
+        <input type="submit" value="Continue" (click)="Continue(content)">
         <div class="Two" style="float: right;padding: 10px;border-radius: 3px;">
             <div>
                 <div style="color: white;font-size: 20px;padding-right: 57px;">Not-Available </div>
@@ -87,3 +87,21 @@
         </div>
     </form>
 </div>
+<ng-template #content let-modal>
+    <div class="modal-body">
+      <h2>
+        <div>Select Seats before proceeding to Payment</div>
+      </h2>
+    </div>
+  
+    <div class="modal-footer">
+      <button
+        type="button"
+        id="yes"
+        class="btn btn-outline-dark"
+        (click)="modal.close('Save click')"
+      >
+        Ok
+      </button>
+    </div>
+  </ng-template>

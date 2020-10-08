@@ -1,7 +1,12 @@
-.main {
-  height: max-content;
+.panel-body {
   display: flex;
-  margin-left: 20%;
+}
+.main {
+  flex: auto;
+}
+
+.main1 {
+  flex: auto;
 }
 
 p {
@@ -74,12 +79,12 @@ label {
 }
 .panel {
   background-color: white;
-  margin-left: 15%;
+  margin-left: 2%;
   margin-bottom: 3%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   padding: 2px 16px;
-  width: 70%;
+  width: 95%;
 }
 
 .panel:hover {
@@ -103,7 +108,7 @@ i {
 }
 
 mat-card {
-  width: 70%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
