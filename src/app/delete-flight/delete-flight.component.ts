@@ -10,7 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class DeleteFlightComponent {
 
-  message : string;
+  message: string;
 
   constructor(private deleteFlightService: DeleteFlightService,
     private spinner: NgxSpinnerService,
