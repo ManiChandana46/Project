@@ -10,19 +10,19 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './add-flight.component.html',
   styleUrls: ['./add-flight.component.css'],
 })
-export class AddFlightComponent implements OnInit{
-  todayString:string=new Date().toDateString();
+export class AddFlightComponent implements OnInit {
+  todayString: string = new Date().toDateString();
   todaydate;
 
   constructor(
     private addFlightService: AddFlightService,
     private spinner: NgxSpinnerService,
     private modalService: NgbModal,
-    private datepipe:DatePipe
-  ) {}
+    private datepipe: DatePipe
+  ) { }
 
   ngOnInit(): void {
-    this.todaydate=this.datepipe.transform(this.todayString,'yyyy-MM-dd');
+    this.todaydate = this.datepipe.transform(this.todayString, 'yyyy-MM-dd');
   }
 
   af: addFlight = new addFlight();
@@ -43,15 +43,12 @@ export class AddFlightComponent implements OnInit{
   }
 
   submit(content: any) {
-    //alert(JSON.stringify(this.af));
-    //alert('The new flight has been added successfully!!');
     this.spinner.show();
     this.addFlightService.addFlight(this.af).subscribe((response) => {
-      
+
       if (response.status == true) {
         this.spinner.hide();
         this.modalService.open(content).result.then();
-        //alert('The new flight has been added successfully!!');
       } else {
         this.spinner.hide();
         alert('Could not add flight');

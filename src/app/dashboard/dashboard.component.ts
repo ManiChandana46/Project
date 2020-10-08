@@ -12,9 +12,4 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // logout() {
-  //   sessionStorage.removeItem('AdminUsername');
-  //   this.router.navigate(['/login']);
-  // }
-
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {deleteFlight} from '../delete-Flight/deleteFlight';
+import { deleteFlight } from '../delete-Flight/deleteFlight';
 import { DeleteFlightService } from '../delete-flight.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -9,28 +9,26 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./delete-flight.component.css']
 })
 export class DeleteFlightComponent {
-  
-  constructor(private deleteFlightService : DeleteFlightService,
-              private spinner: NgxSpinnerService,
-              private modalService: NgbModal) { }
 
-  df: deleteFlight=new deleteFlight();
+  constructor(private deleteFlightService: DeleteFlightService,
+    private spinner: NgxSpinnerService,
+    private modalService: NgbModal) { }
 
-  submit(content: any)
-  {
+  df: deleteFlight = new deleteFlight();
+
+  submit(content: any) {
     this.spinner.show();
     this.deleteFlightService.deleteFlight(this.df).subscribe((response) => {
-    if(response.status == true) {
-      this.spinner.hide();
-      this.modalService.open(content).result.then();
-      //alert('The flight details has been deleted successfully!!');
-    } else {
-      this.spinner.hide();
-      alert('Could not delete flight');
-    }
-      
-  });
- 
-}
+      if (response.status == true) {
+        this.spinner.hide();
+        this.modalService.open(content).result.then();
+      } else {
+        this.spinner.hide();
+        alert('Could not delete flight');
+      }
+
+    });
+
+  }
 
 }
