@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-seat-select',
@@ -8,13 +9,13 @@ import { Router } from '@angular/router';
 })
 export class SeatSelectComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private modalService: NgbModal) { }
   str: string = "";
-  passengers:any;
-  finalpassengers:any;
-  searchDetails:any;
-  disabled:any;
-  seats:any;
+  passengers: any;
+  finalpassengers: any;
+  searchDetails: any;
+  disabled: any;
+  seats: any;
   splittedSeats = [];
   numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -47,9 +48,16 @@ export class SeatSelectComponent implements OnInit {
     this.finalpassengers = this.passengers;
   }
 
-  Continue() {
-    sessionStorage.setItem("seats", this.str);
-    this.router.navigate(['/personalInfo']);
+  Continue(content: any) {
+    if (this.passengers != 0) {
+      this.modalService.open(content).result.then((result) => {
+        if (`${result}` === 'Save click') { }
+      });
+    }
+    else {
+      sessionStorage.setItem("seats", this.str);
+      this.router.navigate(['/personalInfo']);
+    }
   }
 
   checkBlockedSeatsF(n: any) {

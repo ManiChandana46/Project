@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@ang
 import { Router } from '@angular/router';
 import { SearchDetails } from '../search-module/search-details';
 import { SearchService } from '../search.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-select-flight',
@@ -25,11 +26,12 @@ export class SelectFlightComponent implements OnInit {
   oneWaySearch:any;
   ReturnSearch:any;
   statusMessage:any;
+  message:any;
 
 
 
 
-  constructor(private fb: FormBuilder, private router: Router, private service: SearchService) { }
+  constructor(private fb: FormBuilder, private router: Router, private service: SearchService, private modalService: NgbModal) { }
 
   // setForm() {
   //   this.flightForm = this.fb.group({
@@ -88,7 +90,7 @@ export class SelectFlightComponent implements OnInit {
     this.returnfly = rf;
   }
 
-  submit() {
+  submit(content:any) {
     if (this.fly != null) {
       console.log(this.fly);
       sessionStorage.setItem("oneWayDetails", JSON.stringify(this.fly));
@@ -110,11 +112,17 @@ export class SelectFlightComponent implements OnInit {
           this.router.navigate(['/seatSelect']);
       }
       else {
-        alert("Select return flight");
+        this.message="You have to select return Flight";
+        this.modalService.open(content).result.then((result) => {
+          if (`${result}` === 'Save click') { }
+        });
       }
     }
     else {
-      alert("You have to select flight for proceding further");
+      this.message="You have to select flight for proceding further";
+      this.modalService.open(content).result.then((result) => {
+        if (`${result}` === 'Save click') { }
+      });
     }
   }
 

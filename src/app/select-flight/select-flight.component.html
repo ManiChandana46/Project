@@ -56,5 +56,24 @@
             </div>
         </div>
     </div>
-    <input type="submit" (click)="submit()" value="Select Flight">
+    <input type="submit" (click)="submit(content)" value="Select Flight">
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-body">
+      <h2>
+        <div>{{message}}</div>
+      </h2>
+    </div>
+  
+    <div class="modal-footer">
+      <button
+        type="button"
+        id="yes"
+        class="btn btn-outline-dark"
+        (click)="modal.close('Save click')"
+      >
+        Ok
+      </button>
+    </div>
+  </ng-template>
