@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ForgotPassword } from './ForgotPassword';
 import { ForgotPasswordService } from '../forgot-password.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-forgot-password',
@@ -16,27 +17,29 @@ export class ForgotPasswordComponent implements OnInit {
   otp: number;
   orignalOtp: number;
 
+  message: string;
+
   forgotPassword: ForgotPassword = new ForgotPassword();
 
   constructor(
     private router: Router,
     private spinner: NgxSpinnerService,
-    private forgotPasswordService: ForgotPasswordService
+    private forgotPasswordService: ForgotPasswordService,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {}
 
-  sendOtp() {
-    alert("Otp sent");
-    document.getElementById('otp').innerHTML = "Resend OTP"
-    this.forgotPasswordService
-      .sendOtp(this.userEmail)
-      .subscribe((response) => {
-        this.orignalOtp = response;
-      });
+  sendOtp(content: any) {
+    this.message = 'Otp sent';
+    this.modalService.open(content).result.then();
+    document.getElementById('otp').innerHTML = 'Resend OTP';
+    this.forgotPasswordService.sendOtp(this.userEmail).subscribe((response) => {
+      this.orignalOtp = response;
+    });
   }
 
-  changePassword() {
+  changePassword(content: any) {
     this.spinner.show();
     this.forgotPassword.email = this.userEmail;
     this.forgotPassword.newPassword = this.userPassword;
@@ -47,14 +50,20 @@ export class ForgotPasswordComponent implements OnInit {
         if (response.status == true) {
           this.spinner.hide();
           if (this.otp === this.orignalOtp) {
-            alert('Password Changed Succesfully');
-            this.router.navigate(['/login']);
+            this.message = 'Password Changed Successfully';
+            this.modalService.open(content).result.then((result) => {
+              if (`${result}` === 'Save click') {
+                this.router.navigate(['/login']);
+              }
+            });
           } else {
-            alert('Enter The Correct OTP');
+            this.message = 'Enter The Correct OTP';
+            this.modalService.open(content).result.then();
           }
         } else {
           this.spinner.hide();
-          alert(response.statusMessage);
+          this.message = response.statusMessage;
+          this.modalService.open(content).result.then();
         }
       });
   }
