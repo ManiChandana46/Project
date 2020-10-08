@@ -88,7 +88,7 @@
           Price
         </div>
         <div class="place-value">
-          {{transactionAmount}}
+          {{oneWayFare}}
         </div>
       </div>
       <div></div>
@@ -146,10 +146,10 @@
       </div>
       <div class="place-block">
         <div class="place-label">
-          Booking-Id
+          Return-Id
         </div>
         <div class="place-value">
-          {{bookId}}
+          {{returnId}}
         </div>
       </div>
 
@@ -161,6 +161,7 @@
           {{returnDetails.classtype}}
         </div>
       </div>
+    
       <div class="place-block">
         <div class="place-label">
           Date
@@ -174,7 +175,7 @@
           Price
         </div>
         <div class="place-value">
-          {{transactionAmount}}
+          {{returnFare}}
         </div>
       </div>
       <input type="button" value="Download PDF" class="btn btn-success" (click)="savePdf1()">
