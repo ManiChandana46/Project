@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 
 import { HttpClient } from '@angular/common/http';
 
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AirlinesServiceService } from "../airlines-service.service";
 
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -46,7 +46,7 @@ export class RegistrationComponent implements OnInit {
 
 
   //constructor
-  constructor(private fb: FormBuilder, private router: Router, private service: AirlinesServiceService, private http: HttpClient, private spinner: NgxSpinnerService) { }
+  constructor(private fb: FormBuilder, private router: Router, private service: AirlinesServiceService, private http: HttpClient, private spinner: NgxSpinnerService,private modalService: NgbModal) { }
 
 
 
@@ -91,12 +91,16 @@ export class RegistrationComponent implements OnInit {
 
   info: String;
 
-  register() {
+  register(content:any) {
     this.spinner.show();
     if (this.registerForm.invalid) {
       this.spinner.hide();
       this.registerForm.markAsTouched(); //fields will remain marked once filled. Even after submit.
-      alert('Re-enter Correct Details.');
+      //alert('Re-enter Correct Details.');
+      this.modalService.open(content).result.then((result) => {
+        if (`${result}` === 'Save click') { }
+      });
+     
     }
 
     else {

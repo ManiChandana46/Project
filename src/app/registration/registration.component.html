@@ -107,7 +107,7 @@
 
 		<!-- OnSubmit button -->
 		<div class="form-group" style="text-align:center">
-			<button type="submit" class="register" (click)="register()">Register</button>
+			<button type="submit" class="register" (click)="register(content)">Register</button>
 		</div>
 
 	</form>
@@ -116,3 +116,21 @@
 		<h3><b>Go to Login</b></h3>
 	</a>
 </div>
+<ng-template #content let-modal>
+    <div class="modal-body">
+      <h2>
+        <div>Re-Enter the Details Correctly</div>
+      </h2>
+    </div>
+  
+    <div class="modal-footer">
+      <button
+        type="button"
+        id="yes"
+        class="btn btn-outline-dark"
+        (click)="modal.close('Save click')"
+      >
+        Ok
+      </button>
+    </div>
+  </ng-template>
