@@ -13,6 +13,8 @@ export class ForgotPasswordComponent implements OnInit {
   userEmail: string;
   userPassword: string;
   confirmPassword: string;
+  otp: number;
+  orignalOtp: number;
 
   forgotPassword: ForgotPassword = new ForgotPassword();
 
@@ -20,24 +22,40 @@ export class ForgotPasswordComponent implements OnInit {
     private router: Router,
     private spinner: NgxSpinnerService,
     private forgotPasswordService: ForgotPasswordService
-  ) { }
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
+
+  sendOtp() {
+    alert("Otp sent");
+    document.getElementById('otp').innerHTML = "Resend OTP"
+    this.forgotPasswordService
+      .sendOtp(this.userEmail)
+      .subscribe((response) => {
+        this.orignalOtp = response;
+      });
+  }
 
   changePassword() {
     this.spinner.show();
     this.forgotPassword.email = this.userEmail;
     this.forgotPassword.newPassword = this.userPassword;
 
-    this.forgotPasswordService.changePassword(this.forgotPassword).subscribe((response) => {
-      if (response.status == true) {
-        this.spinner.hide();
-        alert('Password Changed Succesfully');
-        this.router.navigate(['/login']);
-      } else {
-        this.spinner.hide();
-        alert(response.statusMessage);
-      }
-    });
+    this.forgotPasswordService
+      .changePassword(this.forgotPassword)
+      .subscribe((response) => {
+        if (response.status == true) {
+          this.spinner.hide();
+          if (this.otp === this.orignalOtp) {
+            alert('Password Changed Succesfully');
+            this.router.navigate(['/login']);
+          } else {
+            alert('Enter The Correct OTP');
+          }
+        } else {
+          this.spinner.hide();
+          alert(response.statusMessage);
+        }
+      });
   }
 }
