@@ -10,10 +10,13 @@ export class ReviewBookingComponent implements OnInit {
   myItem:any={};
   oneWay:any={};
   return:any=null;
-  x=1;
-  baseFare
-  totalFare;
-  charges;
+  baseFare:any;
+  totalFare:any;
+  charges:any;
+  oneWayFare:any;
+  returnFare:any;
+  oneWayFareCharges:any;
+  returnFareCharges:any;
   passengerDetail: any;
 
   constructor() { }
@@ -25,14 +28,21 @@ export class ReviewBookingComponent implements OnInit {
     {
     console.log("Working");
     this.return=JSON.parse(sessionStorage.getItem("returnDetails"));
-    this.baseFare=((this.oneWay.classprice)+(this.return.classprice))*(this.myItem.noOfPassengers);
+    this.oneWayFare=(this.oneWay.classprice)*(this.myItem.noOfPassengers);
+    this.returnFare=(this.return.classprice)*(this.myItem.noOfPassengers);
+    this.baseFare=this.oneWayFare+this.returnFare;
     this.charges=(this.baseFare*2/100);
     this.totalFare=this.baseFare+this.charges;
+    this.oneWayFareCharges=this.oneWayFare+this.oneWayFare*0.02;
+    this.returnFareCharges=this.returnFare+this.returnFare*0.02
+    sessionStorage.setItem("oneWayFare",this.oneWayFareCharges);
+    sessionStorage.setItem("returnFare",this.returnFareCharges);
     }
     else{
     this.baseFare=((this.oneWay.classprice)*(this.myItem.noOfPassengers));
     this.charges=(this.baseFare*2/100);
     this.totalFare=this.baseFare+this.charges; 
+    sessionStorage.setItem("oneWayFare",this.baseFare+this.charges);
     }
 
     sessionStorage.setItem("totalFare",this.totalFare);
